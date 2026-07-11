@@ -227,7 +227,24 @@ Relative to these baselines, UAM V4 reduces MAE by approximately 62.5% versus th
 
 These comparisons demonstrate that the observed performance is not reproduced by simple averaging, naive neighbourhood smoothing, or a low-capacity liquid-drop expression. They do not establish superiority over modern recognised nuclear mass models.
 
-### 5.6 Coverage-error behaviour
+
+### 5.6 Recognised external-model comparison
+
+UAM V4 was compared with the recognised FRDM(2012) nuclear-mass model on the exact intersection of nuclei for which both methods produced predictions. This common set contains **3,448 nuclei**.
+
+| Method | MAE (keV/A) | Median absolute error (keV/A) | p95 (keV/A) | p99 (keV/A) | RMSE (keV/A) | Maximum error (keV/A) |
+|---|---:|---:|---:|---:|---:|---:|
+| UAM V4 guarded | 6.1442 | 0.9525 | 26.5449 | 94.1586 | 21.4926 | 365.7575 |
+| FRDM(2012) | 6.6248 | 2.6019 | 29.1815 | 59.1936 | 13.4898 | 131.4058 |
+
+UAM V4 has a lower MAE by **0.4806 keV/A** on the common set. It also has lower median and p95 absolute error. On a nucleus-by-nucleus basis, UAM V4 has the lower absolute error for **2,418 nuclei**, while FRDM(2012) has the lower error for **1,028 nuclei**, with **2 ties**.
+
+FRDM(2012), however, has lower RMSE, p99 error and maximum error. The comparison therefore indicates that UAM V4 has lower absolute error for most nuclei in this common-set benchmark and performs better on central error statistics, while FRDM(2012) controls the extreme residual tail more effectively.
+
+This comparison is not a temporally independent validation. FRDM(2012) was fitted using historical measured nuclear masses, and UAM V4 calibration and evaluation use the frozen processed AME/NUBASE-derived dataset.
+
+
+### 5.7 Coverage-error behaviour
 
 A risk-ranking diagnostic orders raw predictions by directional disagreement and combined robust scale, then progressively abstains from the highest-risk tail. The resulting coverage-error curve confirms that lower retained coverage reduces error. Because the same dataset supplies calibration and evaluation residuals, this curve is an in-sample selective-prediction diagnostic rather than an externally validated uncertainty curve [5].
 
@@ -245,13 +262,13 @@ The results show that local nuclear regularity contains substantial predictive i
 
 The selective guard is essential. An unguarded blend retains nearly complete coverage but has substantially higher MAE and RMSE. This establishes a coverage-accuracy trade-off and motivates reporting abstention as part of the model rather than as missing output.
 
-The baseline results strengthen the internal empirical case. However, all principal calibration and subgroup findings are derived from the same processed dataset. The study therefore supports a reproducible interpolation result, not a universal physical claim. Independent assessment requires at least one temporally separated mass release, comparison against recognised external mass-model tables, and preferably evaluation by investigators who did not construct the method.
+The baseline results strengthen the internal empirical case. However, all principal calibration and subgroup findings are derived from the same processed dataset. The study therefore supports a reproducible interpolation result, not a universal physical claim. Independent assessment requires at least one temporally separated mass release, comparison against additional recognised external mass-model tables, and preferably evaluation by investigators who did not construct the method.
 
 ## 8. Limitations
 
 1. The evaluation is internally calibrated and in sample with respect to residual-scale estimation.
 2. No temporally later AME/NUBASE release has yet been used as a frozen external test set.
-3. The current recognised-model comparison is incomplete. The SEMF reference is intentionally simple.
+3. A recognised FRDM(2012) comparison has been completed on the common prediction subset. Temporally independent validation remains incomplete.
 4. Stable-versus-radioactive classification remains incomplete because the processed half-life representation does not reliably expose a distinct stable group.
 5. Performance varies strongly by mass region and shell proximity.
 6. The full historical report serialization hash cannot be reconstructed because the original hashed JSON artifact was not committed.
