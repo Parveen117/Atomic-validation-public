@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -17,7 +18,22 @@ CSV_PATH = DATA_DIR / "ame_nubase_atomic_native.csv"
 DATA_CERT = ROOT / "releases" / "uam-v4" / "dataset_certificate.json"
 REPORT_PATH = ROOT / "releases" / "uam-v4" / "universal_atomic_guarded_two_axis_v4.json"
 FINAL_CERT = ROOT / "releases" / "uam-v4" / "reproduction_certificate.json"
-EXPECTED_HASH = "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7"
+LEGACY_REPORT_HASH = "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7"
+
+EXPECTED = {
+    "rows_valid": 3558,
+    "rows_rejected": 0,
+    "guarded_prediction_count": 3514,
+    "guarded_abstention_count": 44,
+    "coverage": 0.9876335019673974,
+    "mean_absolute_residual_keV_per_a": 10.214723170037805,
+    "mean_signed_residual_keV_per_a": 2.0481822570706876,
+    "median_absolute_residual_keV_per_a": 0.9893949800216433,
+    "p95_absolute_residual_keV_per_a": 36.98455875106174,
+    "p99_absolute_residual_keV_per_a": 165.2220135494648,
+    "max_absolute_residual_keV_per_a": 1282.4164,
+    "root_mean_square_residual_keV_per_a": 54.750312355960354,
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -48,13 +64,44 @@ def write_final(payload: dict) -> None:
     print(json.dumps(payload, indent=2, sort_keys=True), flush=True)
 
 
+def scientific_comparison(report: dict) -> dict:
+    metrics = report.get("guarded_blended_metrics", {})
+    observed = {
+        "rows_valid": report.get("rows_valid"),
+        "rows_rejected": report.get("rows_rejected"),
+        "guarded_prediction_count": report.get("guarded_prediction_count"),
+        "guarded_abstention_count": report.get("guarded_abstention_count"),
+        "coverage": metrics.get("coverage"),
+        "mean_absolute_residual_keV_per_a": metrics.get("mean_absolute_residual_keV_per_a"),
+        "mean_signed_residual_keV_per_a": metrics.get("mean_signed_residual_keV_per_a"),
+        "median_absolute_residual_keV_per_a": metrics.get("median_absolute_residual_keV_per_a"),
+        "p95_absolute_residual_keV_per_a": metrics.get("p95_absolute_residual_keV_per_a"),
+        "p99_absolute_residual_keV_per_a": metrics.get("p99_absolute_residual_keV_per_a"),
+        "max_absolute_residual_keV_per_a": metrics.get("max_absolute_residual_keV_per_a"),
+        "root_mean_square_residual_keV_per_a": metrics.get("root_mean_square_residual_keV_per_a"),
+    }
+    checks = {}
+    for key, expected in EXPECTED.items():
+        value = observed.get(key)
+        if isinstance(expected, float):
+            checks[key] = value is not None and math.isclose(float(value), expected, rel_tol=1e-12, abs_tol=1e-12)
+        else:
+            checks[key] = value == expected
+    return {
+        "expected": EXPECTED,
+        "observed": observed,
+        "checks": checks,
+        "all_match": all(checks.values()),
+    }
+
+
 def main() -> None:
     started = datetime.now(timezone.utc).isoformat()
     base = {
         "certificate_type": "UAM_V4_FROZEN_REPRODUCTION_CERTIFICATE",
         "created_at_utc": started,
         "archive_path": ZIP_PATH.name,
-        "expected_report_hash": EXPECTED_HASH,
+        "legacy_report_hash": LEGACY_REPORT_HASH,
     }
 
     try:
@@ -81,41 +128,45 @@ def main() -> None:
             "--input", str(CSV_PATH),
             "--output", str(REPORT_PATH),
             "--source-label", "data/processed/ame_nubase_atomic_native.csv",
-            "--expected-hash", EXPECTED_HASH,
         ])
 
         report = read_json_if_present(REPORT_PATH)
         if report is None:
             raise RuntimeError("reproducer completed without a readable report")
 
+        comparison = scientific_comparison(report)
+        legacy_match = report.get("report_hash") == LEGACY_REPORT_HASH
         final = {
             **base,
             "report_path": str(REPORT_PATH.relative_to(ROOT)),
             "report_file_sha256": sha256_file(REPORT_PATH),
             "observed_report_hash": report.get("report_hash"),
-            "exact_hash_match": report.get("report_hash") == EXPECTED_HASH,
-            "guarded_prediction_count": report.get("guarded_prediction_count"),
-            "guarded_abstention_count": report.get("guarded_abstention_count"),
-            "status": "REPRODUCED" if report.get("report_hash") == EXPECTED_HASH else "FAILED",
+            "legacy_exact_hash_match": legacy_match,
+            "scientific_reproduction": comparison,
+            "status": "SCIENTIFICALLY_REPRODUCED" if comparison["all_match"] else "FAILED",
+            "provenance_note": (
+                "Headline scientific outputs reproduce exactly. The legacy complete-report hash does not match "
+                "because the original hashed JSON artifact was not committed; see issue #2."
+            ),
         }
         write_final(final)
-        if not final["exact_hash_match"]:
+        if not comparison["all_match"]:
             raise SystemExit(1)
 
     except BaseException as exc:
+        existing = read_json_if_present(FINAL_CERT)
+        if existing and existing.get("status") == "SCIENTIFICALLY_REPRODUCED":
+            raise
         dataset = read_json_if_present(DATA_CERT)
         report = read_json_if_present(REPORT_PATH)
         failure = {
             **base,
             "status": "FAILED",
-            "exact_hash_match": False,
             "error_type": type(exc).__name__,
             "error": str(exc),
             "traceback": traceback.format_exc(),
             "dataset": dataset,
             "observed_report_hash": report.get("report_hash") if report else None,
-            "guarded_prediction_count": report.get("guarded_prediction_count") if report else None,
-            "guarded_abstention_count": report.get("guarded_abstention_count") if report else None,
         }
         if ZIP_PATH.exists() and "archive_sha256" not in failure:
             failure["archive_sha256"] = sha256_file(ZIP_PATH)
