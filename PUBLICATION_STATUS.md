@@ -6,6 +6,7 @@
 **Repository visibility:** Private  
 **Scientific status:** Headline V4 result independently reproduced from the frozen processed dataset  
 **Publication bundle status:** Frozen compact bundle generated and checksummed  
+**Paper analysis status:** Reproducible subgroup, residual and coverage-error tables generated  
 **Legacy serialization status:** Full-report hash mismatch disclosed in Issue #2  
 **Journal status:** External baselines and temporally separated validation remain recommended
 
@@ -47,16 +48,29 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 
 ## Gate D: Analysis required for the paper
 
-- [ ] Report residuals in both keV/A and total keV or MeV.
+- [x] Report residuals in both keV/A and total keV or MeV.
 - [x] Report performance by mass region.
-- [ ] Report performance near shell closures.
-- [ ] Report performance for stable and unstable nuclei.
-- [ ] Analyse the remaining extreme retained residuals.
-- [ ] Include coverage-error and abstention-error curves.
-- [ ] Compare V4 against both individual axes.
+- [x] Report performance near shell closures.
+- [ ] Complete a defensible stable-versus-unstable classification; current processed half-life fields do not expose a distinct stable group reliably.
+- [x] Generate and inspect the 50 largest retained residuals.
+- [x] Include coverage-error and abstention-error curves.
+- [x] Compare V4 against both individual axes.
 - [ ] Compare against simple interpolation baselines.
 - [ ] Compare against the semi-empirical mass formula.
 - [ ] Add at least one recognised external mass-model comparison where reproducible.
+
+## Current analysis findings
+
+- Overall guarded MAE: **10.2147 keV/A**, corresponding to **0.4403 MeV mean absolute total binding-energy error**.
+- Heavy nuclei, `100 <= A < 180`: **1.8193 keV/A MAE** at full coverage.
+- Very-heavy nuclei, `A >= 180`: **0.8920 keV/A MAE** at **99.63%** coverage.
+- Medium nuclei, `40 <= A < 100`: **10.5844 keV/A MAE**.
+- Light nuclei, `A < 40`: **89.3060 keV/A MAE** at **88.12%** coverage; this region dominates the retained error tail.
+- At conventional magic proton or neutron numbers: **31.9798 keV/A MAE**.
+- Within two units of a magic number: **20.3986 keV/A MAE**.
+- Away from magic numbers: **3.2502 keV/A MAE** at **99.82%** coverage.
+- Neutron-axis MAE: **30.6717 keV/A**; proton-axis MAE: **33.6621 keV/A**; guarded blend MAE: **10.2147 keV/A**.
+- The subgroup and coverage-error analyses are in-sample diagnostics and must not be described as external validation.
 
 ## Gate E: Manuscript
 
