@@ -2,9 +2,10 @@
 
 ## A reproducible empirical study on a frozen AME/NUBASE-derived dataset
 
+**Author:** Monty Dabas  
+**Affiliation:** Independent researcher  
 **Draft status:** Internal preprint manuscript  
-**Repository status:** Private during analysis and review  
-**Author information:** To be inserted after authorship and affiliation review
+**Repository status:** Private during analysis and review
 
 ## Abstract
 
@@ -22,7 +23,7 @@ The contribution of this study is empirical and reproducible. We provide a froze
 
 ### 2.1 Frozen dataset
 
-The evaluation dataset is `ame_nubase_atomic_native.csv`, distributed in the repository archive `uam_v4_processed_dataset.zip`. It contains 3,558 rows and no rejected records under the declared schema checks.
+The evaluation dataset is `ame_nubase_atomic_native.csv`, distributed in the repository archive `uam_v4_processed_dataset.zip`. It contains 3,558 rows and no rejected records under the declared schema checks. The processed source is derived from AME2020 and NUBASE2020 materials [1–3].
 
 The verified dataset SHA-256 is:
 
@@ -156,7 +157,7 @@ Three internal baselines are evaluated:
 
 1. Equal-axis blend: unweighted mean of available neutron- and proton-direction predictions before calibration and guarding.
 2. Local-neighbour mean: mean of available leakage-safe neighbours at N ± 2 within an element and Z ± 1 at fixed N.
-3. Semi-empirical mass formula: a five-parameter liquid-drop-style linear model fitted and evaluated using deterministic five-fold out-of-fold prediction. The fold rule is `(31*Z + 17*N + A) mod 5`.
+3. Semi-empirical mass formula: a five-parameter liquid-drop-style linear model based on the conventional Weizsäcker form [4], fitted and evaluated using deterministic five-fold out-of-fold prediction. The fold rule is `(31*Z + 17*N + A) mod 5`.
 
 The SEMF baseline is a simple conventional reference and is not presented as a modern state-of-the-art nuclear mass model.
 
@@ -228,7 +229,7 @@ These comparisons demonstrate that the observed performance is not reproduced by
 
 ### 5.6 Coverage-error behaviour
 
-A risk-ranking diagnostic orders raw predictions by directional disagreement and combined robust scale, then progressively abstains from the highest-risk tail. The resulting coverage-error curve confirms that lower retained coverage reduces error. Because the same dataset supplies calibration and evaluation residuals, this curve is an in-sample selective-prediction diagnostic rather than an externally validated uncertainty curve.
+A risk-ranking diagnostic orders raw predictions by directional disagreement and combined robust scale, then progressively abstains from the highest-risk tail. The resulting coverage-error curve confirms that lower retained coverage reduces error. Because the same dataset supplies calibration and evaluation residuals, this curve is an in-sample selective-prediction diagnostic rather than an externally validated uncertainty curve [5].
 
 ## 6. Failure analysis
 
@@ -273,7 +274,7 @@ GitHub Actions executes the same pipeline, verifies the frozen dataset and scien
 
 The repository currently remains private during manuscript and release review. It contains the frozen processed-data archive, standalone implementation, tests, reproduction scripts, certificates, compact prediction and abstention tables, analysis outputs, baseline comparisons, and checksum manifests.
 
-Public release should occur only after licence selection, authorship and affiliation confirmation, citation metadata, recognised external-model comparison, and final review of the claim boundary.
+The intended public release is a technical inspection and citation release associated with inventor-controlled intellectual-property materials. Publication does not grant a patent licence or unrestricted reuse rights unless an explicit licence says otherwise. Repository visibility should change only after final review of data redistribution rights, external-model comparison, citation metadata, and the claim boundary.
 
 ## 11. Conclusion
 
@@ -281,10 +282,10 @@ A guarded two-axis interpolation method reproduces nuclear binding energy per nu
 
 The result is fully reproducible at the level of the frozen dataset, implementation, prediction counts, abstentions, and declared scientific metrics. It remains an internally calibrated empirical result. External validation and recognised-model comparison are required before stronger physical or generalisation claims are justified.
 
-## References to be completed
+## References
 
-1. Atomic Mass Evaluation release corresponding to the processed source files.
-2. NUBASE release corresponding to the processed source files.
-3. Standard references for the semi-empirical mass formula.
-4. References for recognised modern nuclear mass models selected for external comparison.
-5. References on selective prediction, abstention, robust residual calibration, and uncertainty-aware interpolation.
+1. Huang, W. J., Wang, M., Kondev, F. G., Audi, G., and Naimi, S. “The AME 2020 atomic mass evaluation (I). Evaluation of input data, and adjustment procedures.” *Chinese Physics C* **45**, 030002 (2021). DOI: 10.1088/1674-1137/abddb0.
+2. Wang, M., Huang, W. J., Kondev, F. G., Audi, G., and Naimi, S. “The AME 2020 atomic mass evaluation (II). Tables, graphs and references.” *Chinese Physics C* **45**, 030003 (2021). DOI: 10.1088/1674-1137/abddaf.
+3. Kondev, F. G., Wang, M., Huang, W. J., Naimi, S., and Audi, G. “The NUBASE2020 evaluation of nuclear physics properties.” *Chinese Physics C* **45**, 030001 (2021). DOI: 10.1088/1674-1137/abddae.
+4. von Weizsäcker, C. F. “Zur Theorie der Kernmassen.” *Zeitschrift für Physik* **96**, 431–458 (1935). DOI: 10.1007/BF01337700.
+5. Geifman, Y., and El-Yaniv, R. “Selective classification for deep neural networks.” In *Advances in Neural Information Processing Systems 30* (2017). Used here only for the general selective-prediction framing; the present method is not a neural classifier.
