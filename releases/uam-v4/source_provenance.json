@@ -1,0 +1,18 @@
+{
+  "release_id": "uam-v4-publication-candidate",
+  "source_repository": "Parveen117/Atomic-model",
+  "source_commit": "5133413a5a88b0a571d7254d547aca9965620c8e",
+  "source_commit_message": "Add consolidated Universal Atomic Model trials and runs ledger",
+  "implementation": {
+    "path": "universal_atomic/two_axis_v4.py",
+    "blob_sha": "c9ac194d7736c16636e69b089940a0a7de4deb4b"
+  },
+  "test": {
+    "path": "tests/test_universal_atomic_two_axis_v4.py",
+    "originating_commit": "e9737a413af0194a46f49389a60252d1e557ef8a"
+  },
+  "report_hash": "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7",
+  "input_path_in_source_repo": "data/processed/ame_nubase_atomic_native.csv",
+  "scientific_status": "GUARDED_IN_SAMPLE_TWO_AXIS_RESPONSE_NOT_EXTERNAL_VALIDATION",
+  "note": "This file anchors the publication candidate to immutable source identifiers. Code, tests, data provenance, and report artifacts are transferred and verified separately."
+}
