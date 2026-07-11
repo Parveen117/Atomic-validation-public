@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -30,3 +33,21 @@ jobs:
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
             releases/uam-v4/reproduction_certificate.json
           if-no-files-found: warn
+
+      - name: Commit verified reproduction artifacts
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            releases/uam-v4/dataset_certificate.json \
+            releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
+            releases/uam-v4/reproduction_certificate.json
+          if git diff --cached --quiet; then
+            echo "No reproduction artifact changes to commit."
+          else
+            git commit -m "Freeze reproduced UAM V4 artifacts [skip ci]"
+            git push
+          fi
