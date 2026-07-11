@@ -1,0 +1,29 @@
+{
+  "status": "AWAITING_VERIFIED_EXTERNAL_MODEL_TABLE",
+  "target_quantity": "binding_energy_per_A_keV",
+  "join_keys": [
+    "Z",
+    "N",
+    "A"
+  ],
+  "candidate_models": [
+    {
+      "name": "FRDM2012",
+      "included": false,
+      "reason": "Source table and redistribution terms must be verified"
+    },
+    {
+      "name": "HFB-24",
+      "included": false,
+      "reason": "Source table and redistribution terms must be verified"
+    }
+  ],
+  "evaluation_rules": {
+    "compare_only_matching_nuclei": true,
+    "do_not_refit_external_predictions": true,
+    "report_coverage": true,
+    "report_mae_keV_per_A": true,
+    "report_rmse_keV_per_A": true,
+    "report_mass_region_metrics": true
+  }
+}
