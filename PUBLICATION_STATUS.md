@@ -2,11 +2,12 @@
 
 ## Current decision
 
-**Stage:** Paper analysis and manuscript preparation  
+**Stage:** Internal preprint review and external-comparison preparation  
 **Repository visibility:** Private  
 **Scientific status:** Headline V4 result independently reproduced from the frozen processed dataset  
 **Publication bundle status:** Frozen compact bundle generated and checksummed  
 **Paper analysis status:** Reproducible subgroup, residual, coverage-error and conventional baseline tables generated  
+**Manuscript status:** Complete internal preprint draft committed at `manuscript/UAM_V4_preprint_draft.md`  
 **Legacy serialization status:** Full-report hash mismatch disclosed in Issue #2  
 **Journal status:** Recognised external mass-model comparison and temporally separated validation remain recommended
 
@@ -80,18 +81,19 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 
 ## Gate E: Manuscript
 
-- [ ] Title and abstract.
-- [ ] Dataset and provenance section.
-- [ ] Method section with leakage controls.
-- [ ] Validation design.
-- [ ] Results and uncertainty.
-- [ ] Failure analysis.
-- [x] Conventional baseline comparison tables.
+- [x] Title and abstract drafted.
+- [x] Dataset and provenance section drafted.
+- [x] Method section with leakage controls drafted.
+- [x] Validation design drafted.
+- [x] Results and uncertainty drafted.
+- [x] Failure analysis drafted.
+- [x] Conventional baseline comparison drafted.
 - [ ] Recognised external mass-model comparison.
-- [ ] Limitations and claim boundary.
-- [ ] Reproducibility statement.
-- [ ] Data and code availability statement.
-- [ ] References.
+- [x] Limitations and claim boundary drafted.
+- [x] Reproducibility statement drafted.
+- [x] Data and code availability statement drafted.
+- [ ] Complete and verify references.
+- [ ] Insert confirmed author names, affiliations and contribution statement.
 
 ## Gate F: Public release metadata
 
