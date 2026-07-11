@@ -1,0 +1,108 @@
+{
+  "comparison": {
+    "EQUAL_AXIS_BLEND": {
+      "count": 3558,
+      "coverage": 1.0,
+      "mae_keV_per_A": 27.255639658516085,
+      "max_abs_keV_per_A": 7192.8249,
+      "mean_signed_keV_per_A": 7.977828179220288,
+      "median_abs_keV_per_A": 5.481754166666633,
+      "p95_abs_keV_per_A": 62.628683333334024,
+      "p99_abs_keV_per_A": 392.7722957500001,
+      "prediction_count": 3558,
+      "rmse_keV_per_A": 188.57797966210572
+    },
+    "LOCAL_NEIGHBOUR_MEAN": {
+      "count": 3558,
+      "coverage": 1.0,
+      "mae_keV_per_A": 38.11642100712002,
+      "max_abs_keV_per_A": 7533.1325,
+      "mean_signed_keV_per_A": 10.938534873524464,
+      "median_abs_keV_per_A": 4.496037500000057,
+      "p95_abs_keV_per_A": 134.03757124999976,
+      "p99_abs_keV_per_A": 734.7545992499947,
+      "prediction_count": 3558,
+      "rmse_keV_per_A": 204.0074466516361
+    },
+    "SEMF_5FOLD_OUT_OF_FOLD": {
+      "count": 3558,
+      "coverage": 1.0,
+      "mae_keV_per_A": 181.76990946034041,
+      "max_abs_keV_per_A": 9746.32463967092,
+      "mean_signed_keV_per_A": -0.790496319716811,
+      "median_abs_keV_per_A": 149.88464318629394,
+      "p95_abs_keV_per_A": 375.440116228855,
+      "p99_abs_keV_per_A": 1023.3978760082598,
+      "prediction_count": 3558,
+      "rmse_keV_per_A": 341.4553229023496
+    },
+    "UAM_V4_GUARDED": {
+      "count": 3558,
+      "coverage": 0.9876335019673974,
+      "mae_keV_per_A": 10.214723170037864,
+      "max_abs_keV_per_A": 1282.4164,
+      "mean_signed_keV_per_A": 2.0481822570706876,
+      "median_abs_keV_per_A": 0.9893949800216433,
+      "p95_abs_keV_per_A": 36.98455875106174,
+      "p99_abs_keV_per_A": 165.2220135494648,
+      "prediction_count": 3514,
+      "rmse_keV_per_A": 54.75031235596035
+    }
+  },
+  "equal_axis_definition": "Unweighted mean of available V4 neutron- and proton-direction predictions before calibration and guarding.",
+  "limitations": [
+    "The SEMF coefficients are fitted on this dataset but evaluated out of fold; this is not temporal or external validation.",
+    "The local-neighbour baseline has variable coverage because some nuclei lack nearby support.",
+    "Recognised external mass-model tables remain a separate comparison task."
+  ],
+  "local_neighbour_definition": "Mean of available leakage-safe neighbours at N\u00b12 within the element and Z\u00b11 at fixed N; the target row is never used.",
+  "semf_design": {
+    "feature_order": [
+      "constant",
+      "A^(-1/3)",
+      "Z(Z-1)/A^(4/3)",
+      "(A-2Z)^2/A^2",
+      "pairing/A^(3/2)"
+    ],
+    "fold_coefficients_keV_per_A": {
+      "0": [
+        12120.995586398223,
+        -9477.913622557828,
+        -399.5103417814458,
+        -10317.451764683306,
+        10342.393597027154
+      ],
+      "1": [
+        12177.688144238151,
+        -9499.959893839758,
+        -406.11563380169866,
+        -10915.57132599948,
+        10111.046319708394
+      ],
+      "2": [
+        12548.721471774048,
+        -10390.612552381168,
+        -439.20258946032,
+        -11904.4335590638,
+        9105.558690023687
+      ],
+      "3": [
+        12528.475506267621,
+        -10331.348221374561,
+        -439.37988467836243,
+        -11664.319491188748,
+        9058.232884428986
+      ],
+      "4": [
+        12082.072920461278,
+        -9342.292446755986,
+        -395.78264696207566,
+        -10452.446037706775,
+        10244.980003970624
+      ]
+    },
+    "fold_rule": "(31*Z + 17*N + A) mod 5",
+    "validation": "deterministic five-fold out-of-fold prediction"
+  },
+  "status": "BASELINE_COMPARISON_BUILT"
+}
