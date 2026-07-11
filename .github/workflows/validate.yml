@@ -3,6 +3,7 @@ name: Validate publication package
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -16,29 +17,8 @@ jobs:
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
 
-      - name: Extract uploaded processed dataset
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p data/processed
-          if [ -f uam_v4_processed_dataset.zip ]; then
-            unzip -o uam_v4_processed_dataset.zip -d data/processed
-          fi
-          test -f data/processed/ame_nubase_atomic_native.csv
-
-      - name: Verify dataset integrity
-        run: |
-          python scripts/verify_dataset.py \
-            data/processed/ame_nubase_atomic_native.csv \
-            --certificate releases/uam-v4/dataset_certificate.json
-
-      - name: Reproduce frozen report and verify exact hash
-        run: |
-          python src/uam_v4_reproducer.py \
-            --input data/processed/ame_nubase_atomic_native.csv \
-            --output build/universal_atomic_guarded_two_axis_v4.json \
-            --source-label data/processed/ame_nubase_atomic_native.csv \
-            --expected-hash 34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7
+      - name: Reproduce frozen UAM V4 release
+        run: python scripts/reproduce_release.py
 
       - name: Upload reproduction artifacts
         if: always()
@@ -47,5 +27,6 @@ jobs:
           name: uam-v4-reproduction
           path: |
             releases/uam-v4/dataset_certificate.json
-            build/universal_atomic_guarded_two_axis_v4.json
+            releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
+            releases/uam-v4/reproduction_certificate.json
           if-no-files-found: warn
