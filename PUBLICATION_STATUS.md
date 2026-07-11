@@ -2,43 +2,46 @@
 
 ## Current decision
 
-**Stage:** Publication package assembly  
+**Stage:** Reproduced release packaging  
 **Repository visibility:** Private  
-**Scientific status:** Preprint candidate after reproducibility and manuscript gates pass  
-**Journal status:** Additional external baselines and temporally separated validation recommended
+**Scientific status:** Headline V4 result independently reproduced from the frozen processed dataset  
+**Legacy serialization status:** Full-report hash mismatch disclosed in Issue #2  
+**Journal status:** External baselines and temporally separated validation remain recommended
 
 ## Gate A: Scientific framing
 
 - [x] State the primary empirical result.
 - [x] Separate demonstrated results from broader theoretical interpretation.
 - [x] State that the result is internally calibrated and not yet an externally validated universal law.
-- [ ] Define the exact frozen dataset release and provenance.
-- [ ] Define the final inclusion and exclusion rules.
-- [ ] Freeze the V4 algorithm and configuration.
+- [x] Define the exact frozen dataset release and provenance.
+- [x] Define the final inclusion and exclusion rules.
+- [x] Freeze the V4 algorithm and configuration.
 
 ## Gate B: Reproducibility
 
-- [ ] Copy the minimal V4 implementation into `src/`.
-- [ ] Copy and consolidate the relevant tests into `tests/`.
-- [ ] Add a dependency lock or pinned environment file.
-- [ ] Add a deterministic end-to-end reproduction command.
-- [ ] Run the complete test suite from a clean environment.
-- [ ] Verify all publication output hashes.
-- [ ] Add continuous integration for tests and hash verification.
+- [x] Copy the standalone V4 implementation into `src/`.
+- [x] Copy and consolidate the relevant tests into `tests/`.
+- [x] Declare the supported Python environment.
+- [x] Add a deterministic end-to-end reproduction command.
+- [x] Run the complete package in GitHub Actions.
+- [x] Verify the dataset checksum, row count, schema, prediction count, abstention count and headline metrics.
+- [x] Add continuous integration and persisted reproduction certificates.
+- [ ] Recover or formally retire the uncommitted legacy JSON artifact associated with the historical full-report hash.
 
 ## Gate C: Frozen release artefacts
 
-The directory `release/uam_v4_publication/` must contain:
+The directory `releases/uam-v4/` contains or must contain:
 
-- [ ] `configuration.json`
-- [ ] `dataset_manifest.json`
-- [ ] `metrics.json`
-- [ ] `predictions.csv`
-- [ ] `abstentions.csv`
-- [ ] `report_hash.txt`
-- [ ] `environment.txt`
-- [ ] `reproduction_command.txt`
-- [ ] `SHA256SUMS`
+- [x] `source_provenance.json`
+- [x] `metrics.json`
+- [x] `dataset_certificate.json`
+- [x] `universal_atomic_guarded_two_axis_v4.json`
+- [x] `reproduction_certificate.json`
+- [x] documented reproduction command
+- [x] dataset and archive SHA-256 values
+- [ ] compact `predictions.csv`
+- [ ] compact `abstentions.csv`
+- [ ] release-wide `SHA256SUMS`
 
 ## Gate D: Analysis required for the paper
 
@@ -76,6 +79,18 @@ The directory `release/uam_v4_publication/` must contain:
 - [ ] Archive the release in a DOI-issuing repository.
 - [ ] Change repository visibility only after Gates A–F are reviewed.
 
+## Reproduced result
+
+- Dataset rows: **3,558**
+- Guarded predictions: **3,514**
+- Abstentions: **44**
+- Coverage: **98.76335019673974%**
+- MAE: **10.214723170037805 keV/A**
+- RMSE: **54.750312355960354 keV/A**
+- Dataset SHA-256: `6277e46ea5f38795a3c2295dd655af754fedf6bc1ce02245564026058cd82d47`
+- Reproducible standalone report hash: `0b6f67777a1ba176fbf8478db3c11c12a4a1024bdb001d6932840d114805bb4c`
+- Historical unverified serialization hash: `34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7`
+
 ## Release rule
 
-The repository should not be made public merely because the central metric is impressive. Public release occurs when another researcher can identify the exact inputs, run one documented command, reproduce the principal tables, verify the hashes, and understand where the claim stops.
+The repository should not be made public merely because the central metric is impressive. Public release occurs when another researcher can identify the exact inputs, run one documented command, reproduce the principal tables, verify the declared scientific fingerprint, and understand where the claim stops.
