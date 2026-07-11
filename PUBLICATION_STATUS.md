@@ -8,6 +8,8 @@
 **Publication bundle status:** Frozen compact bundle generated and checksummed  
 **Paper analysis status:** Reproducible subgroup, residual, coverage-error and conventional baseline tables generated  
 **Manuscript status:** Complete internal preprint draft committed at `manuscript/UAM_V4_preprint_draft.md`  
+**Author metadata:** Monty Dabas; independent researcher pending any later verified institutional affiliation  
+**IP boundary:** All-rights-reserved inspection release with separate patent notice  
 **Legacy serialization status:** Full-report hash mismatch disclosed in Issue #2  
 **Journal status:** Recognised external mass-model comparison and temporally separated validation remain recommended
 
@@ -92,14 +94,16 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - [x] Limitations and claim boundary drafted.
 - [x] Reproducibility statement drafted.
 - [x] Data and code availability statement drafted.
-- [ ] Complete and verify references.
-- [ ] Insert confirmed author names, affiliations and contribution statement.
+- [x] Core AME2020, NUBASE2020, SEMF and selective-prediction references inserted and verified.
+- [x] Author name and current independent-researcher affiliation inserted.
+- [ ] Add a formal contribution statement if required by the selected journal.
 
 ## Gate F: Public release metadata
 
-- [ ] Add `LICENSE` after the release licence is selected.
-- [ ] Add `CITATION.cff` after author names, affiliations and preferred citation are confirmed.
-- [ ] Add `CONTRIBUTING.md` if outside contributions will be accepted.
+- [x] Add all-rights-reserved `LICENSE` consistent with the existing public-repository release boundary.
+- [x] Add `CITATION.cff` with Monty Dabas as author.
+- [x] Add `PATENT_NOTICE.md` clarifying that publication grants no patent licence.
+- [ ] Add `CONTRIBUTING.md` only if outside contributions will be accepted.
 - [ ] Add a versioned release tag.
 - [ ] Archive the release in a DOI-issuing repository.
 - [ ] Change repository visibility only after Gates A–F are reviewed.
