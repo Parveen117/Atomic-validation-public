@@ -30,7 +30,12 @@ jobs:
         if: steps.reproduce.outcome == 'success'
         run: python scripts/build_publication_bundle.py
 
-      - name: Upload reproduction and publication artifacts
+      - name: Build reproducible paper analysis
+        id: analysis
+        if: steps.reproduce.outcome == 'success'
+        run: python scripts/build_paper_analysis.py
+
+      - name: Upload reproduction, bundle and analysis artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -40,6 +45,7 @@ jobs:
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
             releases/uam-v4/reproduction_certificate.json
             releases/uam-v4/publication_bundle/
+            releases/uam-v4/paper_analysis/
           if-no-files-found: warn
 
       - name: Commit generated artifacts or diagnostics
@@ -53,7 +59,8 @@ jobs:
             releases/uam-v4/dataset_certificate.json \
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
             releases/uam-v4/reproduction_certificate.json \
-            releases/uam-v4/publication_bundle; do
+            releases/uam-v4/publication_bundle \
+            releases/uam-v4/paper_analysis; do
             if [ -e "$path" ]; then
               git add "$path"
             fi
@@ -61,7 +68,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated artifact changes to commit."
           else
-            git commit -m "Build frozen UAM V4 publication bundle [skip ci]"
+            git commit -m "Build reproducible UAM V4 paper analysis [skip ci]"
             git push
           fi
 
@@ -71,4 +78,8 @@ jobs:
 
       - name: Enforce publication bundle result
         if: steps.reproduce.outcome == 'success' && steps.bundle.outcome != 'success'
+        run: exit 1
+
+      - name: Enforce paper analysis result
+        if: steps.reproduce.outcome == 'success' && steps.analysis.outcome != 'success'
         run: exit 1
