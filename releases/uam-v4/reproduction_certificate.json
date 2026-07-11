@@ -5,7 +5,7 @@
   "archive_path": "uam_v4_processed_dataset.zip",
   "archive_sha256": "2e5746009909fb071a5e45be1bcfea0aa8cbc2fa8617a6e77c34d017edc4d675",
   "certificate_type": "UAM_V4_FROZEN_REPRODUCTION_CERTIFICATE",
-  "created_at_utc": "2026-07-11T18:50:21.781105+00:00",
+  "created_at_utc": "2026-07-11T18:53:35.724022+00:00",
   "dataset": {
     "columns": [
       "A",
@@ -98,14 +98,56 @@
     "sha256": "6277e46ea5f38795a3c2295dd655af754fedf6bc1ce02245564026058cd82d47"
   },
   "dataset_file_sha256": "6277e46ea5f38795a3c2295dd655af754fedf6bc1ce02245564026058cd82d47",
-  "error": "Command '['/opt/hostedtoolcache/Python/3.11.15/x64/bin/python', 'src/uam_v4_reproducer.py', '--input', '/home/runner/work/Atomic-validation-public/Atomic-validation-public/data/processed/ame_nubase_atomic_native.csv', '--output', '/home/runner/work/Atomic-validation-public/Atomic-validation-public/releases/uam-v4/universal_atomic_guarded_two_axis_v4.json', '--source-label', 'data/processed/ame_nubase_atomic_native.csv', '--expected-hash', '34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7']' returned non-zero exit status 1.",
-  "error_type": "CalledProcessError",
-  "exact_hash_match": false,
-  "expected_report_hash": "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7",
-  "guarded_abstention_count": 44,
-  "guarded_prediction_count": 3514,
+  "legacy_exact_hash_match": false,
+  "legacy_report_hash": "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7",
   "observed_report_hash": "0b6f67777a1ba176fbf8478db3c11c12a4a1024bdb001d6932840d114805bb4c",
+  "provenance_note": "Headline scientific outputs reproduce exactly. The legacy complete-report hash does not match because the original hashed JSON artifact was not committed; see issue #2.",
   "report_file_sha256": "ea9d84f3e8a5c5c8d8e6a9566bfb0ce9f5b093e47906a72e7ff4db653207be53",
-  "status": "FAILED",
-  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Atomic-validation-public/Atomic-validation-public/scripts/reproduce_release.py\", line 78, in main\n    run([\n  File \"/home/runner/work/Atomic-validation-public/Atomic-validation-public/scripts/reproduce_release.py\", line 33, in run\n    subprocess.run(command, cwd=ROOT, check=True)\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.11.15/x64/bin/python', 'src/uam_v4_reproducer.py', '--input', '/home/runner/work/Atomic-validation-public/Atomic-validation-public/data/processed/ame_nubase_atomic_native.csv', '--output', '/home/runner/work/Atomic-validation-public/Atomic-validation-public/releases/uam-v4/universal_atomic_guarded_two_axis_v4.json', '--source-label', 'data/processed/ame_nubase_atomic_native.csv', '--expected-hash', '34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7']' returned non-zero exit status 1.\n"
+  "report_path": "releases/uam-v4/universal_atomic_guarded_two_axis_v4.json",
+  "scientific_reproduction": {
+    "all_match": true,
+    "checks": {
+      "coverage": true,
+      "guarded_abstention_count": true,
+      "guarded_prediction_count": true,
+      "max_absolute_residual_keV_per_a": true,
+      "mean_absolute_residual_keV_per_a": true,
+      "mean_signed_residual_keV_per_a": true,
+      "median_absolute_residual_keV_per_a": true,
+      "p95_absolute_residual_keV_per_a": true,
+      "p99_absolute_residual_keV_per_a": true,
+      "root_mean_square_residual_keV_per_a": true,
+      "rows_rejected": true,
+      "rows_valid": true
+    },
+    "expected": {
+      "coverage": 0.9876335019673974,
+      "guarded_abstention_count": 44,
+      "guarded_prediction_count": 3514,
+      "max_absolute_residual_keV_per_a": 1282.4164,
+      "mean_absolute_residual_keV_per_a": 10.214723170037805,
+      "mean_signed_residual_keV_per_a": 2.0481822570706876,
+      "median_absolute_residual_keV_per_a": 0.9893949800216433,
+      "p95_absolute_residual_keV_per_a": 36.98455875106174,
+      "p99_absolute_residual_keV_per_a": 165.2220135494648,
+      "root_mean_square_residual_keV_per_a": 54.750312355960354,
+      "rows_rejected": 0,
+      "rows_valid": 3558
+    },
+    "observed": {
+      "coverage": 0.9876335019673974,
+      "guarded_abstention_count": 44,
+      "guarded_prediction_count": 3514,
+      "max_absolute_residual_keV_per_a": 1282.4164,
+      "mean_absolute_residual_keV_per_a": 10.214723170037805,
+      "mean_signed_residual_keV_per_a": 2.0481822570706876,
+      "median_absolute_residual_keV_per_a": 0.9893949800216433,
+      "p95_absolute_residual_keV_per_a": 36.98455875106174,
+      "p99_absolute_residual_keV_per_a": 165.2220135494648,
+      "root_mean_square_residual_keV_per_a": 54.750312355960354,
+      "rows_rejected": 0,
+      "rows_valid": 3558
+    }
+  },
+  "status": "SCIENTIFICALLY_REPRODUCED"
 }
