@@ -1,0 +1,28 @@
+name: Validate publication package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Reproduce frozen report when dataset is present
+        shell: bash
+        run: |
+          if [ -f data/processed/ame_nubase_atomic_native.csv ]; then
+            python src/uam_v4_reproducer.py \
+              --input data/processed/ame_nubase_atomic_native.csv \
+              --output build/universal_atomic_guarded_two_axis_v4.json \
+              --source-label data/processed/ame_nubase_atomic_native.csv \
+              --expected-hash 34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7
+          else
+            echo "Dataset not yet committed; hash reproduction gate skipped."
+          fi
