@@ -9,13 +9,13 @@
     "p95_absolute_residual_keV_per_a": 7.739931473014258,
     "p99_absolute_residual_keV_per_a": 14.314381741465347,
     "prediction_count": 1342,
-    "root_mean_square_residual_keV_per_a": 3.5333690032828153
+    "root_mean_square_residual_keV_per_a": 3.5333690032828122
   },
   "LIGHT_A_LT_40": {
     "count": 303,
     "coverage": 0.8811881188118812,
     "max_absolute_residual_keV_per_a": 1282.4164,
-    "mean_absolute_residual_keV_per_a": 89.30596516243395,
+    "mean_absolute_residual_keV_per_a": 89.30596516243392,
     "mean_signed_residual_keV_per_a": 18.193611474599592,
     "median_absolute_residual_keV_per_a": 30.069006801779324,
     "p95_absolute_residual_keV_per_a": 328.8661099999999,
@@ -33,7 +33,7 @@
     "p95_absolute_residual_keV_per_a": 46.73914698073918,
     "p99_absolute_residual_keV_per_a": 76.77027828240446,
     "prediction_count": 816,
-    "root_mean_square_residual_keV_per_a": 20.079630920314347
+    "root_mean_square_residual_keV_per_a": 20.079630920314358
   },
   "VERY_HEAVY_A_GE_180": {
     "count": 1093,
@@ -45,6 +45,6 @@
     "p95_absolute_residual_keV_per_a": 3.1995299340911503,
     "p99_absolute_residual_keV_per_a": 5.602309289260122,
     "prediction_count": 1089,
-    "root_mean_square_residual_keV_per_a": 1.5762534438172016
+    "root_mean_square_residual_keV_per_a": 1.576253443817202
   }
 }

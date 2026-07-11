@@ -3,43 +3,43 @@
     "EQUAL_AXIS_BLEND": {
       "count": 3558,
       "coverage": 1.0,
-      "mae_keV_per_A": 27.255639658516085,
+      "mae_keV_per_A": 27.255639658516007,
       "max_abs_keV_per_A": 7192.8249,
-      "mean_signed_keV_per_A": 7.977828179220288,
+      "mean_signed_keV_per_A": 7.9778281792202925,
       "median_abs_keV_per_A": 5.481754166666633,
       "p95_abs_keV_per_A": 62.628683333334024,
       "p99_abs_keV_per_A": 392.7722957500001,
       "prediction_count": 3558,
-      "rmse_keV_per_A": 188.57797966210572
+      "rmse_keV_per_A": 188.57797966210583
     },
     "LOCAL_NEIGHBOUR_MEAN": {
       "count": 3558,
       "coverage": 1.0,
-      "mae_keV_per_A": 38.11642100712002,
+      "mae_keV_per_A": 38.116421007120096,
       "max_abs_keV_per_A": 7533.1325,
-      "mean_signed_keV_per_A": 10.938534873524464,
+      "mean_signed_keV_per_A": 10.938534873524455,
       "median_abs_keV_per_A": 4.496037500000057,
       "p95_abs_keV_per_A": 134.03757124999976,
-      "p99_abs_keV_per_A": 734.7545992499947,
+      "p99_abs_keV_per_A": 734.7545992499952,
       "prediction_count": 3558,
-      "rmse_keV_per_A": 204.0074466516361
+      "rmse_keV_per_A": 204.00744665163614
     },
     "SEMF_5FOLD_OUT_OF_FOLD": {
       "count": 3558,
       "coverage": 1.0,
-      "mae_keV_per_A": 181.76990946034041,
+      "mae_keV_per_A": 181.76990946034078,
       "max_abs_keV_per_A": 9746.32463967092,
-      "mean_signed_keV_per_A": -0.790496319716811,
-      "median_abs_keV_per_A": 149.88464318629394,
-      "p95_abs_keV_per_A": 375.440116228855,
+      "mean_signed_keV_per_A": -0.7904963197168707,
+      "median_abs_keV_per_A": 149.88464318629303,
+      "p95_abs_keV_per_A": 375.4401162288563,
       "p99_abs_keV_per_A": 1023.3978760082598,
       "prediction_count": 3558,
-      "rmse_keV_per_A": 341.4553229023496
+      "rmse_keV_per_A": 341.4553229023497
     },
     "UAM_V4_GUARDED": {
       "count": 3558,
       "coverage": 0.9876335019673974,
-      "mae_keV_per_A": 10.214723170037864,
+      "mae_keV_per_A": 10.214723170037841,
       "max_abs_keV_per_A": 1282.4164,
       "mean_signed_keV_per_A": 2.0481822570706876,
       "median_abs_keV_per_A": 0.9893949800216433,
@@ -91,7 +91,7 @@
         -10331.348221374561,
         -439.37988467836243,
         -11664.319491188748,
-        9058.232884428986
+        9058.23288442899
       ],
       "4": [
         12082.072920461278,

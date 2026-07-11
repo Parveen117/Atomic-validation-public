@@ -83,7 +83,7 @@
   ],
   "expected_row_count": 3558,
   "missing_required_columns": [],
-  "path": "/home/runner/work/Atomic-validation-public/Atomic-validation-public/data/processed/ame_nubase_atomic_native.csv",
+  "path": "C:\\Users\\abc\\Desktop\\New Folder (2)\\New folder\\PROVISNAL RELATED\\Atomic-validation-public\\data\\processed\\ame_nubase_atomic_native.csv",
   "row_count": 3558,
   "row_count_matches": true,
   "schema_valid": true,

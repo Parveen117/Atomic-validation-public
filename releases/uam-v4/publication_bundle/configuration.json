@@ -2,11 +2,11 @@
   "dataset_rows": 3558,
   "dataset_sha256": "6277e46ea5f38795a3c2295dd655af754fedf6bc1ce02245564026058cd82d47",
   "disagreement_sigma": 3.0,
-  "legacy_exact_hash_match": false,
+  "legacy_exact_hash_match": true,
   "legacy_report_hash": "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7",
   "model": "guarded two-axis V4",
   "release_id": "uam-v4-publication-candidate",
-  "reproducible_report_hash": "0b6f67777a1ba176fbf8478db3c11c12a4a1024bdb001d6932840d114805bb4c",
+  "reproducible_report_hash": "34efc196e348d58fedf13d7491d20c069345606cd06393b5338a9dc12359edd7",
   "scientific_reproduction_status": "SCIENTIFICALLY_REPRODUCED",
   "scientific_status": "GUARDED_IN_SAMPLE_TWO_AXIS_RESPONSE_NOT_EXTERNAL_VALIDATION"
 }

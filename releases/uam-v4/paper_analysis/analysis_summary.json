@@ -5,49 +5,49 @@
       "count": 3558,
       "coverage": 0.9876335019673974,
       "max_absolute_residual_keV_per_a": 1282.4164,
-      "mean_absolute_residual_keV_per_a": 10.214723170037805,
+      "mean_absolute_residual_keV_per_a": 10.214723170037841,
       "mean_signed_residual_keV_per_a": 2.0481822570706876,
       "median_absolute_residual_keV_per_a": 0.9893949800216433,
       "p95_absolute_residual_keV_per_a": 36.98455875106174,
       "p99_absolute_residual_keV_per_a": 165.2220135494648,
       "prediction_count": 3514,
-      "root_mean_square_residual_keV_per_a": 54.750312355960354
+      "root_mean_square_residual_keV_per_a": 54.75031235596035
     },
     "neutron_direction": {
       "count": 3558,
       "coverage": 0.9971894322653176,
       "max_absolute_residual_keV_per_a": 7192.8249,
-      "mean_absolute_residual_keV_per_a": 30.671678280721622,
-      "mean_signed_residual_keV_per_a": 9.272483393460872,
+      "mean_absolute_residual_keV_per_a": 30.671678280721565,
+      "mean_signed_residual_keV_per_a": 9.272483393460877,
       "median_absolute_residual_keV_per_a": 1.0,
       "p95_absolute_residual_keV_per_a": 54.17204999999969,
       "p99_absolute_residual_keV_per_a": 618.0459549999989,
       "prediction_count": 3548,
-      "root_mean_square_residual_keV_per_a": 249.46456050448555
+      "root_mean_square_residual_keV_per_a": 249.46456050448543
     },
     "proton_direction": {
       "count": 3558,
       "coverage": 0.9994378864530635,
       "max_absolute_residual_keV_per_a": 6054.433300000001,
-      "mean_absolute_residual_keV_per_a": 33.662107033183396,
-      "mean_signed_residual_keV_per_a": 3.5757607752153326,
+      "mean_absolute_residual_keV_per_a": 33.66210703318333,
+      "mean_signed_residual_keV_per_a": 3.575760775215346,
       "median_absolute_residual_keV_per_a": 11.1643250000011,
       "p95_absolute_residual_keV_per_a": 93.19113750000065,
       "p99_absolute_residual_keV_per_a": 351.2735819999988,
       "prediction_count": 3556,
-      "root_mean_square_residual_keV_per_a": 170.78580536091508
+      "root_mean_square_residual_keV_per_a": 170.78580536091525
     },
     "raw_blend": {
       "count": 3558,
       "coverage": 0.9985947161326588,
       "max_absolute_residual_keV_per_a": 7192.8249,
-      "mean_absolute_residual_keV_per_a": 26.173193198681485,
-      "mean_signed_residual_keV_per_a": 8.787359414095915,
+      "mean_absolute_residual_keV_per_a": 26.173193198681385,
+      "mean_signed_residual_keV_per_a": 8.787359414095883,
       "median_absolute_residual_keV_per_a": 1.0,
       "p95_absolute_residual_keV_per_a": 45.69523251926793,
       "p99_absolute_residual_keV_per_a": 401.4499093858882,
       "prediction_count": 3553,
-      "root_mean_square_residual_keV_per_a": 239.60158216582155
+      "root_mean_square_residual_keV_per_a": 239.60158216582184
     }
   },
   "coverage_error_curve_definition": "Records with raw blended predictions are ranked by directional disagreement, then combined robust sigma; the highest-risk tail is abstained to obtain each retained fraction.",
@@ -63,8 +63,8 @@
       "coverage": 1.0,
       "group": "HEAVY_100_TO_179",
       "mae_keV_per_A": 1.8193135615322977,
-      "mae_total_MeV": 0.2469932088010082,
-      "mae_total_keV": 246.9932088010082,
+      "mae_total_MeV": 0.246993208801008,
+      "mae_total_keV": 246.993208801008,
       "max_abs_keV_per_A": 31.0,
       "mean_signed_keV_per_A": 0.3018276024998134,
       "median_abs_keV_per_A": 0.5971944165812602,
@@ -73,16 +73,16 @@
       "p95_abs_total_keV": 999.255552632183,
       "p99_abs_keV_per_A": 14.314381741465347,
       "prediction_count": 1342,
-      "rmse_keV_per_A": 3.5333690032828153,
-      "rmse_total_keV": 466.81628387281717
+      "rmse_keV_per_A": 3.5333690032828122,
+      "rmse_total_keV": 466.8162838728173
     },
     {
       "count": 303,
       "coverage": 0.8811881188118812,
       "group": "LIGHT_A_LT_40",
-      "mae_keV_per_A": 89.30596516243395,
-      "mae_total_MeV": 1.6645632148510856,
-      "mae_total_keV": 1664.5632148510856,
+      "mae_keV_per_A": 89.30596516243392,
+      "mae_total_MeV": 1.6645632148510858,
+      "mae_total_keV": 1664.5632148510858,
       "max_abs_keV_per_A": 1282.4164,
       "mean_signed_keV_per_A": 18.193611474599592,
       "median_abs_keV_per_A": 30.069006801779324,
@@ -92,15 +92,15 @@
       "p99_abs_keV_per_A": 1051.1839499999967,
       "prediction_count": 267,
       "rmse_keV_per_A": 195.31104858982187,
-      "rmse_total_keV": 2857.6008443498717
+      "rmse_total_keV": 2857.6008443498704
     },
     {
       "count": 820,
       "coverage": 0.9951219512195122,
       "group": "MEDIUM_40_TO_99",
       "mae_keV_per_A": 10.584420672747996,
-      "mae_total_MeV": 0.6751543571609231,
-      "mae_total_keV": 675.154357160923,
+      "mae_total_MeV": 0.675154357160924,
+      "mae_total_keV": 675.154357160924,
       "max_abs_keV_per_A": 156.27139999999963,
       "mean_signed_keV_per_A": 2.1498479568376694,
       "median_abs_keV_per_A": 4.3453353402865105,
@@ -109,7 +109,7 @@
       "p95_abs_total_keV": 2999.7214694615204,
       "p99_abs_keV_per_A": 76.77027828240446,
       "prediction_count": 816,
-      "rmse_keV_per_A": 20.079630920314347,
+      "rmse_keV_per_A": 20.079630920314358,
       "rmse_total_keV": 1209.4762372272476
     },
     {
@@ -117,8 +117,8 @@
       "coverage": 0.9963403476669717,
       "group": "VERY_HEAVY_A_GE_180",
       "mae_keV_per_A": 0.8920463292969801,
-      "mae_total_MeV": 0.20243623980405506,
-      "mae_total_keV": 202.43623980405505,
+      "mae_total_MeV": 0.20243623980405515,
+      "mae_total_keV": 202.43623980405513,
       "max_abs_keV_per_A": 15.0,
       "mean_signed_keV_per_A": 0.16555519953536782,
       "median_abs_keV_per_A": 0.4081710714081055,
@@ -127,16 +127,16 @@
       "p95_abs_total_keV": 724.0658400001067,
       "p99_abs_keV_per_A": 5.602309289260122,
       "prediction_count": 1089,
-      "rmse_keV_per_A": 1.5762534438172016,
+      "rmse_keV_per_A": 1.576253443817202,
       "rmse_total_keV": 350.52816034150567
     }
   ],
   "overall_guarded_metrics_with_total_energy": {
     "count": 3558,
     "coverage": 0.9876335019673974,
-    "mae_keV_per_A": 10.214723170037805,
-    "mae_total_MeV": 0.4403193754029934,
-    "mae_total_keV": 440.3193754029934,
+    "mae_keV_per_A": 10.214723170037841,
+    "mae_total_MeV": 0.4403193754029945,
+    "mae_total_keV": 440.31937540299447,
     "max_abs_keV_per_A": 1282.4164,
     "mean_signed_keV_per_A": 2.0481822570706876,
     "median_abs_keV_per_A": 0.9893949800216433,
@@ -145,8 +145,8 @@
     "p95_abs_total_keV": 1761.2985653690712,
     "p99_abs_keV_per_A": 165.2220135494648,
     "prediction_count": 3514,
-    "rmse_keV_per_A": 54.750312355960354,
-    "rmse_total_keV": 1039.9275425370063
+    "rmse_keV_per_A": 54.75031235596035,
+    "rmse_total_keV": 1039.9275425370065
   },
   "record_count": 3558,
   "retained_prediction_count": 3514,
@@ -155,7 +155,7 @@
       "count": 298,
       "coverage": 0.959731543624161,
       "group": "AT_MAGIC_Z_OR_N",
-      "mae_keV_per_A": 31.97978730604358,
+      "mae_keV_per_A": 31.979787306043555,
       "mae_total_MeV": 1.011645006025175,
       "mae_total_keV": 1011.645006025175,
       "max_abs_keV_per_A": 1282.4164,
@@ -167,15 +167,15 @@
       "p99_abs_keV_per_A": 403.15210999999414,
       "prediction_count": 286,
       "rmse_keV_per_A": 115.74942552257467,
-      "rmse_total_keV": 1756.1195650960344
+      "rmse_total_keV": 1756.1195650960353
     },
     {
       "count": 2284,
       "coverage": 0.9982486865148862,
       "group": "AWAY_FROM_MAGIC_NUMBERS",
       "mae_keV_per_A": 3.2501794887635342,
-      "mae_total_MeV": 0.2757129500665833,
-      "mae_total_keV": 275.7129500665833,
+      "mae_total_MeV": 0.2757129500665832,
+      "mae_total_keV": 275.7129500665832,
       "max_abs_keV_per_A": 158.02083223478166,
       "mean_signed_keV_per_A": 0.8205509077051522,
       "median_abs_keV_per_A": 0.6416858924685584,
@@ -184,26 +184,26 @@
       "p95_abs_total_keV": 990.7177950000097,
       "p99_abs_keV_per_A": 49.00420500000068,
       "prediction_count": 2280,
-      "rmse_keV_per_A": 11.108678978432675,
-      "rmse_total_keV": 602.7067614924472
+      "rmse_keV_per_A": 11.108678978432666,
+      "rmse_total_keV": 602.7067614924483
     },
     {
       "count": 976,
       "coverage": 0.9713114754098361,
       "group": "WITHIN_2_OF_MAGIC_Z_OR_N",
-      "mae_keV_per_A": 20.398637991143154,
-      "mae_total_MeV": 0.6638462946108795,
-      "mae_total_keV": 663.8462946108796,
+      "mae_keV_per_A": 20.398637991143104,
+      "mae_total_MeV": 0.6638462946108786,
+      "mae_total_keV": 663.8462946108787,
       "max_abs_keV_per_A": 1213.1107453230188,
-      "mean_signed_keV_per_A": 4.788375883954632,
+      "mean_signed_keV_per_A": 4.7883758839546315,
       "median_abs_keV_per_A": 2.8280806423990725,
       "median_abs_total_keV": 279.92192073202614,
       "p95_abs_keV_per_A": 90.45577456386073,
       "p95_abs_total_keV": 3003.44097212111,
       "p99_abs_keV_per_A": 322.17369981238545,
       "prediction_count": 948,
-      "rmse_keV_per_A": 82.29557660321038,
-      "rmse_total_keV": 1484.796019129443
+      "rmse_keV_per_A": 82.29557660321039,
+      "rmse_total_keV": 1484.796019129444
     }
   ],
   "stability_metrics": [
@@ -211,9 +211,9 @@
       "count": 356,
       "coverage": 0.9803370786516854,
       "group": "RADIOACTIVE_OR_UNRESOLVED_HALF_LIFE",
-      "mae_keV_per_A": 30.291827011619652,
-      "mae_total_MeV": 0.9863876743250864,
-      "mae_total_keV": 986.3876743250864,
+      "mae_keV_per_A": 30.291827011619635,
+      "mae_total_MeV": 0.9863876743250872,
+      "mae_total_keV": 986.3876743250872,
       "max_abs_keV_per_A": 1155.5910000000003,
       "mean_signed_keV_per_A": 15.962448309563024,
       "median_abs_keV_per_A": 2.328909251463301,
@@ -222,16 +222,16 @@
       "p95_abs_total_keV": 4031.4273799380508,
       "p99_abs_keV_per_A": 322.1451444892448,
       "prediction_count": 349,
-      "rmse_keV_per_A": 92.2525657446648,
-      "rmse_total_keV": 2078.5817582550985
+      "rmse_keV_per_A": 92.25256574466479,
+      "rmse_total_keV": 2078.5817582550994
     },
     {
       "count": 3202,
       "coverage": 0.9884447220487196,
       "group": "RADIOACTIVE_WITH_NUMERIC_HALF_LIFE",
-      "mae_keV_per_A": 8.000849792245738,
-      "mae_total_MeV": 0.38010520910795187,
-      "mae_total_keV": 380.10520910795185,
+      "mae_keV_per_A": 8.000849792245727,
+      "mae_total_MeV": 0.3801052091079517,
+      "mae_total_keV": 380.1052091079517,
       "max_abs_keV_per_A": 1282.4164,
       "mean_signed_keV_per_A": 0.5138761425936492,
       "median_abs_keV_per_A": 0.9573944870699052,
@@ -240,8 +240,8 @@
       "p95_abs_total_keV": 1421.6012873699738,
       "p99_abs_keV_per_A": 125.95473956933967,
       "prediction_count": 3165,
-      "rmse_keV_per_A": 48.88448449882923,
-      "rmse_total_keV": 851.048526464883
+      "rmse_keV_per_A": 48.884484498829245,
+      "rmse_total_keV": 851.0485264648842
     }
   ],
   "status": "PAPER_ANALYSIS_BUILT"

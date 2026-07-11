@@ -1,8 +1,7 @@
 {
   "abstention_count": 44,
-  "bundle_path": "releases/uam-v4/publication_bundle",
+  "bundle_path": "releases\\uam-v4\\publication_bundle",
   "files": [
-    "SHA256SUMS",
     "abstentions.csv",
     "bundle_certificate.json",
     "configuration.json",
@@ -12,7 +11,8 @@
     "mass_region_metrics.json",
     "predictions.csv",
     "report_hash.txt",
-    "reproduction_command.txt"
+    "reproduction_command.txt",
+    "SHA256SUMS"
   ],
   "prediction_count": 3514,
   "record_count": 3558,
