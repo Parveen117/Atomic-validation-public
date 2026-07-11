@@ -1,0 +1,25 @@
+{
+  "model": "FRDM(2012)",
+  "reference": "Moller, Sierk, Ichikawa and Sagawa",
+  "arxiv_id": "1508.06294",
+  "source_url": "https://export.arxiv.org/e-print/1508.06294",
+  "download_sha256": "b8444349887b8a9c05aa38163b75d0525367a92d09fb1905ec82cde5b6dbac5c",
+  "archive_path": "data\\external_models\\raw\\frdm2012\\arxiv_1508.06294_source.tar",
+  "source_file_count": 43,
+  "likely_table_files": [
+    "adndt-frdm2012-submit.tex"
+  ],
+  "redistribution_status": "NOT_YET_VERIFIED",
+  "commit_raw_archive": false,
+  "notes": [
+    "Official arXiv source package downloaded for inspection.",
+    "Do not commit or redistribute the raw archive until reuse terms are reviewed.",
+    "FRDM2012 was fitted to measured masses; comparison is not a fully independent temporal test."
+  ],
+  "machine_readable_table_found": true,
+  "catalogue_record_count": 9318,
+  "catalogue_structure": "Vertical LaTeX records grouped under Z headings; each record contains N, A and 16 model fields.",
+  "parsed_work_file": "data\\external_models\\work\\frdm2012_catalogue_raw.csv",
+  "parsed_work_file_sha256": "abcec89110d1ea98a1d58292fc3d3dd550c51bcbb2c17852b5cb108ef2dd5665",
+  "scientific_column_mapping_status": "AWAITING_HEADER_VERIFICATION"
+}

@@ -61,7 +61,7 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - [x] Compare against a leakage-safe local-neighbour interpolation baseline.
 - [x] Compare against an equal unweighted two-axis blend.
 - [x] Compare against a deterministic five-fold out-of-fold semi-empirical mass-formula baseline.
-- [ ] Add at least one recognised external mass-model comparison where reproducible.
+- [x] Add at least one recognised external mass-model comparison where reproducible.
 
 ## Current analysis findings
 
@@ -81,6 +81,8 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - The subgroup, coverage-error and fitted-baseline analyses are not external or temporal validation.
 - The fitted SEMF baseline is deliberately conventional and simple; it must not be represented as a state-of-the-art global mass model.
 
+- Common-set UAM V4 versus FRDM(2012), 3,448 nuclei: **6.1442 versus 6.6248 keV/A MAE**. UAM V4 has lower absolute error for **2,418 nuclei**, while FRDM(2012) has lower error for **1,028 nuclei**; FRDM2012 retains the better extreme-error tail.
+
 ## Gate E: Manuscript
 
 - [x] Title and abstract drafted.
@@ -90,7 +92,7 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - [x] Results and uncertainty drafted.
 - [x] Failure analysis drafted.
 - [x] Conventional baseline comparison drafted.
-- [ ] Recognised external mass-model comparison.
+- [x] Recognised external mass-model comparison.
 - [x] Limitations and claim boundary drafted.
 - [x] Reproducibility statement drafted.
 - [x] Data and code availability statement drafted.

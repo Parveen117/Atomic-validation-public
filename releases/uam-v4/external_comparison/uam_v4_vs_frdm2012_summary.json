@@ -1,0 +1,33 @@
+{
+  "status": "COMMON_NUCLEUS_COMPARISON_COMPLETE",
+  "common_nucleus_count": 3448,
+  "uam_v4": {
+    "count": 3448,
+    "mae_keV_per_A": 6.14421303633237,
+    "median_absolute_residual_keV_per_A": 0.9525321824385173,
+    "p95_absolute_residual_keV_per_A": 26.54485867637769,
+    "p99_absolute_residual_keV_per_A": 94.15863821049354,
+    "maximum_absolute_residual_keV_per_A": 365.7574999999997,
+    "mean_signed_residual_keV_per_A": 1.1763229802177673,
+    "rmse_keV_per_A": 21.492568831629097
+  },
+  "frdm2012": {
+    "count": 3448,
+    "mae_keV_per_A": 6.624824617240203,
+    "median_absolute_residual_keV_per_A": 2.6019008495909475,
+    "p95_absolute_residual_keV_per_A": 29.181494444444056,
+    "p99_absolute_residual_keV_per_A": 59.19359317647019,
+    "maximum_absolute_residual_keV_per_A": 131.40580000000045,
+    "mean_signed_residual_keV_per_A": 1.6008199227918907,
+    "rmse_keV_per_A": 13.489754168626492
+  },
+  "per_nucleus_wins": {
+    "UAM_V4": 2418,
+    "FRDM2012": 1028,
+    "ties": 2
+  },
+  "mae_difference_uam_minus_frdm_keV_per_A": -0.4806115809078335,
+  "interpretation": "Both models are evaluated against identical target values on the exact intersection of their available predictions.",
+  "limitation": "FRDM2012 was fitted using historical measured masses; this comparison is recognised-model benchmarking but not temporally independent validation.",
+  "comparison_csv_sha256": "b7bab25066f6326adb786b3c24fad98bf9c53d97ef150bb070d363781838a37f"
+}
