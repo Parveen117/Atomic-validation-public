@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use or reference this software, dataset, or manuscript, please cite it as below."
+title: "Guarded Two-Axis Interpolation for Nuclear Binding Energy per Nucleon"
+type: software
+version: 0.9.0
+status: unpublished
+authors:
+  - family-names: "Dabas"
+    given-names: "Monty"
+abstract: "A reproducible guarded two-axis interpolation study for nuclear binding energy per nucleon on a frozen AME2020/NUBASE2020-derived dataset, including abstention, subgroup analysis, conventional baselines, certificates, and checksummed publication artifacts."
+keywords:
+  - nuclear binding energy
+  - atomic mass evaluation
+  - NUBASE
+  - nuclear mass interpolation
+  - selective prediction
+  - abstention
+  - reproducible research
+repository-code: "https://github.com/Parveen117/Atomic-validation-public"
