@@ -25,18 +25,24 @@ jobs:
         continue-on-error: true
         run: python scripts/reproduce_release.py
 
-      - name: Upload reproduction artifacts
+      - name: Build frozen publication bundle
+        id: bundle
+        if: steps.reproduce.outcome == 'success'
+        run: python scripts/build_publication_bundle.py
+
+      - name: Upload reproduction and publication artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: uam-v4-reproduction
+          name: uam-v4-publication-package
           path: |
             releases/uam-v4/dataset_certificate.json
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
             releases/uam-v4/reproduction_certificate.json
+            releases/uam-v4/publication_bundle/
           if-no-files-found: warn
 
-      - name: Commit reproduction artifacts or diagnostics
+      - name: Commit generated artifacts or diagnostics
         if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
@@ -46,18 +52,23 @@ jobs:
           for path in \
             releases/uam-v4/dataset_certificate.json \
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
-            releases/uam-v4/reproduction_certificate.json; do
-            if [ -f "$path" ]; then
+            releases/uam-v4/reproduction_certificate.json \
+            releases/uam-v4/publication_bundle; do
+            if [ -e "$path" ]; then
               git add "$path"
             fi
           done
           if git diff --cached --quiet; then
-            echo "No reproduction artifact changes to commit."
+            echo "No generated artifact changes to commit."
           else
-            git commit -m "Record UAM V4 reproduction result [skip ci]"
+            git commit -m "Build frozen UAM V4 publication bundle [skip ci]"
             git push
           fi
 
       - name: Enforce reproduction result
         if: steps.reproduce.outcome != 'success'
+        run: exit 1
+
+      - name: Enforce publication bundle result
+        if: steps.reproduce.outcome == 'success' && steps.bundle.outcome != 'success'
         run: exit 1
