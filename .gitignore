@@ -1,2 +1,6 @@
 data/external_models/raw/
 data/external_models/work/
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+Untitled.ipynb
