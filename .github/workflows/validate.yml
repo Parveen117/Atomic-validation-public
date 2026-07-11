@@ -35,7 +35,12 @@ jobs:
         if: steps.reproduce.outcome == 'success'
         run: python scripts/build_paper_analysis.py
 
-      - name: Upload reproduction, bundle and analysis artifacts
+      - name: Build conventional baseline comparison
+        id: baselines
+        if: steps.reproduce.outcome == 'success'
+        run: python scripts/build_baseline_comparison.py
+
+      - name: Upload reproduction, bundle, analysis and baseline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -46,6 +51,7 @@ jobs:
             releases/uam-v4/reproduction_certificate.json
             releases/uam-v4/publication_bundle/
             releases/uam-v4/paper_analysis/
+            releases/uam-v4/baseline_comparison/
           if-no-files-found: warn
 
       - name: Commit generated artifacts or diagnostics
@@ -60,7 +66,8 @@ jobs:
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
             releases/uam-v4/reproduction_certificate.json \
             releases/uam-v4/publication_bundle \
-            releases/uam-v4/paper_analysis; do
+            releases/uam-v4/paper_analysis \
+            releases/uam-v4/baseline_comparison; do
             if [ -e "$path" ]; then
               git add "$path"
             fi
@@ -68,7 +75,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated artifact changes to commit."
           else
-            git commit -m "Build reproducible UAM V4 paper analysis [skip ci]"
+            git commit -m "Build reproducible UAM V4 analysis and baselines [skip ci]"
             git push
           fi
 
@@ -82,4 +89,8 @@ jobs:
 
       - name: Enforce paper analysis result
         if: steps.reproduce.outcome == 'success' && steps.analysis.outcome != 'success'
+        run: exit 1
+
+      - name: Enforce baseline comparison result
+        if: steps.reproduce.outcome == 'success' && steps.baselines.outcome != 'success'
         run: exit 1
