@@ -6,9 +6,9 @@
 **Repository visibility:** Private  
 **Scientific status:** Headline V4 result independently reproduced from the frozen processed dataset  
 **Publication bundle status:** Frozen compact bundle generated and checksummed  
-**Paper analysis status:** Reproducible subgroup, residual and coverage-error tables generated  
+**Paper analysis status:** Reproducible subgroup, residual, coverage-error and conventional baseline tables generated  
 **Legacy serialization status:** Full-report hash mismatch disclosed in Issue #2  
-**Journal status:** External baselines and temporally separated validation remain recommended
+**Journal status:** Recognised external mass-model comparison and temporally separated validation remain recommended
 
 ## Gate A: Scientific framing
 
@@ -55,8 +55,9 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - [x] Generate and inspect the 50 largest retained residuals.
 - [x] Include coverage-error and abstention-error curves.
 - [x] Compare V4 against both individual axes.
-- [ ] Compare against simple interpolation baselines.
-- [ ] Compare against the semi-empirical mass formula.
+- [x] Compare against a leakage-safe local-neighbour interpolation baseline.
+- [x] Compare against an equal unweighted two-axis blend.
+- [x] Compare against a deterministic five-fold out-of-fold semi-empirical mass-formula baseline.
 - [ ] Add at least one recognised external mass-model comparison where reproducible.
 
 ## Current analysis findings
@@ -70,7 +71,12 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - Within two units of a magic number: **20.3986 keV/A MAE**.
 - Away from magic numbers: **3.2502 keV/A MAE** at **99.82%** coverage.
 - Neutron-axis MAE: **30.6717 keV/A**; proton-axis MAE: **33.6621 keV/A**; guarded blend MAE: **10.2147 keV/A**.
-- The subgroup and coverage-error analyses are in-sample diagnostics and must not be described as external validation.
+- Leakage-safe local-neighbour mean MAE: **38.1164 keV/A**.
+- Equal unweighted two-axis blend MAE: **27.2556 keV/A**.
+- Five-fold out-of-fold SEMF baseline MAE: **181.7699 keV/A**.
+- UAM V4 reduces MAE by approximately **73.2%** relative to the local-neighbour baseline and **62.5%** relative to the equal-axis blend.
+- The subgroup, coverage-error and fitted-baseline analyses are not external or temporal validation.
+- The fitted SEMF baseline is deliberately conventional and simple; it must not be represented as a state-of-the-art global mass model.
 
 ## Gate E: Manuscript
 
@@ -80,7 +86,8 @@ The directory `releases/uam-v4/publication_bundle/` contains:
 - [ ] Validation design.
 - [ ] Results and uncertainty.
 - [ ] Failure analysis.
-- [ ] Baseline comparison.
+- [x] Conventional baseline comparison tables.
+- [ ] Recognised external mass-model comparison.
 - [ ] Limitations and claim boundary.
 - [ ] Reproducibility statement.
 - [ ] Data and code availability statement.
