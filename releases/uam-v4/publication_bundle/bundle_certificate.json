@@ -4,6 +4,7 @@
   "files": [
     "SHA256SUMS",
     "abstentions.csv",
+    "bundle_certificate.json",
     "configuration.json",
     "dataset_manifest.json",
     "environment.json",
