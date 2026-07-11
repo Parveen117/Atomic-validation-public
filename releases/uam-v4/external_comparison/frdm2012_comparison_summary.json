@@ -1,0 +1,16 @@
+{
+  "model": "FRDM2012",
+  "matched_nuclei": 3456,
+  "dataset_nuclei": 3558,
+  "coverage": 0.9713322091062394,
+  "mae_keV_per_A": 6.664246920269435,
+  "median_absolute_residual_keV_per_A": 2.609334615385251,
+  "p95_absolute_residual_keV_per_A": 29.383229949785346,
+  "p99_absolute_residual_keV_per_A": 59.66559357142826,
+  "maximum_absolute_residual_keV_per_A": 131.40580000000045,
+  "mean_signed_residual_keV_per_A": 1.6493608807557332,
+  "rmse_keV_per_A": 13.57771675173547,
+  "comparison_status": "RECOGNISED_EXTERNAL_MODEL_COMPARISON",
+  "important_limitation": "FRDM2012 includes parameter fitting to historical measured nuclear masses and is not a temporally independent validation against AME2020.",
+  "prediction_csv_sha256": "3baa2bb8408afcd48d7f33511ef2c45273490fdbe5ed8d50d584f0dc9c07c3a2"
+}
