@@ -2,9 +2,10 @@
 
 ## Current decision
 
-**Stage:** Reproduced release packaging  
+**Stage:** Paper analysis and manuscript preparation  
 **Repository visibility:** Private  
 **Scientific status:** Headline V4 result independently reproduced from the frozen processed dataset  
+**Publication bundle status:** Frozen compact bundle generated and checksummed  
 **Legacy serialization status:** Full-report hash mismatch disclosed in Issue #2  
 **Journal status:** External baselines and temporally separated validation remain recommended
 
@@ -30,23 +31,24 @@
 
 ## Gate C: Frozen release artefacts
 
-The directory `releases/uam-v4/` contains or must contain:
+The directory `releases/uam-v4/publication_bundle/` contains:
 
-- [x] `source_provenance.json`
-- [x] `metrics.json`
-- [x] `dataset_certificate.json`
-- [x] `universal_atomic_guarded_two_axis_v4.json`
-- [x] `reproduction_certificate.json`
-- [x] documented reproduction command
-- [x] dataset and archive SHA-256 values
-- [ ] compact `predictions.csv`
-- [ ] compact `abstentions.csv`
-- [ ] release-wide `SHA256SUMS`
+- [x] `configuration.json`
+- [x] `dataset_manifest.json`
+- [x] `predictions.csv`
+- [x] `abstentions.csv`
+- [x] `mass_region_metrics.csv`
+- [x] `mass_region_metrics.json`
+- [x] `environment.json`
+- [x] `reproduction_command.txt`
+- [x] `report_hash.txt`
+- [x] `SHA256SUMS`
+- [x] `bundle_certificate.json`
 
 ## Gate D: Analysis required for the paper
 
 - [ ] Report residuals in both keV/A and total keV or MeV.
-- [ ] Report performance by mass region.
+- [x] Report performance by mass region.
 - [ ] Report performance near shell closures.
 - [ ] Report performance for stable and unstable nuclei.
 - [ ] Analyse the remaining extreme retained residuals.
