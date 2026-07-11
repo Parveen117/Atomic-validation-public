@@ -1,0 +1,2 @@
+python scripts/reproduce_release.py
+python scripts/build_publication_bundle.py
