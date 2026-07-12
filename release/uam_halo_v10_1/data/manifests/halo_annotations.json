@@ -1,0 +1,27 @@
+{
+  "annotation_type": "EXTERNAL_HALO_BENCHMARK_SET",
+  "release": "uam-halo-v10.1",
+  "role": "benchmark_labels_only",
+  "used_for_prediction": false,
+  "used_for_control_distance": false,
+  "halo_candidates": [
+    "He-6",
+    "He-8",
+    "He-11",
+    "Li-11",
+    "Be-11",
+    "Be-14",
+    "C-19",
+    "C-22",
+    "Ne-31"
+  ],
+  "migration_source": {
+    "repository": "Parveen117/Atomic-model",
+    "path": "atomic_native/atomic_euler_exotic_v10.py",
+    "blob_sha": "39a493b81b452ab0c8ad4f73e2e8bca567d3ce5d",
+    "lines": "18-30"
+  },
+  "citation_status": "REQUIRES_NUCLIDE_LEVEL_PRIMARY_SOURCE_REVIEW",
+  "publication_rule": "This benchmark file may be used in migration and CI, but a final tagged scientific release requires a primary-source citation record for every listed nuclide.",
+  "scientific_boundary": "Membership is an external literature annotation and is not a prediction produced by the Universal Atomic Model."
+}
