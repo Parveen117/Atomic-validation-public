@@ -1,0 +1,26 @@
+{
+  "mapping_type": "UAM_HALO_V10_1_FROZEN_INPUT_MAPPING",
+  "source_release": "UAM V4",
+  "source_certificate": "releases/uam-v4/reproduction_certificate.json",
+  "source_archive": "releases/uam-v4/uam_v4_processed_dataset.zip",
+  "source_archive_sha256": "2e5746009909fb071a5e45be1bcfea0aa8cbc2fa8617a6e77c34d017edc4d675",
+  "archive_member": "ame_nubase_atomic_native.csv",
+  "dataset_sha256": "6277e46ea5f38795a3c2295dd655af754fedf6bc1ce02245564026058cd82d47",
+  "expected_row_count": 3558,
+  "source_schema_valid": true,
+  "column_mapping": {
+    "Z": "Z",
+    "N": "N",
+    "A": "A",
+    "Symbol": "Symbol",
+    "binding_energy_per_A_keV": "binding_energy_per_A_keV",
+    "S_n_keV": "S_n_keV",
+    "S_2n_keV": "S_2n_keV",
+    "S_p_keV": "S_p_keV",
+    "S_2p_keV": "S_2p_keV"
+  },
+  "transformation": "IDENTITY_COLUMN_SELECTION",
+  "unit_policy": "All energy fields are used in keV exactly as certified in UAM V4.",
+  "copy_policy": "The halo release extracts the certified archive during reproduction; it does not maintain a divergent duplicate dataset.",
+  "mapping_status": "CERTIFIED"
+}
