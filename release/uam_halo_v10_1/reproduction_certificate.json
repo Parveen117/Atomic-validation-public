@@ -1,0 +1,22 @@
+{
+  "certificate_type": "UAM_HALO_V10_1_REPRODUCTION_CERTIFICATE",
+  "halo_candidates_present": [
+    "He-6",
+    "He-8",
+    "Li-11",
+    "Be-11",
+    "Be-14",
+    "C-19",
+    "C-22",
+    "Ne-31"
+  ],
+  "report_file_sha256": "94750c663b537374fccca17e19dc28455a934f04fa64af87c1ac7c0dcab431f5",
+  "report_hash": "ae50050f34068b10342c9a6f66a25847ff92b1c811ccd44adf930f17a7961021",
+  "report_path": "release\\uam_halo_v10_1\\reports\\uam_halo_v10_1_report.json",
+  "rows_rejected": 0,
+  "rows_valid": 3558,
+  "source_archive_sha256": "2e5746009909fb071a5e45be1bcfea0aa8cbc2fa8617a6e77c34d017edc4d675",
+  "source_dataset_sha256": "6277e46ea5f38795a3c2295dd655af754fedf6bc1ce02245564026058cd82d47",
+  "source_row_count": 3558,
+  "status": "REPRODUCED_FROM_FROZEN_UAM_V4_INPUT"
+}
