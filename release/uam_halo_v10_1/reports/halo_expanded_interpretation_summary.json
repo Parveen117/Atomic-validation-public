@@ -1,0 +1,12 @@
+{
+  "above_expanded_controls": 0,
+  "analysis_type": "UAM_HALO_V10_1_EXPANDED_CONTROL_SENSITIVITY",
+  "below_expanded_controls": 5,
+  "halo_candidates_evaluated": 8,
+  "overlapping_expanded_controls": 3,
+  "primary_result": "No evaluated halo candidate shows robust residual elevation relative to the expanded same-predictor control neighbourhood.",
+  "scientific_boundary": "The analysis concerns local nuclear mass-surface residuals and does not directly test spatial halo structure.",
+  "sensitivity_result": "The narrow strict-control analysis produced apparent high percentiles for several candidates, but those comparison pools contained only one to seven controls. The result does not persist under the expanded twenty-control sensitivity analysis.",
+  "source_report_hash": "ae50050f34068b10342c9a6f66a25847ff92b1c811ccd44adf930f17a7961021",
+  "two_sided_p_le_0_05": 0
+}

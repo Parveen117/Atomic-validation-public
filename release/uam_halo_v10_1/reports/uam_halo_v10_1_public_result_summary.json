@@ -1,0 +1,32 @@
+{
+  "expanded_sensitivity_analysis": {
+    "above_expanded_controls": 0,
+    "below_expanded_controls": 5,
+    "control_rule": "Twenty nearest same-predictor controls using nuclear-coordinate, separation-energy and drip-class distance.",
+    "overlapping_expanded_controls": 3,
+    "two_sided_empirical_p_le_0_05": 0
+  },
+  "halo_candidates_evaluated": 8,
+  "halo_candidates_present": [
+    "He-6",
+    "He-8",
+    "Li-11",
+    "Be-11",
+    "Be-14",
+    "C-19",
+    "C-22",
+    "Ne-31"
+  ],
+  "primary_interpretation": "The original V10.1 narrow matching rule identifies candidate-level mass-surface anomalies for a subset of externally annotated halo nuclei. The magnitude and direction of those effects are sensitive to control-pool construction and do not establish universal or direct spatial halo discrimination.",
+  "rows_read": 3558,
+  "rows_rejected": 0,
+  "rows_valid": 3558,
+  "scientific_boundary": "This release evaluates local binding-energy mass-surface behaviour. It does not directly use matter radii, charge radii, reaction cross sections or spectroscopic observables.",
+  "source_report_hash": "ae50050f34068b10342c9a6f66a25847ff92b1c811ccd44adf930f17a7961021",
+  "strict_v10_1_replication": {
+    "candidates_exceeding_all_same_predictor_controls": 4,
+    "candidates_with_same_predictor_controls": 5,
+    "control_rule": "Up to three nearest non-halo controls from the same mass region and 1000 keV drip class."
+  },
+  "summary_type": "UAM_HALO_V10_1_PUBLIC_RESULT_SUMMARY"
+}

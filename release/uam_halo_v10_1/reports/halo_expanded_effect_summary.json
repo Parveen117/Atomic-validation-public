@@ -1,0 +1,9 @@
+{
+  "consistently_above_controls": 0,
+  "elevated": 0,
+  "halo_candidates_evaluated": 8,
+  "minimum_empirical_p_value": 0.23809523809523808,
+  "not_robustly_elevated": 8,
+  "report_hash": "ae50050f34068b10342c9a6f66a25847ff92b1c811ccd44adf930f17a7961021",
+  "strongly_elevated": 0
+}

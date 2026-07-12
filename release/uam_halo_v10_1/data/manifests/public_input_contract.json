@@ -1,0 +1,24 @@
+{
+  "contract_type": "UAM_HALO_V10_1_PUBLIC_INPUT_CONTRACT",
+  "required_columns": [
+    "Z",
+    "N",
+    "A",
+    "Symbol",
+    "binding_energy_per_A_keV",
+    "S_n_keV",
+    "S_2n_keV",
+    "S_p_keV",
+    "S_2p_keV"
+  ],
+  "invariants": [
+    "A_EQUALS_Z_PLUS_N",
+    "Z_N_A_ARE_INTEGERS",
+    "BINDING_AND_SEPARATION_FIELDS_ARE_NUMERIC_OR_EMPTY",
+    "ONE_ROW_PER_Z_N_STATE"
+  ],
+  "accepted_source_policy": "The final frozen input must be generated from the public UAM V4 nuclear-data package or another explicitly licensed public source with a complete transformation manifest.",
+  "current_status": "SOURCE_TABLE_MAPPING_PENDING",
+  "publication_blocker": "Do not generate or publish a final halo report until the public source table and all column transformations are identified and hashed.",
+  "notes": "This contract prevents silent substitution of private V10.1 data paths or inferred column mappings."
+}

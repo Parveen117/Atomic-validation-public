@@ -1,0 +1,20 @@
+{
+  "config_type": "UAM_HALO_V10_1_PUBLIC_CONFIGURATION",
+  "thresholds_keV": [500.0, 1000.0, 1500.0, 2000.0],
+  "reference_threshold_keV": 1000.0,
+  "controls_per_halo": 3,
+  "predictor_hierarchy": [
+    "SAME_PARITY_CUBIC_N2_N4",
+    "SAME_PARITY_LINEAR_N2",
+    "ONE_SIDED_SAME_PARITY_LEFT",
+    "ONE_SIDED_SAME_PARITY_RIGHT",
+    "INSUFFICIENT_SAME_PARITY_SUPPORT"
+  ],
+  "control_matching": {
+    "required_same_mass_region": true,
+    "required_same_reference_drip_class": true,
+    "distance_terms": ["absolute_A_difference", "two_times_absolute_Z_difference", "S_n_difference_capped_at_5_MeV", "S_2n_difference_capped_at_5_MeV"],
+    "halo_labels_enter_distance": false
+  },
+  "claim_boundary": "MASS_SURFACE_HALO_EVIDENCE_SCREENING_ONLY"
+}

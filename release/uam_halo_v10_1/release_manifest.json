@@ -1,0 +1,34 @@
+{
+  "release_id": "uam-halo-v10.1",
+  "release_status": "MIGRATION_PRE_RELEASE",
+  "public_repository": "Parveen117/Atomic-validation-public",
+  "target_branch": "agent/uam-halo-v10-1-public-release",
+  "base_release": {
+    "name": "UAM V4",
+    "policy": "FROZEN_UNCHANGED"
+  },
+  "private_source": {
+    "repository": "Parveen117/Atomic-model",
+    "implementation_commit": "4b90c33872689cc57630ff1be883a8518f8c6cae",
+    "test_commit": "0792ef52573a3a494e74aac31c3bd45c234be179",
+    "documentation_commit": "524bc4243f24a0d42d1fa731a0fe038c451ffa55"
+  },
+  "report_types": {
+    "record": "ATOMIC_EULER_EXOTIC_EVIDENCE_RECORD_V10_1",
+    "report": "ATOMIC_EULER_HALO_AND_DRIP_EVIDENCE_REPORT_V10_1"
+  },
+  "default_thresholds_keV": [500.0, 1000.0, 1500.0, 2000.0],
+  "controls_per_halo": 3,
+  "claim_class": "MASS_SURFACE_HALO_EVIDENCE_SCREENING",
+  "direct_halo_detection_claim": false,
+  "migration_items": [
+    "standalone_public_implementation",
+    "public_input_manifest",
+    "external_halo_annotation_provenance",
+    "clean_public_tests",
+    "frozen_machine_readable_report",
+    "summary_tables_and_figures",
+    "reproduction_certificate",
+    "third_party_data_review"
+  ]
+}

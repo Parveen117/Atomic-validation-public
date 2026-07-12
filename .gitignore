@@ -4,3 +4,8 @@ data/external_models/work/
 __pycache__/
 *.pyc
 Untitled.ipynb
+
+# Locally reconstructed UAM V4 inputs
+release/uam_halo_v10_1/data/generated/
+releases/uam-v4/uam_v4_processed_dataset.zip
+uam_v4_processed_dataset.zip
