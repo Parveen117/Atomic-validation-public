@@ -4,19 +4,21 @@ on:
   pull_request:
     paths:
       - "release/uam_halo_v10_1/**"
+      - "releases/uam-v4/**"
       - ".github/workflows/uam-halo-v10-1.yml"
   push:
     branches:
       - "agent/uam-halo-v10-1-public-release"
     paths:
       - "release/uam_halo_v10_1/**"
+      - "releases/uam-v4/**"
       - ".github/workflows/uam-halo-v10-1.yml"
 
 permissions:
   contents: read
 
 jobs:
-  test:
+  test-and-reproduce:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,31 +26,35 @@ jobs:
         with:
           python-version: "3.11"
       - name: Compile public halo package
-        run: python -m compileall -q release/uam_halo_v10_1/src
+        run: python -m compileall -q release/uam_halo_v10_1/src release/uam_halo_v10_1/reproduce.py
       - name: Run public halo regression tests
         run: python -m unittest discover -s release/uam_halo_v10_1/tests -p "test_*.py" -v
-      - name: Validate frozen configuration
+      - name: Validate frozen configuration and annotations
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          path = Path("release/uam_halo_v10_1/config/default_config.json")
-          config = json.loads(path.read_text(encoding="utf-8"))
+          config = json.loads(Path("release/uam_halo_v10_1/config/default_config.json").read_text())
+          annotations = json.loads(Path("release/uam_halo_v10_1/data/manifests/halo_annotations.json").read_text())
+          mapping = json.loads(Path("release/uam_halo_v10_1/data/manifests/v4_input_mapping.json").read_text())
           assert config["thresholds_keV"] == [500.0, 1000.0, 1500.0, 2000.0]
           assert config["controls_per_halo"] == 3
           assert config["reference_threshold_keV"] == 1000.0
           assert config["control_matching"]["halo_labels_enter_distance"] is False
-          print("configuration valid")
+          assert annotations["used_for_prediction"] is False
+          assert annotations["used_for_control_distance"] is False
+          assert len(annotations["halo_candidates"]) == len(set(annotations["halo_candidates"]))
+          assert mapping["mapping_status"] == "CERTIFIED"
+          assert mapping["expected_row_count"] == 3558
+          print("configuration, annotations, and input mapping valid")
           PY
-      - name: Validate frozen halo annotations
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          path = Path("release/uam_halo_v10_1/data/manifests/halo_annotations.json")
-          payload = json.loads(path.read_text(encoding="utf-8"))
-          assert payload["used_for_prediction"] is False
-          assert payload["used_for_control_distance"] is False
-          assert len(payload["halo_candidates"]) == len(set(payload["halo_candidates"]))
-          print("halo annotation manifest valid")
-          PY
+      - name: Reproduce halo report from frozen UAM V4 input
+        run: python release/uam_halo_v10_1/reproduce.py
+      - name: Upload reproduced halo artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: uam-halo-v10-1-reproduction
+          path: |
+            release/uam_halo_v10_1/reports/uam_halo_v10_1_report.json
+            release/uam_halo_v10_1/reproduction_certificate.json
+          if-no-files-found: error
