@@ -1,19 +1,31 @@
 cff-version: 1.2.0
-message: "If you use or reference this software, dataset, or manuscript, please cite it as below."
-title: "Guarded Two-Axis Interpolation for Nuclear Binding Energy per Nucleon"
+message: "If you use this software, dataset, or its generated results, please cite it using the metadata below."
+title: "Universal Atomic Model: Halo and Drip-Line Evidence Study V10.1"
 type: software
-version: 0.9.0
-status: unpublished
+version: "10.1.0"
+date-released: "2026-07-12"
 authors:
   - family-names: "Dabas"
     given-names: "Monty"
-abstract: "A reproducible guarded two-axis interpolation study for nuclear binding energy per nucleon on a frozen AME2020/NUBASE2020-derived dataset, including abstention, subgroup analysis, conventional baselines, certificates, and checksummed publication artifacts."
+    orcid: "https://orcid.org/0009-0005-6948-209X"
+    affiliation: "Independent Researcher"
+abstract: >-
+  A reproducible nuclear mass-surface evidence study evaluating externally
+  annotated halo-nucleus candidates using leakage-safe same-parity
+  reconstruction, threshold-sensitive drip-line classification, strict
+  matched controls, expanded sensitivity analysis, deterministic reports,
+  regression tests, and a reproduction certificate on a frozen
+  AME2020/NUBASE2020-derived dataset.
 keywords:
   - nuclear binding energy
+  - halo nuclei
+  - neutron drip line
   - atomic mass evaluation
-  - NUBASE
+  - NUBASE2020
   - nuclear mass interpolation
+  - same-parity reconstruction
   - selective prediction
-  - abstention
+  - matched controls
   - reproducible research
 repository-code: "https://github.com/Parveen117/Atomic-validation-public"
+url: "https://github.com/Parveen117/Atomic-validation-public"
