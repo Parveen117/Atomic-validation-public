@@ -1,0 +1,41 @@
+name: UAM Halo V10.1
+
+on:
+  pull_request:
+    paths:
+      - "release/uam_halo_v10_1/**"
+      - ".github/workflows/uam-halo-v10-1.yml"
+  push:
+    branches:
+      - "agent/uam-halo-v10-1-public-release"
+    paths:
+      - "release/uam_halo_v10_1/**"
+      - ".github/workflows/uam-halo-v10-1.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile public halo package
+        run: python -m compileall -q release/uam_halo_v10_1/src
+      - name: Run public halo regression tests
+        run: python -m unittest discover -s release/uam_halo_v10_1/tests -p "test_*.py" -v
+      - name: Validate frozen configuration
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("release/uam_halo_v10_1/config/default.json")
+          config = json.loads(path.read_text(encoding="utf-8"))
+          assert config["thresholds_keV"] == [500.0, 1000.0, 1500.0, 2000.0]
+          assert config["controls_per_halo"] == 3
+          assert config["reference_threshold_keV"] == 1000.0
+          print("configuration valid")
+          PY
