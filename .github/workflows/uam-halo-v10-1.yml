@@ -32,10 +32,23 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          path = Path("release/uam_halo_v10_1/config/default.json")
+          path = Path("release/uam_halo_v10_1/config/default_config.json")
           config = json.loads(path.read_text(encoding="utf-8"))
           assert config["thresholds_keV"] == [500.0, 1000.0, 1500.0, 2000.0]
           assert config["controls_per_halo"] == 3
           assert config["reference_threshold_keV"] == 1000.0
+          assert config["control_matching"]["halo_labels_enter_distance"] is False
           print("configuration valid")
+          PY
+      - name: Validate frozen halo annotations
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("release/uam_halo_v10_1/data/manifests/halo_annotations.json")
+          payload = json.loads(path.read_text(encoding="utf-8"))
+          assert payload["used_for_prediction"] is False
+          assert payload["used_for_control_distance"] is False
+          assert len(payload["halo_candidates"]) == len(set(payload["halo_candidates"]))
+          print("halo annotation manifest valid")
           PY
