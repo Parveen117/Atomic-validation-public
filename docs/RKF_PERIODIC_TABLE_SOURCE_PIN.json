@@ -1,0 +1,18 @@
+{
+  "schema": "rkf.periodic_table_source_pin.v1",
+  "iupac": {
+    "role": "118-element symbol and current periodic-table label spine",
+    "release_date": "2022-05-04",
+    "url": "https://iupac.org/what-we-do/periodic-table-of-elements/"
+  },
+  "nist": {
+    "role": "future V2 ground-state configuration and ionization-energy validation",
+    "url": "https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html"
+  },
+  "v1_usage": {
+    "iupac_symbols_used": true,
+    "nist_ground_configurations_imported": false,
+    "madelung_order_declared_as_adapter": true,
+    "many_electron_order_claimed_derived": false
+  }
+}
