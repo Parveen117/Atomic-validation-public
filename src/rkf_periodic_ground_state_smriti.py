@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from src.rkf_periodic_table import (
+    ELEMENT_SYMBOLS,
     ORBITAL_LABELS,
     derive_periodic_table,
     madelung_subshells,
@@ -30,31 +31,17 @@ NIST_SOURCE_URL = (
 )
 NIST_COVERAGE_MAX_Z = 92
 
-# Frozen audit of the neutral configurations in the NIST H-through-U table.
-# Each tuple is (donor_subshell, acceptor_subshell, promoted_electrons,
-# nist_reference_configuration). All other Z <= 92 match the V1 occupancy
-# vector exactly.
-NIST_PROMOTION_ROWS: dict[int, tuple[str, str, int, str]] = {
-    24: ("4s", "3d", 1, "[Ar] 3d5 4s1"),
-    29: ("4s", "3d", 1, "[Ar] 3d10 4s1"),
-    41: ("5s", "4d", 1, "[Kr] 4d4 5s1"),
-    42: ("5s", "4d", 1, "[Kr] 4d5 5s1"),
-    44: ("5s", "4d", 1, "[Kr] 4d7 5s1"),
-    45: ("5s", "4d", 1, "[Kr] 4d8 5s1"),
-    46: ("5s", "4d", 2, "[Kr] 4d10"),
-    47: ("5s", "4d", 1, "[Kr] 4d10 5s1"),
-    57: ("4f", "5d", 1, "[Xe] 5d1 6s2"),
-    58: ("4f", "5d", 1, "[Xe] 4f1 5d1 6s2"),
-    64: ("4f", "5d", 1, "[Xe] 4f7 5d1 6s2"),
-    78: ("6s", "5d", 1, "[Xe] 4f14 5d9 6s1"),
-    79: ("6s", "5d", 1, "[Xe] 4f14 5d10 6s1"),
-    89: ("5f", "6d", 1, "[Rn] 6d1 7s2"),
-    90: ("5f", "6d", 2, "[Rn] 6d2 7s2"),
-    91: ("5f", "6d", 1, "[Rn] 5f2 6d1 7s2"),
-    92: ("5f", "6d", 1, "[Rn] 5f3 6d1 7s2"),
-}
+NIST_SOURCE_SNAPSHOT_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "data"
+    / "reference"
+    / "nist_neutral_ground_configurations_h_u_v2a.json"
+)
 
-EXPECTED_EXCEPTION_Z = tuple(NIST_PROMOTION_ROWS)
+EXPECTED_EXCEPTION_Z = (
+    24, 29, 41, 42, 44, 45, 46, 47,
+    57, 58, 64, 78, 79, 89, 90, 91, 92,
+)
 EXPECTED_EXCEPTION_SYMBOLS = (
     "Cr", "Cu", "Nb", "Mo", "Ru", "Rh", "Pd", "Ag",
     "La", "Ce", "Gd", "Pt", "Au", "Ac", "Th", "Pa", "U",
@@ -105,6 +92,60 @@ def parse_expanded_configuration(text: str) -> dict[str, int]:
             raise ValueError(f"occupancy {count} exceeds capacity {capacity} for {label}")
         occupancy[label] = count
     return occupancy
+
+
+def expand_nist_configuration(
+    text: str,
+    expanded_cores: Mapping[str, Mapping[str, int]],
+) -> dict[str, int]:
+    tokens = text.split()
+    occupancy: dict[str, int] = {}
+    if tokens and tokens[0].startswith("[") and tokens[0].endswith("]"):
+        core_symbol = tokens.pop(0)[1:-1]
+        try:
+            occupancy.update(
+                {key: int(value) for key, value in expanded_cores[core_symbol].items()}
+            )
+        except KeyError as exc:
+            raise ValueError(f"unknown or forward noble-gas core {core_symbol}") from exc
+    tail = parse_expanded_configuration(" ".join(tokens)) if tokens else {}
+    overlap = set(occupancy) & set(tail)
+    if overlap:
+        raise ValueError(f"source configuration repeats core subshells: {sorted(overlap)}")
+    occupancy.update(tail)
+    return occupancy
+
+
+def load_nist_source(
+    path: Path = NIST_SOURCE_SNAPSHOT_PATH,
+) -> dict[int, dict[str, Any]]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    rows = payload.get("rows", [])
+    if len(rows) != NIST_COVERAGE_MAX_Z:
+        raise ValueError("NIST source snapshot must contain exactly 92 rows")
+
+    expanded_cores: dict[str, dict[str, int]] = {}
+    output: dict[int, dict[str, Any]] = {}
+    for expected_z, row in enumerate(rows, start=1):
+        z = int(row["atomic_number"])
+        symbol = str(row["symbol"])
+        source_text = str(row["neutral_configuration"])
+        if z != expected_z:
+            raise ValueError("NIST source atomic numbers must be contiguous")
+        if symbol != ELEMENT_SYMBOLS[z - 1]:
+            raise ValueError(f"source symbol mismatch at Z={z}")
+        occupancy = expand_nist_configuration(source_text, expanded_cores)
+        if sum(occupancy.values()) != z:
+            raise ValueError(f"source electron count mismatch at Z={z}")
+        output[z] = {
+            "atomic_number": z,
+            "symbol": symbol,
+            "neutral_configuration": source_text,
+            "occupancy": occupancy,
+        }
+        if symbol in {"He", "Ne", "Ar", "Kr", "Xe", "Rn"}:
+            expanded_cores[symbol] = dict(occupancy)
+    return output
 
 
 def ordered_configuration_text(occupancy: Mapping[str, int]) -> str:
@@ -184,8 +225,8 @@ def promotion_family(donor: str, acceptor: str) -> str:
     return f"{donor_orbital.upper()}_TO_{acceptor_orbital.upper()}"
 
 
-def special_closure(subshell: str, occupancy: int) -> str | None:
-    _, l = parse_subshell(subshell)
+def special_closure(acceptor: str, occupancy: int) -> str | None:
+    _, l = parse_subshell(acceptor)
     capacity = subshell_capacity(l)
     if occupancy == capacity:
         return "FULL_SUBSHELL"
@@ -194,11 +235,13 @@ def special_closure(subshell: str, occupancy: int) -> str | None:
     return None
 
 
-def _build_audited_row(v1_row: Mapping[str, Any]) -> dict[str, Any]:
+def _build_audited_row(
+    v1_row: Mapping[str, Any],
+    source_records: Mapping[int, Mapping[str, Any]],
+) -> dict[str, Any]:
     z = int(v1_row["atomic_number"])
     symbol = str(v1_row["symbol"])
     baseline = parse_expanded_configuration(str(v1_row["madelung_configuration"]))
-    source_row = NIST_PROMOTION_ROWS.get(z)
 
     if z > NIST_COVERAGE_MAX_Z:
         return {
@@ -213,14 +256,12 @@ def _build_audited_row(v1_row: Mapping[str, Any]) -> dict[str, Any]:
             "source_reference_configuration": None,
         }
 
-    if source_row is None:
-        observed = dict(baseline)
-        donor = acceptor = None
-        reference = "MATCHES_V1_MADELUNG_OCCUPANCY"
-    else:
-        donor, acceptor, count, reference = source_row
-        observed = apply_promotion(baseline, donor, acceptor, count)
-
+    source = source_records[z]
+    observed = {
+        str(key): int(value)
+        for key, value in source["occupancy"].items()
+    }
+    reference = str(source["neutral_configuration"])
     delta = occupancy_delta(observed, baseline)
     reconstructed = {
         key: int(baseline.get(key, 0)) + int(delta.get(key, 0))
@@ -231,20 +272,27 @@ def _build_audited_row(v1_row: Mapping[str, Any]) -> dict[str, Any]:
     conserved = sum(delta.values()) == 0
 
     if delta:
+        donors = [key for key, value in delta.items() if value < 0]
+        acceptors = [key for key, value in delta.items() if value > 0]
+        if len(donors) != 1 or len(acceptors) != 1:
+            raise ValueError(f"Z={z} source difference is not a two-channel promotion")
+        donor = donors[0]
+        acceptor = acceptors[0]
         moved = promotion_count(delta)
         cut = donor_acceptor_cut(delta)
         cut_odd = cut == {key: -value for key, value in delta.items()}
-        acceptor_after = observed[str(acceptor)]
-        donor_after = observed.get(str(donor), 0)
-        family = promotion_family(str(donor), str(acceptor))
-        if str(donor).endswith("f"):
-            closure = special_closure(str(donor), donor_after)
-            closure_subshell = str(donor) if closure is not None else None
+        acceptor_after = observed[acceptor]
+        donor_after = observed.get(donor, 0)
+        family = promotion_family(donor, acceptor)
+        if donor.endswith("f"):
+            closure = special_closure(donor, donor_after)
+            closure_subshell = donor if closure is not None else None
         else:
-            closure = special_closure(str(acceptor), acceptor_after)
-            closure_subshell = str(acceptor) if closure is not None else None
+            closure = special_closure(acceptor, acceptor_after)
+            closure_subshell = acceptor if closure is not None else None
         state = "NIST_PROMOTION_SMRITI"
     else:
+        donor = acceptor = None
         moved = 0
         cut = {}
         cut_odd = True
@@ -270,6 +318,7 @@ def _build_audited_row(v1_row: Mapping[str, Any]) -> dict[str, Any]:
         "donor_acceptor_cut": dict(sorted(cut.items())),
         "smriti_is_cut_odd": cut_odd,
         "electron_number_conserved": conserved,
+        "source_symbol_matches": str(source["symbol"]) == symbol,
         "madelung_electron_count": sum(baseline.values()),
         "nist_electron_count": electron_count,
         "reconstruction_exact": reconstructed == observed,
@@ -278,7 +327,11 @@ def _build_audited_row(v1_row: Mapping[str, Any]) -> dict[str, Any]:
 
 
 def build_ground_state_ledger() -> dict[str, Any]:
-    rows = [_build_audited_row(row) for row in derive_periodic_table(118)]
+    source_records = load_nist_source()
+    rows = [
+        _build_audited_row(row, source_records)
+        for row in derive_periodic_table(118)
+    ]
     audited = [row for row in rows if int(row["atomic_number"]) <= NIST_COVERAGE_MAX_Z]
     exceptions = [row for row in audited if row["audit_state"] == "NIST_PROMOTION_SMRITI"]
     abstentions = [row for row in rows if str(row["audit_state"]).startswith("ABSTAIN_")]
@@ -293,7 +346,11 @@ def build_ground_state_ledger() -> dict[str, Any]:
 
     checks = {
         "total_positions_118": len(rows) == 118,
+        "nist_source_rows_92": len(source_records) == 92,
         "nist_audited_positions_92": len(audited) == 92,
+        "source_symbols_match_v1": all(
+            bool(row["source_symbol_matches"]) for row in audited
+        ),
         "superheavy_abstentions_26": len(abstentions) == 26,
         "exception_atomic_numbers_exact": tuple(
             int(row["atomic_number"]) for row in exceptions
@@ -340,6 +397,15 @@ def build_ground_state_ledger() -> dict[str, Any]:
             "url": NIST_SOURCE_URL,
             "source_scope": "NEUTRAL_GROUND_CONFIGURATIONS_H_THROUGH_U",
             "coverage_atomic_numbers": [1, 92],
+            "snapshot_path": str(
+                NIST_SOURCE_SNAPSHOT_PATH.relative_to(
+                    Path(__file__).resolve().parents[1]
+                )
+            ),
+            "snapshot_sha256": hashlib.sha256(
+                NIST_SOURCE_SNAPSHOT_PATH.read_bytes()
+            ).hexdigest(),
+            "snapshot_row_count": len(source_records),
             "source_note": (
                 "The NIST page states that the neutral configurations are taken "
                 "from a NIST Atomic Physics Division compilation and that some "
