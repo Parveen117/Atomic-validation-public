@@ -20,6 +20,11 @@ jobs:
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
 
+      - name: Certify exact RKF capstone core
+        id: capstone
+        continue-on-error: true
+        run: python scripts/certify_rkf_capstone.py
+
       - name: Reproduce frozen UAM V4 release
         id: reproduce
         continue-on-error: true
@@ -46,12 +51,13 @@ jobs:
         if: steps.reproduce.outcome == 'success'
         run: python scripts/build_baseline_comparison.py
 
-      - name: Upload reproduction, fingerprint, bundle, analysis and baseline artifacts
+      - name: Upload capstone, reproduction, fingerprint, bundle, analysis and baseline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: uam-v4-publication-package
           path: |
+            releases/rkf-capstone-v5/exact_certificate.json
             releases/uam-v4/dataset_certificate.json
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
             releases/uam-v4/reproduction_certificate.json
@@ -69,6 +75,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for path in \
+            releases/rkf-capstone-v5/exact_certificate.json \
             releases/uam-v4/dataset_certificate.json \
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
             releases/uam-v4/reproduction_certificate.json \
@@ -83,9 +90,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated artifact changes to commit."
           else
-            git commit -m "Build reproducible UAM V4 analysis and baselines [skip ci]"
+            git commit -m "Build reproducible UAM V4 analysis and capstone certificates [skip ci]"
             git push
           fi
+
+      - name: Enforce RKF capstone result
+        if: steps.capstone.outcome != 'success'
+        run: exit 1
 
       - name: Enforce reproduction result
         if: steps.reproduce.outcome != 'success'

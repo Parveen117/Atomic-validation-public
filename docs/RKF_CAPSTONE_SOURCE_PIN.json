@@ -1,0 +1,27 @@
+{
+  "schema": "ATOMIC_RKF_CAPSTONE_SOURCE_PIN_V1",
+  "source": {
+    "repository": "Parveen117/Recognition-Kernel-Framework",
+    "branch": "agent/cut-graded-lambda-jacobian-tower",
+    "commit": "9f5792ee62ce3a1a71d9ed242ff9cb10e6745f3e",
+    "theorems": [
+      "theorum/41_cut_graded_universal_generator_theorem.md",
+      "theorum/42_cut_graded_lambda_jacobian_tower_theorem.md"
+    ]
+  },
+  "consumed_interfaces": [
+    "unique cut-even and cut-odd grading",
+    "cut-loop linear memory coefficient",
+    "seam-curvature commutator coefficient",
+    "bilateral odd flow covariance",
+    "exponential cut-square identity",
+    "faithful direct-sum observer Gram identity"
+  ],
+  "not_claimed": [
+    "physical atomic cut identification",
+    "unbounded atomic generator domain theorem",
+    "binding-energy derivation",
+    "lambda-Jacobian AME/NUBASE adapter",
+    "seam curvature equals a measured nuclear observable"
+  ]
+}
