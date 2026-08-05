@@ -5,9 +5,8 @@ import unittest
 
 from src.rkf_periodic_ground_state_smriti import (
     EXPECTED_EXCEPTION_SYMBOLS,
-    NIST_PROMOTION_ROWS,
-    apply_promotion,
     build_ground_state_ledger,
+    load_nist_source,
     certificate_sha256,
     donor_acceptor_cut,
     occupancy_delta,
@@ -98,14 +97,15 @@ class PeriodicGroundStateSmritiTests(unittest.TestCase):
             "ABSTAIN_SUPERHEAVY_OUTSIDE_NIST_H_U_SOURCE",
         )
 
-    def test_target_source_rows_are_independent_of_symbol_labels(self) -> None:
+    def test_frozen_source_snapshot_drives_chromium_delta(self) -> None:
         baseline = parse_expanded_configuration(
             derive_periodic_table(24)[-1]["madelung_configuration"]
         )
-        donor, acceptor, count, _ = NIST_PROMOTION_ROWS[24]
-        observed = apply_promotion(baseline, donor, acceptor, count)
+        source = load_nist_source()
+        self.assertEqual(len(source), 92)
+        self.assertEqual(source[24]["neutral_configuration"], "[Ar] 3d5 4s1")
         self.assertEqual(
-            occupancy_delta(observed, baseline),
+            occupancy_delta(source[24]["occupancy"], baseline),
             {"3d": 1, "4s": -1},
         )
 
