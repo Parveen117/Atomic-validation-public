@@ -9,7 +9,7 @@
     "table_rows_used": "neutral configurations only",
     "source_statement": "Ground electronic configurations are obtained from a NIST Atomic Physics Division compilation; some differ from older references.",
     "snapshot_path": "data/reference/nist_neutral_ground_configurations_h_u_v2a.json",
-    "snapshot_sha256": "11594ab95b00628f58a34a42159883a7187a7ee8bd6c7d439c8b1f0fee1642bc",
+    "snapshot_sha256": "614e5a86b40c3a0cb2daaeef9b675006b113c69e5556f412b20712b3d749d9cf",
     "snapshot_row_count": 92,
     "snapshot_normalization": "plain integer occupancies; noble-gas cores preserved then recursively expanded during certification"
   },
