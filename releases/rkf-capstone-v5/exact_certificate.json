@@ -1,0 +1,193 @@
+{
+  "certificate_sha256": "785e1010865b0fdeb0a119625ccb0b7a58eaecb5ae3c4d6412de107bfdc6d57a",
+  "certificate_type": "ATOMIC_RKF_CAPSTONE_EXACT_CERTIFICATE_V1",
+  "checks": {
+    "bilateral_flow_covariance": true,
+    "complete_component_gram": true,
+    "derived_channels_commute": true,
+    "direct_sum_sees_cancellation": true,
+    "even_component_exact": true,
+    "exponential_cut_square": true,
+    "grading_reconstructs": true,
+    "odd_component_exact": true,
+    "seam_curvature_exact": true
+  },
+  "claim_boundary": {
+    "binding_energy_law_derived": false,
+    "physical_atomic_cut_identified": false,
+    "uam_v4_first_layer_adapter": false,
+    "unbounded_generator_domain_proved": false
+  },
+  "grading": {
+    "cut": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "-1"
+      ]
+    ],
+    "even": [
+      [
+        "2",
+        "0"
+      ],
+      [
+        "0",
+        "7"
+      ]
+    ],
+    "generator": [
+      [
+        "2",
+        "3"
+      ],
+      [
+        "5",
+        "7"
+      ]
+    ],
+    "linear_memory": [
+      [
+        "4",
+        "0"
+      ],
+      [
+        "0",
+        "14"
+      ]
+    ],
+    "odd": [
+      [
+        "0",
+        "3"
+      ],
+      [
+        "5",
+        "0"
+      ]
+    ],
+    "seam_curvature": [
+      [
+        "0",
+        "-15"
+      ],
+      [
+        "25",
+        "0"
+      ]
+    ]
+  },
+  "observer": {
+    "cancelling_aggregate_gram": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "cancelling_direct_sum_gram": [
+      [
+        "2",
+        "4"
+      ],
+      [
+        "4",
+        "8"
+      ]
+    ],
+    "complete_projection_gram": [
+      [
+        "29",
+        "41"
+      ],
+      [
+        "41",
+        "58"
+      ]
+    ]
+  },
+  "odd_flow": {
+    "bilateral_covariance": true,
+    "certificate_type": "ATOMIC_RKF_EXACT_ODD_FLOW_V1",
+    "channel_product_commutes": true,
+    "cut_channel": [
+      [
+        "0",
+        "3"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "cut_square_holds": true,
+    "cut_square_left": [
+      [
+        "4",
+        "0"
+      ],
+      [
+        "0",
+        "4"
+      ]
+    ],
+    "cut_square_right": [
+      [
+        "4",
+        "0"
+      ],
+      [
+        "0",
+        "4"
+      ]
+    ],
+    "join_channel": [
+      [
+        "2",
+        "0"
+      ],
+      [
+        "0",
+        "2"
+      ]
+    ],
+    "time": "3/2",
+    "u_minus": [
+      [
+        "1",
+        "-3/2"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "u_plus": [
+      [
+        "1",
+        "3/2"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ]
+  },
+  "scope": "FINITE_DIMENSIONAL_EXACT_RATIONAL_CORE",
+  "source_pin": {
+    "branch": "agent/cut-graded-lambda-jacobian-tower",
+    "commit": "9f5792ee62ce3a1a71d9ed242ff9cb10e6745f3e",
+    "repository": "Parveen117/Recognition-Kernel-Framework",
+    "theorems": [
+      "theorum/41_cut_graded_universal_generator_theorem.md",
+      "theorum/42_cut_graded_lambda_jacobian_tower_theorem.md"
+    ]
+  },
+  "status": "PASS_ATOMIC_RKF_CAPSTONE_EXACT_CORE"
+}
