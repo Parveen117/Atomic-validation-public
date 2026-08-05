@@ -10,6 +10,12 @@ table for hydrogen through uranium. It does not overwrite V1. It records the
 difference between the Madelung occupancy vector and the NIST reference occupancy
 vector as a typed, charge-conserving Smriti promotion.
 
+The repository freezes all 92 normalized neutral source rows, preserves their
+noble-gas-core notation, expands every core recursively, validates the symbol
+sequence and electron count, and derives the Smriti vectors from those rows. The
+75 zero residues are therefore checked source matches rather than an untested
+complement of the 17 familiar exceptions.
+
 The NIST source states that its neutral ground configurations are taken from a
 NIST Atomic Physics Division compilation, that some differ from older
 references, and that the displayed table covers H through U.
@@ -171,10 +177,11 @@ The generated certificate verifies:
 
 ```text
 118 periodic positions retained
-92 NIST-audited positions
+92 frozen NIST source rows parsed and expanded
+92 source symbols and electron counts validated
 26 explicit superheavy abstentions
 17 exact nonzero Smriti residues
-75 exact zero-Smriti matches
+75 exact source-verified zero-Smriti matches
 promotion families F_TO_D=7 and S_TO_D=10
 promotion histogram one-electron=15 and two-electron=2
 19 total promoted electrons
@@ -194,13 +201,14 @@ PASS_RKF_PERIODIC_GROUND_STATE_SMRITI_LEDGER_V2A
 Expected serialized SHA-256:
 
 ```text
-3ade7f9e1980af60513401bd69452e7b7d76411ede24e33240b8f542a81748a2
+1ae4e5885e1731f625f7d62079822bacb3efd127ed78ca0223aeb7a02ca6e8c7
 ```
 
 ## Claim boundary
 
 ```text
-NIST H-THROUGH-U CONFIGURATION DIFFERENCE LEDGER      FROZEN
+NIST H-THROUGH-U CONFIGURATION SNAPSHOT               FROZEN
+NIST H-THROUGH-U CONFIGURATION DIFFERENCE LEDGER      DERIVED
 GROUND-STATE SMRITI RECONSTRUCTION                    PROVED
 ELECTRON-NUMBER CONSERVATION                          PROVED
 DONOR-ACCEPTOR CUT ODDNESS                            PROVED
