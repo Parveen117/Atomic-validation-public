@@ -7,7 +7,11 @@
     "access_date": "2026-08-05",
     "neutral_configuration_scope": "H through U (Z=1..92)",
     "table_rows_used": "neutral configurations only",
-    "source_statement": "Ground electronic configurations are obtained from a NIST Atomic Physics Division compilation; some differ from older references."
+    "source_statement": "Ground electronic configurations are obtained from a NIST Atomic Physics Division compilation; some differ from older references.",
+    "snapshot_path": "data/reference/nist_neutral_ground_configurations_h_u_v2a.json",
+    "snapshot_sha256": "11594ab95b00628f58a34a42159883a7187a7ee8bd6c7d439c8b1f0fee1642bc",
+    "snapshot_row_count": 92,
+    "snapshot_normalization": "plain integer occupancies; noble-gas cores preserved then recursively expanded during certification"
   },
   "v1_pin": {
     "repository": "Parveen117/Atomic-validation-public",
@@ -16,7 +20,10 @@
     "certificate_sha256": "346dca4c97ecfab8f2b6008ec1b00bd09f0459cae8082402add3d7d275ba476e"
   },
   "scope_boundary": {
-    "audited_atomic_numbers": [1, 92],
+    "audited_atomic_numbers": [
+      1,
+      92
+    ],
     "superheavy_93_to_118": "ABSTAIN_PENDING_SEPARATE_CONFIDENCE_TYPED_SOURCE",
     "live_asd_snapshot_frozen": false,
     "many_electron_energy_order_derived": false
