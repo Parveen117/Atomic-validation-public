@@ -38,6 +38,26 @@ jobs:
           print('PASS_RKF_PERIODIC_TABLE_SKELETON_HASH', actual)
           PY
 
+      - name: Derive NIST ground-state Smriti ledger
+        id: periodic_v2a
+        continue-on-error: true
+        run: |
+          python scripts/derive_rkf_periodic_ground_state_smriti.py
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+
+          path = Path(
+              'releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json'
+          )
+          actual = hashlib.sha256(path.read_bytes()).hexdigest()
+          expected = Path(
+              'docs/RKF_PERIODIC_GROUND_STATE_SMRITI_V2A_EXPECTED.sha256'
+          ).read_text(encoding='utf-8').strip()
+          assert actual == expected, (actual, expected)
+          print('PASS_RKF_PERIODIC_GROUND_STATE_SMRITI_HASH', actual)
+          PY
+
       - name: Certify exact RKF capstone core
         id: capstone
         continue-on-error: true
@@ -81,13 +101,14 @@ jobs:
         if: steps.reproduce.outcome == 'success'
         run: python scripts/build_baseline_comparison.py
 
-      - name: Upload periodic table, capstone, nuclear prediction, V6 adapter, reproduction, fingerprint, bundle, analysis and baseline artifacts
+      - name: Upload periodic tables, capstone, nuclear prediction, V6 adapter, reproduction, fingerprint, bundle, analysis and baseline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: uam-v4-publication-package
           path: |
             releases/rkf-periodic-table-v1/periodic_table_skeleton.json
+            releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json
             releases/rkf-capstone-v5/exact_certificate.json
             releases/rkf-nuclear-v5/experiment_report.json
             releases/rkf-nuclear-v6/madhava_smriti_report.json
@@ -109,6 +130,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for path in \
             releases/rkf-periodic-table-v1/periodic_table_skeleton.json \
+            releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json \
             releases/rkf-capstone-v5/exact_certificate.json \
             releases/rkf-nuclear-v5/experiment_report.json \
             releases/rkf-nuclear-v6/madhava_smriti_report.json \
@@ -126,12 +148,16 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated artifact changes to commit."
           else
-            git commit -m "Build periodic table, UAM V4, RKF V5 and Madhava-Smriti V6 artifacts [skip ci]"
+            git commit -m "Build periodic V1/V2A, UAM V4, RKF V5 and Madhava-Smriti V6 artifacts [skip ci]"
             git push
           fi
 
       - name: Enforce periodic-table derivation
         if: steps.periodic.outcome != 'success'
+        run: exit 1
+
+      - name: Enforce periodic ground-state Smriti derivation
+        if: steps.periodic_v2a.outcome != 'success'
         run: exit 1
 
       - name: Enforce RKF capstone result

@@ -1,0 +1,31 @@
+{
+  "schema": "rkf.periodic_ground_state_smriti_source_pin.v2a",
+  "source": {
+    "authority": "NIST",
+    "title": "Atomic Reference Data for Electronic Structure Calculations, Electronic Configurations of the Elements",
+    "url": "https://www.nist.gov/pml/atomic-reference-data-electronic-structure-calculations/atomic-reference-data-electronic-8",
+    "access_date": "2026-08-05",
+    "neutral_configuration_scope": "H through U (Z=1..92)",
+    "table_rows_used": "neutral configurations only",
+    "source_statement": "Ground electronic configurations are obtained from a NIST Atomic Physics Division compilation; some differ from older references.",
+    "snapshot_path": "data/reference/nist_neutral_ground_configurations_h_u_v2a.json",
+    "snapshot_sha256": "614e5a86b40c3a0cb2daaeef9b675006b113c69e5556f412b20712b3d749d9cf",
+    "snapshot_row_count": 92,
+    "snapshot_normalization": "plain integer occupancies; noble-gas cores preserved then recursively expanded during certification"
+  },
+  "v1_pin": {
+    "repository": "Parveen117/Atomic-validation-public",
+    "periodic_skeleton_commit": "beb1a10c3629115b6e2a935c1a4ef12bbefd4bf9",
+    "generated_artifact_commit": "15941f4b44b5757ec946da2765eda6ba441a2537",
+    "certificate_sha256": "346dca4c97ecfab8f2b6008ec1b00bd09f0459cae8082402add3d7d275ba476e"
+  },
+  "scope_boundary": {
+    "audited_atomic_numbers": [
+      1,
+      92
+    ],
+    "superheavy_93_to_118": "ABSTAIN_PENDING_SEPARATE_CONFIDENCE_TYPED_SOURCE",
+    "live_asd_snapshot_frozen": false,
+    "many_electron_energy_order_derived": false
+  }
+}
