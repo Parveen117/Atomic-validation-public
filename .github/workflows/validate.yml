@@ -30,6 +30,12 @@ jobs:
         continue-on-error: true
         run: python scripts/reproduce_release.py
 
+      - name: Run cross-fitted RKF nuclear prediction
+        id: nuclear
+        if: steps.reproduce.outcome == 'success'
+        continue-on-error: true
+        run: python scripts/run_rkf_nuclear_prediction.py
+
       - name: Build scientific fingerprint
         id: fingerprint
         if: steps.reproduce.outcome == 'success'
@@ -51,13 +57,14 @@ jobs:
         if: steps.reproduce.outcome == 'success'
         run: python scripts/build_baseline_comparison.py
 
-      - name: Upload capstone, reproduction, fingerprint, bundle, analysis and baseline artifacts
+      - name: Upload capstone, nuclear prediction, reproduction, fingerprint, bundle, analysis and baseline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: uam-v4-publication-package
           path: |
             releases/rkf-capstone-v5/exact_certificate.json
+            releases/rkf-nuclear-v5/experiment_report.json
             releases/uam-v4/dataset_certificate.json
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
             releases/uam-v4/reproduction_certificate.json
@@ -76,6 +83,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for path in \
             releases/rkf-capstone-v5/exact_certificate.json \
+            releases/rkf-nuclear-v5/experiment_report.json \
             releases/uam-v4/dataset_certificate.json \
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
             releases/uam-v4/reproduction_certificate.json \
@@ -90,7 +98,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated artifact changes to commit."
           else
-            git commit -m "Build reproducible UAM V4 analysis and capstone certificates [skip ci]"
+            git commit -m "Build reproducible UAM V4 and RKF nuclear prediction artifacts [skip ci]"
             git push
           fi
 
@@ -100,6 +108,10 @@ jobs:
 
       - name: Enforce reproduction result
         if: steps.reproduce.outcome != 'success'
+        run: exit 1
+
+      - name: Enforce RKF nuclear experiment execution
+        if: steps.reproduce.outcome == 'success' && steps.nuclear.outcome != 'success'
         run: exit 1
 
       - name: Enforce scientific fingerprint result
