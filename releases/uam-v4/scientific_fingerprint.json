@@ -1,0 +1,31 @@
+{
+  "canonical_scientific_json": "{\"counts\":{\"guarded_abstention_count\":44,\"guarded_prediction_count\":3514,\"rows_rejected\":0,\"rows_valid\":3558},\"guarded_blended_metrics\":{\"coverage\":\"0.9876335019673974\",\"max_absolute_residual_keV_per_a\":\"1282.4164\",\"mean_absolute_residual_keV_per_a\":\"10.214723170037805\",\"mean_signed_residual_keV_per_a\":\"2.0481822570706876\",\"median_absolute_residual_keV_per_a\":\"0.9893949800216433\",\"p95_absolute_residual_keV_per_a\":\"36.98455875106174\",\"p99_absolute_residual_keV_per_a\":\"165.2220135494648\",\"root_mean_square_residual_keV_per_a\":\"54.750312355960354\"},\"schema\":\"UAM_V4_SCIENTIFIC_FINGERPRINT_V1\"}",
+  "certificate_type": "UAM_V4_SCIENTIFIC_FINGERPRINT_CERTIFICATE",
+  "interpretation": "The scientific fingerprint identifies only the declared frozen counts and headline guarded metrics. Report hashes and file hashes identify serialized artifacts and may differ when non-scientific metadata or record serialization differs.",
+  "report_artifact": {
+    "embedded_report_hash": "0b6f67777a1ba176fbf8478db3c11c12a4a1024bdb001d6932840d114805bb4c",
+    "file_sha256": "ea9d84f3e8a5c5c8d8e6a9566bfb0ce9f5b093e47906a72e7ff4db653207be53",
+    "path": "releases/uam-v4/universal_atomic_guarded_two_axis_v4.json"
+  },
+  "schema": "UAM_V4_SCIENTIFIC_FINGERPRINT_V1",
+  "scientific_fingerprint_sha256": "fcf83345a4f18ca82fd5282c1dae6d183f1015e68dceb4719cd6fbbecdcfc25b",
+  "scientific_payload": {
+    "counts": {
+      "guarded_abstention_count": 44,
+      "guarded_prediction_count": 3514,
+      "rows_rejected": 0,
+      "rows_valid": 3558
+    },
+    "guarded_blended_metrics": {
+      "coverage": "0.9876335019673974",
+      "max_absolute_residual_keV_per_a": "1282.4164",
+      "mean_absolute_residual_keV_per_a": "10.214723170037805",
+      "mean_signed_residual_keV_per_a": "2.0481822570706876",
+      "median_absolute_residual_keV_per_a": "0.9893949800216433",
+      "p95_absolute_residual_keV_per_a": "36.98455875106174",
+      "p99_absolute_residual_keV_per_a": "165.2220135494648",
+      "root_mean_square_residual_keV_per_a": "54.750312355960354"
+    },
+    "schema": "UAM_V4_SCIENTIFIC_FINGERPRINT_V1"
+  }
+}

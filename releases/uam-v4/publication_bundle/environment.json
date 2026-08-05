@@ -1,6 +1,6 @@
 {
   "dependencies": "Python standard library only",
   "implementation": "CPython",
-  "platform": "Linux-6.17.0-1018-azure-x86_64-with-glibc2.39",
+  "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
   "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]"
 }
