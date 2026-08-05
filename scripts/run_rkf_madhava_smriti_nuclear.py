@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from src.rkf_madhava_smriti_diagnostics import add_honest_v6_diagnostics
 from src.rkf_madhava_smriti_nuclear import build_madhava_smriti_report
 
 CSV_PATH = ROOT / "data" / "processed" / "ame_nubase_atomic_native.csv"
@@ -27,13 +28,14 @@ def main() -> None:
     frozen = json.loads(FROZEN_UAM_PATH.read_text(encoding="utf-8"))
     v5 = json.loads(V5_REPORT_PATH.read_text(encoding="utf-8"))
 
-    report = build_madhava_smriti_report(
+    base_report = build_madhava_smriti_report(
         rows,
         frozen,
         v5,
         source="data/processed/ame_nubase_atomic_native.csv",
         ridge=1.0,
     )
+    report = add_honest_v6_diagnostics(base_report)
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(
         json.dumps(report, indent=2, sort_keys=True) + "\n",
@@ -43,6 +45,7 @@ def main() -> None:
     summary = {
         "status": report["status"],
         "performance_status": report["performance_status"],
+        "promotion_decision": report["promotion_decision"],
         "report_hash": report["report_hash"],
         "record_count": report["record_count"],
         "refinement_classification_counts": report[
@@ -51,7 +54,8 @@ def main() -> None:
         "identity_audit": report["identity_audit"],
         "convergence_audit": report["convergence_audit"],
         "metrics": report["metrics"],
-        "comparisons_to_v5_1": report["comparisons_to_v5_1"],
+        "same_support_audit": report["same_support_audit"],
+        "refinement_proxy_audit": report["refinement_proxy_audit"],
         "output": str(OUTPUT_PATH.relative_to(ROOT)),
     }
     print(json.dumps(summary, indent=2, sort_keys=True))
