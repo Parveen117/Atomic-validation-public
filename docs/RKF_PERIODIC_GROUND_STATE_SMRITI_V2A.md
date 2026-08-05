@@ -201,7 +201,7 @@ PASS_RKF_PERIODIC_GROUND_STATE_SMRITI_LEDGER_V2A
 Expected serialized SHA-256:
 
 ```text
-1ae4e5885e1731f625f7d62079822bacb3efd127ed78ca0223aeb7a02ca6e8c7
+dcf52808325a520c0d9bea0ddae13fe0682f57df8e2e15d405ab06a8e029a04b
 ```
 
 ## Claim boundary
