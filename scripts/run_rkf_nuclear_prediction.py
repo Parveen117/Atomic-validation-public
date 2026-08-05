@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import csv
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from src.rkf_nuclear_prediction import build_experiment_report
 
-ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "data" / "processed" / "ame_nubase_atomic_native.csv"
 FROZEN_UAM_PATH = ROOT / "releases" / "uam-v4" / "universal_atomic_guarded_two_axis_v4.json"
 OUTPUT_PATH = ROOT / "releases" / "rkf-nuclear-v5" / "experiment_report.json"
