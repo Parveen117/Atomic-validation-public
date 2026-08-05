@@ -25,6 +25,12 @@ jobs:
         continue-on-error: true
         run: python scripts/reproduce_release.py
 
+      - name: Build scientific fingerprint
+        id: fingerprint
+        if: steps.reproduce.outcome == 'success'
+        continue-on-error: true
+        run: python scripts/build_scientific_fingerprint.py
+
       - name: Build frozen publication bundle
         id: bundle
         if: steps.reproduce.outcome == 'success'
@@ -40,7 +46,7 @@ jobs:
         if: steps.reproduce.outcome == 'success'
         run: python scripts/build_baseline_comparison.py
 
-      - name: Upload reproduction, bundle, analysis and baseline artifacts
+      - name: Upload reproduction, fingerprint, bundle, analysis and baseline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -49,6 +55,7 @@ jobs:
             releases/uam-v4/dataset_certificate.json
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json
             releases/uam-v4/reproduction_certificate.json
+            releases/uam-v4/scientific_fingerprint.json
             releases/uam-v4/publication_bundle/
             releases/uam-v4/paper_analysis/
             releases/uam-v4/baseline_comparison/
@@ -65,6 +72,7 @@ jobs:
             releases/uam-v4/dataset_certificate.json \
             releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
             releases/uam-v4/reproduction_certificate.json \
+            releases/uam-v4/scientific_fingerprint.json \
             releases/uam-v4/publication_bundle \
             releases/uam-v4/paper_analysis \
             releases/uam-v4/baseline_comparison; do
@@ -81,6 +89,10 @@ jobs:
 
       - name: Enforce reproduction result
         if: steps.reproduce.outcome != 'success'
+        run: exit 1
+
+      - name: Enforce scientific fingerprint result
+        if: steps.reproduce.outcome == 'success' && steps.fingerprint.outcome != 'success'
         run: exit 1
 
       - name: Enforce publication bundle result
