@@ -1,0 +1,149 @@
+{
+  "campaign": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
+  "framework_source_pins": {
+    "repository": "Parveen117/Recognition-Kernel-Framework",
+    "branch": "agent/thermodynamic-cut-square-theorem",
+    "commit": "97ab70eb3663840aa5161ccddcbb70fafe75a80b",
+    "files": [
+      {
+        "path": "theorum/thermodynamics/10_thermodynamic_cut_square_response_decomposition.md",
+        "blob_sha": "b4ab0dcfb22bad997b5c1fe259e3b2940e0ec200",
+        "role": "THERMODYNAMIC_CUT_SQUARE_AND_SHARP_BURDEN"
+      },
+      {
+        "path": "theorum/43_bilateral_jet_flow_recognition_capstone_theorem.md",
+        "blob_sha": "95a83b98f79005cc00a2d718f717bad575196af3",
+        "role": "JET_OBSERVER_AND_BETA_ADMISSIBILITY"
+      },
+      {
+        "path": "theorum/42_cut_graded_lambda_jacobian_tower_theorem.md",
+        "blob_sha": "b7850a2b059dfc0e072f9c423fefacff5233c287",
+        "role": "HIGHER_LAYER_TARGET_REPAIR"
+      },
+      {
+        "path": "theorum/41_cut_graded_universal_generator_theorem.md",
+        "blob_sha": "2fd898a5ffa26f0a5fbbed4ca1223dad3c230266",
+        "role": "CUT_LOOP_SEAM_CURVATURE"
+      },
+      {
+        "path": "theorum/thermodynamics/04_projection_defect_and_source_overlap.md",
+        "blob_sha": "3acb5751711ff5754186077f74426332050ded9a",
+        "role": "PROJECTION_DEFECT_AND_GRAM_POSITIVITY"
+      },
+      {
+        "path": "papers/rkf_completed_weil_endpoint/main.tex",
+        "blob_sha": "875757b5f43dda265924c89c70cd51691f1fd3a4",
+        "role": "RH_ARCHITECTURE_REFERENCE_ONLY"
+      }
+    ]
+  },
+  "upstream_local_certificates": {
+    "c03_path": "releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json",
+    "c03_required_status": "PASS_CHROMIUM_C03_ACQUISITION_AUDIT_DIGITIZATION_BLOCKED",
+    "c04_path": "releases/chromium-neel-c04/chromium_primary_acquisition_certificate.json",
+    "c04_required_status": "PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED"
+  },
+  "physical_state_contract": {
+    "material": "elemental_chromium",
+    "transition": "neel_transition",
+    "same_specimen_required": true,
+    "simultaneous_measurement_required": true,
+    "common_temperature_calibration_required": true,
+    "measurement_mode": "AC_MODULATION_NEAR_EQUILIBRIUM",
+    "modulation_branch_is_not_heating_or_cooling": true,
+    "universal_TN_K_forbidden": true,
+    "source_specific_TN_required": true,
+    "reduced_temperature_coordinate": "tau=(T-TN_source_sample)/TN_source_sample",
+    "candidate_cut": "J_tau:tau->-tau",
+    "candidate_cut_admitted": false,
+    "cut_admission_requires": [
+      "source-specific TN with uncertainty",
+      "two-sided temperature support around TN",
+      "sample-state lock",
+      "protocol lock",
+      "cut covariance or quantified bilateral closure defect"
+    ]
+  },
+  "observer_contract": {
+    "base_channels": [
+      "heat_capacity_Cp_anomaly",
+      "resistivity_temperature_coefficient_drho_dT_anomaly"
+    ],
+    "raw_channel_units_must_not_be_wedged": true,
+    "baseline_rule_must_be_predeclared": true,
+    "observer_tower": "A_N=direct_sum_{k=0}^N Q_k D_tau^k y",
+    "higher_layers_allowed_only_from_admitted_raw_curves": true,
+    "minimum_base_channel_count": 2,
+    "current_admitted_point_count_per_channel": 0,
+    "observer_instantiated": false,
+    "target_visibility_test_required": "ker(A_N) subset ker(L_N)"
+  },
+  "metric_contract": {
+    "metric_symbol": "H_Cr",
+    "positive_metric_required": true,
+    "preferred_construction": "shared covariance inverse on the admitted support",
+    "compatibility_gram_whitening_allowed": true,
+    "unlike_units_require_whitening": true,
+    "singular_covariance_requires_support_restriction": true,
+    "metric_instantiated": false,
+    "shared_covariance_available": false
+  },
+  "target_contract": {
+    "target_symbol": "L_N",
+    "target_name": "neel_boundary_response",
+    "target_formula_must_be_frozen_before_data_fit": true,
+    "post_hoc_peak_picking_forbidden": true,
+    "abstract_exponent_relation_is_not_numeric_target": true,
+    "admissible_target_sources": [
+      "author-supplied boundary or modulation channel",
+      "protocol-derived two-sided boundary functional with predeclared window",
+      "independently calibrated transition readout on the same specimen"
+    ],
+    "target_instantiated": false
+  },
+  "sharp_burden_contract": {
+    "definition": "beta_Cr,N=sup_{A_N x != 0}|L_N x|^2/||A_N x||_{H_Cr}^2",
+    "finite_dimensional_formula": "beta=l (A^* H A)^dagger l^* on the visible quotient",
+    "positive_defect_equivalence": "A^* H A-L^*L>=0 iff beta<=1",
+    "strict_reserve": "1-beta",
+    "beta_interval_required": true,
+    "outward_uncertainty_required": true,
+    "beta_computed": false,
+    "beta_lower": null,
+    "beta_upper": null,
+    "classification": "DATA_REQUIRED"
+  },
+  "classification_contract": {
+    "DATA_REQUIRED": "observer metric or target is not instantiated",
+    "TARGET_BLIND_ADD_HIGHER_LAYER": "ker(A_N) is not contained in ker(L_N)",
+    "STRICT_NEEL_CUT_CLOSURE": "certified beta_upper < 1",
+    "CRITICAL_ALIGNED_CLOSURE": "certified beta interval equals 1 with zero transverse residue",
+    "THRESHOLD_INCONCLUSIVE": "certified beta interval intersects 1",
+    "BURDEN_EXCEEDS_ONE": "certified beta_lower > 1",
+    "OPEN_SEAM_OR_WRONG_CUT": "bilateral closure defect exceeds its certified tolerance"
+  },
+  "seam_curvature_contract": {
+    "generator_required": true,
+    "generator_cut_grading": "G=G_even+G_odd",
+    "native_seam_curvature": "R_seam=[G_even,G_odd]=[t^2]log(J exp(tG) J exp(tG))",
+    "raw_second_derivative_is_not_native_seam_curvature": true,
+    "curvature_adapter_required": "rho([G_even,G_odd])=Omega_Cr",
+    "generator_instantiated": false,
+    "curvature_computed": false
+  },
+  "current_state": {
+    "primary_scan_or_author_arrays_acquired": false,
+    "response_packet_admitted": false,
+    "candidate_cut_admitted": false,
+    "observer_instantiated": false,
+    "metric_instantiated": false,
+    "target_instantiated": false,
+    "beta_computed": false,
+    "curvature_computed": false,
+    "fit_allowed": false,
+    "anomaly_significance_allowed": false
+  },
+  "response_packet_template_path": "data/manifests/C05_CHROMIUM_RESPONSE_PACKET_TEMPLATE.json",
+  "next_stage": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "claim_boundary": "C05 transfers the RH cut-square proof architecture to a typed chromium Neel adapter. It proves no material-specific beta bound, admits no physical cut, and computes no macroscopic curvature until same-specimen response arrays, covariance, a predeclared target and a cut-covariant generator are supplied."
+}
