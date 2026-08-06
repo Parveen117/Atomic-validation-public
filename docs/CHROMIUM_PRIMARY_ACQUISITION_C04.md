@@ -50,7 +50,7 @@ These are drafts only. No message is marked as sent. User approval and personal 
 
 ## Intake contract
 
-Any received file must enter C05 without modification. The intake record must include:
+Any received file must enter the later intake stage without modification. The intake record must include:
 
 - source route;
 - date received;
@@ -84,10 +84,20 @@ Status:
 PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED
 ```
 
-The packet is operationally ready, but progress now depends on an external response or a library-delivered file.
+The packet is operationally ready, but no external response is falsely counted as data.
 
-## Next stage
+## Corrected dependency order
 
-`C05_CHROMIUM_PRIMARY_FILE_INTAKE_AND_HASH_CERTIFICATE`
+The next scientific stage is now
 
-C05 begins only when a primary PDF, lossless scan, or author array is actually received.
+```text
+C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN
+```
+
+C05 freezes the theorem-guided observer, metric, target, beta and seam-curvature contract before any numerical file is consumed. Actual primary files will then enter
+
+```text
+C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL.
+```
+
+This preserves the acquisition route while ensuring that received data populate a predeclared proof object instead of defining the proof after inspection.
