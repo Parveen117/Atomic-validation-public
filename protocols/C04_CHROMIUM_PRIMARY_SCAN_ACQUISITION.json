@@ -124,6 +124,8 @@
     "digitization_allowed": false,
     "curvature_allowed": false
   },
-  "next_stage": "C05_CHROMIUM_PRIMARY_FILE_INTAKE_AND_HASH_CERTIFICATE",
-  "claim_boundary": "C04 verifies and ranks primary acquisition routes and prepares request packets. No external request is sent automatically and no primary scan or author array is acquired, so digitization and curvature remain blocked."
+  "theorem_guided_adapter_stage": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
+  "primary_file_intake_stage": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "next_stage": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
+  "claim_boundary": "C04 verifies and ranks primary acquisition routes and prepares request packets. No external request is sent automatically and no primary scan or author array is acquired. C05 freezes the theorem-guided cut-square adapter; received primary files are admitted later through the C06 response-packet and beta-interval stage."
 }
