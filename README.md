@@ -115,7 +115,54 @@ Status:
 
 `PASS_CHROMIUM_C05_CUT_SQUARE_ADAPTER_FROZEN_BETA_DATA_REQUIRED`
 
-The next stage is `C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL`. Received primary data will populate the predeclared response packet, rather than defining the theorem after inspection.
+### C06: original-byte intake and outward beta interval
+
+C06 freezes the primary-data packet that must populate the C05 theorem. The required order is:
+
+```text
+original bytes and SHA-256
+-> source-specific TN with uncertainty
+-> two-sided tau pairing
+-> frozen baseline and derivative rules
+-> covariance whitening
+-> visible-quotient observer
+-> target frozen before fitting
+-> certified beta interval.
+```
+
+On the whitened visible quotient `W = H_Cr^(1/2) A_N`, C06 consumes outward bounds
+
+```text
+target_norm_lower <= ||L_N|| <= target_norm_upper,
+||W|| <= observer_norm_upper,
+sigma_min(W) >= visible_singular_lower > 0,
+```
+
+and returns the conservative enclosure
+
+```text
+beta_lower = (target_norm_lower / observer_norm_upper)^2,
+beta_upper = (target_norm_upper / visible_singular_lower)^2.
+```
+
+The interval engine separately classifies strict closure, critical aligned closure, threshold uncertainty, burden failure, target blindness and an open or wrongly chosen cut. Eleven regression tests include a fully populated synthetic packet while the committed physical packet remains empty.
+
+Current physical state:
+
+```text
+primary files admitted       0
+source-specific TN frozen    false
+bilateral pairs              0
+metric and visible quotient  not certified
+physical beta interval       not computed
+physical classification      DATA_REQUIRED
+```
+
+Status:
+
+`PASS_CHROMIUM_C06_ENGINE_FROZEN_PRIMARY_DATA_REQUIRED`
+
+The next stage is `C07_CHROMIUM_BILATERAL_CUT_ADMISSION_AND_NATIVE_CURVATURE`. It starts after C06 produces an admitted physical response packet.
 
 ## Repository structure
 
@@ -166,4 +213,4 @@ A complete release must include:
 
 ## Current status
 
-The core publication package and the chromium C01-C05 theorem-guided audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
+The core publication package and the chromium C01-C06 theorem-guided audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
