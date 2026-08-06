@@ -87,7 +87,35 @@ Status:
 
 `PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED`
 
-No macroscopic chromium curvature or anomaly significance has been computed. The next requirement is a received primary PDF, lossless scan or author-supplied numerical array with provenance, rights, page and figure identity, and original-byte hashing.
+### C05: Neel cut-square adapter and sharp beta burden
+
+C05 transfers the Recognition Kernel cut-square architecture into a typed chromium adapter. It freezes:
+
+```text
+candidate cut       J_tau: tau -> -tau
+observer tower      A_N = direct sum of admitted tau derivatives
+response metric     H_Cr from covariance or compatibility whitening
+Neel target         L_N frozen before fitting
+sharp burden        beta_Cr,N
+positive defect     A_N* H_Cr A_N - L_N* L_N
+native curvature    [G_even,G_odd]
+```
+
+The exact proof gate is
+
+```text
+A_N* H_Cr A_N - L_N* L_N >= 0  iff  beta_Cr,N <= 1.
+```
+
+Exact rational implementation controls verify strict closure at beta `1/4`, the critical threshold at beta `1`, burden failure at beta `4`, and a target-blind case that requires a higher observer layer.
+
+No physical chromium beta is computed. The candidate reduced-temperature cut is not admitted, no shared covariance is available, and a raw response second derivative is not promoted to native seam curvature.
+
+Status:
+
+`PASS_CHROMIUM_C05_CUT_SQUARE_ADAPTER_FROZEN_BETA_DATA_REQUIRED`
+
+The next stage is `C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL`. Received primary data will populate the predeclared response packet, rather than defining the theorem after inspection.
 
 ## Repository structure
 
@@ -138,4 +166,4 @@ A complete release must include:
 
 ## Current status
 
-The core publication package and the chromium C01-C04 audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
+The core publication package and the chromium C01-C05 theorem-guided audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
