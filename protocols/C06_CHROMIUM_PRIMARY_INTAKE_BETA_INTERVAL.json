@@ -1,0 +1,167 @@
+{
+  "campaign": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "upstream_certificates": {
+    "c04_path": "releases/chromium-neel-c04/chromium_primary_acquisition_certificate.json",
+    "c04_required_status": "PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED",
+    "c05_path": "releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json",
+    "c05_required_status": "PASS_CHROMIUM_C05_CUT_SQUARE_ADAPTER_FROZEN_BETA_DATA_REQUIRED"
+  },
+  "response_packet_path": "data/manifests/C06_CHROMIUM_RESPONSE_PACKET.json",
+  "intake_contract": {
+    "allowed_source_route_ids": [
+      "AUTHOR_DIRECT",
+      "ILLINOIS_ARCHIVES_SD131",
+      "ILLINOIS_MRL_LEGACY_RECORDS",
+      "LIBRARY_DOCUMENT_DELIVERY",
+      "PUBLISHER_ACCESS"
+    ],
+    "required_file_fields": [
+      "original_filename",
+      "sha256",
+      "byte_count",
+      "source_route_id",
+      "date_received",
+      "rights_or_access_note",
+      "media_type",
+      "retained_location"
+    ],
+    "original_bytes_preserved": true,
+    "no_ocr_as_numeric_data": true,
+    "no_secondary_redrawing_as_primary_data": true
+  },
+  "transition_coordinate_contract": {
+    "coordinate": "tau=(T-TN_source_sample)/TN_source_sample",
+    "source_specific_tn_required": true,
+    "tn_uncertainty_required": true,
+    "universal_311K_forbidden": true,
+    "same_specimen_required": true,
+    "same_protocol_required": true
+  },
+  "pairing_contract": {
+    "minimum_pairs": 8,
+    "both_sides_required": true,
+    "pairing_rule": "pair tau_plus and tau_minus only when |tau_plus+tau_minus| is within the certified tolerance",
+    "no_interpolation_before_pairing_rule_is_frozen": true
+  },
+  "response_contract": {
+    "base_channels": [
+      "heat_capacity_Cp_anomaly",
+      "resistivity_temperature_coefficient_drho_dT_anomaly"
+    ],
+    "observer": "A_N=direct_sum_{k=0}^N Q_k D_tau^k y",
+    "metric": "H_Cr",
+    "target": "L_N",
+    "raw_unlike_unit_wedge_forbidden": true,
+    "visible_quotient_required": true,
+    "target_formula_frozen_before_fit": true
+  },
+  "interval_contract": {
+    "required_certified_bounds": [
+      "target_norm_lower",
+      "target_norm_upper",
+      "observer_norm_upper",
+      "visible_singular_lower",
+      "bilateral_defect_upper",
+      "bilateral_defect_tolerance"
+    ],
+    "lower_formula": "beta_lower=(target_norm_lower/observer_norm_upper)^2",
+    "upper_formula": "beta_upper=(target_norm_upper/visible_singular_lower)^2",
+    "interpretation": "The interval is conservative. It encloses the physical sharp burden when the supplied scalar norm and singular-value bounds are outward-certified on the declared visible quotient."
+  },
+  "classification_contract": {
+    "strict": "beta_upper<1",
+    "critical": "beta_lower=beta_upper=1 and transverse alignment certified",
+    "threshold_inconclusive": "the beta interval intersects 1 without a complete equality certificate",
+    "exceeds": "beta_lower>1",
+    "blind": "the target is not visible to the declared observer tower",
+    "open_seam": "bilateral_defect_upper exceeds bilateral_defect_tolerance"
+  },
+  "synthetic_controls": [
+    {
+      "id": "STRICT",
+      "target_visible": true,
+      "certified_bounds": {
+        "target_norm_lower": "1/2",
+        "target_norm_upper": "1/2",
+        "observer_norm_upper": "1",
+        "visible_singular_lower": "1"
+      },
+      "bilateral_defect_upper": "0",
+      "bilateral_defect_tolerance": "0",
+      "alignment_certified": false,
+      "expected_classification": "STRICT_NEEL_CUT_CLOSURE"
+    },
+    {
+      "id": "CRITICAL",
+      "target_visible": true,
+      "certified_bounds": {
+        "target_norm_lower": "1",
+        "target_norm_upper": "1",
+        "observer_norm_upper": "1",
+        "visible_singular_lower": "1"
+      },
+      "bilateral_defect_upper": "0",
+      "bilateral_defect_tolerance": "0",
+      "alignment_certified": true,
+      "expected_classification": "CRITICAL_ALIGNED_CLOSURE"
+    },
+    {
+      "id": "THRESHOLD",
+      "target_visible": true,
+      "certified_bounds": {
+        "target_norm_lower": "99/100",
+        "target_norm_upper": "101/100",
+        "observer_norm_upper": "1",
+        "visible_singular_lower": "1"
+      },
+      "bilateral_defect_upper": "0",
+      "bilateral_defect_tolerance": "0",
+      "alignment_certified": false,
+      "expected_classification": "THRESHOLD_INCONCLUSIVE"
+    },
+    {
+      "id": "EXCEEDS",
+      "target_visible": true,
+      "certified_bounds": {
+        "target_norm_lower": "2",
+        "target_norm_upper": "2",
+        "observer_norm_upper": "1",
+        "visible_singular_lower": "1"
+      },
+      "bilateral_defect_upper": "0",
+      "bilateral_defect_tolerance": "0",
+      "alignment_certified": false,
+      "expected_classification": "BURDEN_EXCEEDS_ONE"
+    },
+    {
+      "id": "BLIND",
+      "target_visible": false,
+      "certified_bounds": {
+        "target_norm_lower": "0",
+        "target_norm_upper": "0",
+        "observer_norm_upper": "1",
+        "visible_singular_lower": "1"
+      },
+      "bilateral_defect_upper": "0",
+      "bilateral_defect_tolerance": "0",
+      "alignment_certified": false,
+      "expected_classification": "TARGET_BLIND_ADD_HIGHER_LAYER"
+    },
+    {
+      "id": "OPEN",
+      "target_visible": true,
+      "certified_bounds": {
+        "target_norm_lower": "1/2",
+        "target_norm_upper": "1/2",
+        "observer_norm_upper": "1",
+        "visible_singular_lower": "1"
+      },
+      "bilateral_defect_upper": "1/10",
+      "bilateral_defect_tolerance": "1/100",
+      "alignment_certified": false,
+      "expected_classification": "OPEN_SEAM_OR_WRONG_CUT"
+    }
+  ],
+  "next_stage": "C07_CHROMIUM_BILATERAL_CUT_ADMISSION_AND_NATIVE_CURVATURE",
+  "claim_boundary": "C06 freezes original-byte intake, source-specific reduced-temperature pairing, a whitened visible-quotient response packet and a conservative outward beta interval. No physical beta interval is computed until every admitted primary-data gate passes."
+}
