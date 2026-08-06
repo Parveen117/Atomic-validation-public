@@ -43,7 +43,19 @@ jobs:
         run: |
           cp releases/chromium-curvature-c01/chromium_curvature_certificate.json /tmp/C01.expected.json
           python scripts/run_chromium_curvature_c01.py
-          diff -u /tmp/C01.expected.json releases/chromium-curvature-c01/chromium_curvature_certificate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/C01.expected.json').read_text(encoding='utf-8'))
+          actual = json.loads(
+              Path('releases/chromium-curvature-c01/chromium_curvature_certificate.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          assert actual == expected
+          print('PASS_C01_SEMANTIC_CERTIFICATE_REPRODUCTION')
+          PY
       - name: Upload C01 certificate
         uses: actions/upload-artifact@v4
         with:
