@@ -1,0 +1,48 @@
+{
+  "campaign": "C01_CHROMIUM_CURVATURE_AUDIT",
+  "target": {
+    "atomic_number": 24,
+    "symbol": "Cr",
+    "electronic_comparison_range_Z": [21, 30],
+    "nuclear_local_baseline": {
+      "atomic_number_range_Z": [20, 28],
+      "mass_number_range_A": [40, 70]
+    }
+  },
+  "sources": {
+    "ground_state_ledger": {
+      "path": "releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json",
+      "sha256": "dcf52808325a520c0d9bea0ddae13fe0682f57df8e2e15d405ab06a8e029a04b"
+    },
+    "nuclear_report": {
+      "path": "releases/rkf-nuclear-v5/experiment_report.json",
+      "sha256": "9924e9e4d695cfc7680e227a63681c158a7012904417d4cf1f376aba05666845"
+    }
+  },
+  "nuclear_support_contract": {
+    "required_neutron_predictor": "CUBIC_N2_N4",
+    "required_proton_predictor": "CUBIC_Z1_Z2",
+    "neutron_offsets": [-4, -2, 2, 4],
+    "proton_offsets": [-2, -1, 1, 2]
+  },
+  "screening_contract": {
+    "robust_scale": "1.4826_TIMES_MEDIAN_ABSOLUTE_DEVIATION",
+    "local_absolute_z_threshold": 3.0,
+    "global_baseline_is_diagnostic_only": true,
+    "measurement_uncertainty_propagated": false,
+    "screening_z_is_not_measurement_sigma": true
+  },
+  "expected_controls": {
+    "chromium_isotope_record_count": 30,
+    "chromium_full_cubic_record_count": 22,
+    "local_baseline_record_count": 185,
+    "chromium_electronic_curvature": 2.0,
+    "copper_electronic_curvature": 2.0,
+    "largest_absolute_chromium_neutron_curvature_entity": "Cr-46",
+    "largest_absolute_chromium_cut_even_curvature_entity": "Cr-47",
+    "largest_absolute_chromium_cut_odd_curvature_entity": "Cr-46",
+    "largest_absolute_chromium_seam_residue_entity": "Cr-48"
+  },
+  "next_stage": "C02_CHROMIUM_THERMAL_MAGNETIC_NEEL_ANOMALY_SOURCE_PINNING",
+  "claim_boundary": "C01 audits electronic-configuration and nuclear binding-surface curvature for chromium. It does not treat robust screening z-scores as measurement significance, does not claim chromium is uniquely anomalous among transition metals, and does not yet test the thermal or magnetic Neel anomaly."
+}
