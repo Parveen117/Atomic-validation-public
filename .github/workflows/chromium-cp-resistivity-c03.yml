@@ -1,0 +1,60 @@
+name: C03 chromium Cp-resistivity acquisition audit
+
+on:
+  push:
+    paths:
+      - ".github/workflows/chromium-cp-resistivity-c03.yml"
+      - "protocols/C03_CHROMIUM_SIMULTANEOUS_CP_RESISTIVITY_DIGITIZATION.json"
+      - "scripts/run_chromium_cp_resistivity_c03.py"
+      - "tests/test_chromium_cp_resistivity_c03.py"
+      - "docs/CHROMIUM_CP_RESISTIVITY_C03.md"
+      - "releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json"
+  pull_request:
+    paths:
+      - ".github/workflows/chromium-cp-resistivity-c03.yml"
+      - "protocols/C03_CHROMIUM_SIMULTANEOUS_CP_RESISTIVITY_DIGITIZATION.json"
+      - "scripts/run_chromium_cp_resistivity_c03.py"
+      - "tests/test_chromium_cp_resistivity_c03.py"
+      - "docs/CHROMIUM_CP_RESISTIVITY_C03.md"
+      - "releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run C03 tests
+        run: python -m unittest tests.test_chromium_cp_resistivity_c03 -v
+      - name: Reproduce C03 certificate
+        run: |
+          cp releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json /tmp/C03.expected.json
+          python scripts/run_chromium_cp_resistivity_c03.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/C03.expected.json').read_text(encoding='utf-8'))
+          actual = json.loads(
+              Path('releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          assert actual == expected
+          print('PASS_C03_SEMANTIC_CERTIFICATE_REPRODUCTION')
+          PY
+      - name: Upload C03 certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: chromium-cp-resistivity-c03-python-${{ matrix.python-version }}
+          path: releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json
+          if-no-files-found: error
