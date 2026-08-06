@@ -5,7 +5,7 @@
   "author_arrays_acquired": false,
   "author_contact_verified": true,
   "campaign": "C04_CHROMIUM_PRIMARY_SCAN_OR_AUTHOR_DATA_ACQUISITION",
-  "claim_boundary": "C04 verifies and ranks primary acquisition routes and prepares request packets. No external request is sent automatically and no primary scan or author array is acquired, so digitization and curvature remain blocked.",
+  "claim_boundary": "C04 verifies and ranks primary acquisition routes and prepares request packets. No external request is sent automatically and no primary scan or author array is acquired. C05 freezes the theorem-guided cut-square adapter; received primary files are admitted later through the C06 response-packet and beta-interval stage.",
   "curvature_allowed": false,
   "decisive_reasons": [
     "An official emeritus profile provides a direct author contact route.",
@@ -21,7 +21,7 @@
   "funding_note": "Advanced Research Projects Agency Contract SD-131",
   "intake_certificate_ready": false,
   "minimum_scan_resolution_dpi": 300,
-  "next_stage": "C05_CHROMIUM_PRIMARY_FILE_INTAKE_AND_HASH_CERTIFICATE",
+  "next_stage": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
   "primary_files_acquired": 0,
   "primary_scan_acquired": false,
   "request_draft_paths": [
