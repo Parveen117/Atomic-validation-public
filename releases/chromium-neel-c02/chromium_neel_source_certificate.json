@@ -1,0 +1,70 @@
+{
+  "anomaly_significance_computed": false,
+  "campaign": "C02_CHROMIUM_THERMAL_MAGNETIC_NEEL_SOURCE_PINNING",
+  "claim_boundary": "C02 pins primary chromium Neel-transition sources and freezes specimen and thermal-branch semantics. It does not admit a common four-channel dataset, compute curvature, or report anomaly significance.",
+  "cross_paper_curvature_allowed": false,
+  "curvature_computed": false,
+  "decisive_reasons": [
+    "The strongest primary source measures heat capacity and resistivity response simultaneously on one specimen.",
+    "Thermal expansion, latent heat, elastic, hysteresis and transition-order sources use different specimens and protocols.",
+    "Reported transition temperatures differ across sample state, strain, alloying and measurement protocol, so 311 K is not a universal alignment coordinate.",
+    "No pinned source currently provides a verified public machine-readable curve with pointwise uncertainty and shared covariance.",
+    "Cross-paper curvature and significance remain forbidden until source arrays and branch metadata are acquired."
+  ],
+  "direct_latent_heat_scalar": {
+    "uncertainty_cal_per_mol": 0.1,
+    "value_cal_per_mol": 0.47
+  },
+  "errors": [],
+  "first_order_witness_count": 3,
+  "four_channel_common_specimen_ready": false,
+  "machine_readable_curve_source_count": 0,
+  "next_stage": "C03_CHROMIUM_SIMULTANEOUS_CP_RESISTIVITY_DIGITIZATION_AND_BRANCH_AUDIT",
+  "nominal_reference_is_not_universal": true,
+  "nominal_reference_temperature_K": 311.0,
+  "nominal_temperature_window_K": [
+    293.0,
+    323.0
+  ],
+  "primary_same_specimen_channels": [
+    "heat_capacity_Cp",
+    "resistivity_temperature_coefficient_drho_dT"
+  ],
+  "primary_same_specimen_source_id": "SIMULTANEOUS_CP_DRHODT_1969",
+  "required_next_data": [
+    "pointwise temperature and heat-capacity values near each source-reported transition temperature",
+    "pointwise resistivity or drho_dT values on the same temperature calibration",
+    "heating cooling or modulation branch labels",
+    "sample purity strain annealing orientation and interstitial state",
+    "pointwise statistical uncertainty and shared calibration covariance",
+    "thermal lag and scan-rate metadata",
+    "digitization axis calibration and pixel uncertainty when author arrays are unavailable"
+  ],
+  "same_specimen_multichannel_source_count": 8,
+  "source_count": 10,
+  "source_ids": [
+    "CALORIMETRIC_CR_ALLOYS_1975",
+    "ELASTIC_EXPANSION_1963",
+    "FIRST_ORDER_PRL_1971",
+    "LATENT_HEAT_1971",
+    "RESISTIVITY_PRB_1978",
+    "SIMULTANEOUS_CP_DRHODT_1969",
+    "SPECIFIC_HEAT_STRAIN_ANNEAL_1979",
+    "THERMAL_EXPANSION_CR_CRV_1986",
+    "THERMAL_EXPANSION_SINGLE_CRYSTAL_1969",
+    "THERMAL_HYSTERESIS_1980"
+  ],
+  "source_reported_transition_temperatures_K": [
+    310.0,
+    311.0,
+    311.4
+  ],
+  "state_coordinates": [
+    "equilibrium_sample_temperature_K",
+    "thermal_branch",
+    "sample_state_id"
+  ],
+  "status": "PASS_CHROMIUM_NEEL_SOURCE_PINNING_DATA_ACQUISITION_REQUIRED",
+  "target_material": "elemental_bcc_chromium",
+  "target_transition": "antiferromagnetic_spin_density_wave_to_paramagnetic_neel_transition"
+}
