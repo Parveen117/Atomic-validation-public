@@ -1,0 +1,103 @@
+{
+  "beta_interval": {
+    "lower": null,
+    "upper": null
+  },
+  "campaign": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "claim_boundary": "C06 freezes original-byte intake, source-specific reduced-temperature pairing, a whitened visible-quotient response packet and a conservative outward beta interval. No physical beta interval is computed until every admitted primary-data gate passes.",
+  "errors": [],
+  "intake_file_count": 0,
+  "interval_formula": {
+    "lower": "(target_norm_lower/observer_norm_upper)^2",
+    "upper": "(target_norm_upper/visible_singular_lower)^2"
+  },
+  "next_stage": "C07_CHROMIUM_BILATERAL_CUT_ADMISSION_AND_NATIVE_CURVATURE",
+  "physical_classification": "DATA_REQUIRED",
+  "readiness": {
+    "bounds_ready": false,
+    "channels_ready": false,
+    "coordinate_ready": false,
+    "intake_ready": false,
+    "metric_ready": false,
+    "observer_ready": false,
+    "pairing_ready": false,
+    "preprocessing_ready": false,
+    "ready_for_beta": false,
+    "sample_ready": false,
+    "target_ready": false
+  },
+  "response_packet_path": "data/manifests/C06_CHROMIUM_RESPONSE_PACKET.json",
+  "status": "PASS_CHROMIUM_C06_ENGINE_FROZEN_PRIMARY_DATA_REQUIRED",
+  "synthetic_controls": {
+    "BLIND": {
+      "beta_lower": null,
+      "beta_upper": null,
+      "classification": "TARGET_BLIND_ADD_HIGHER_LAYER",
+      "expected_classification": "TARGET_BLIND_ADD_HIGHER_LAYER"
+    },
+    "CRITICAL": {
+      "beta_lower": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "beta_upper": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "classification": "CRITICAL_ALIGNED_CLOSURE",
+      "expected_classification": "CRITICAL_ALIGNED_CLOSURE"
+    },
+    "EXCEEDS": {
+      "beta_lower": {
+        "denominator": 1,
+        "numerator": 4
+      },
+      "beta_upper": {
+        "denominator": 1,
+        "numerator": 4
+      },
+      "classification": "BURDEN_EXCEEDS_ONE",
+      "expected_classification": "BURDEN_EXCEEDS_ONE"
+    },
+    "OPEN": {
+      "beta_lower": {
+        "denominator": 4,
+        "numerator": 1
+      },
+      "beta_upper": {
+        "denominator": 4,
+        "numerator": 1
+      },
+      "classification": "OPEN_SEAM_OR_WRONG_CUT",
+      "expected_classification": "OPEN_SEAM_OR_WRONG_CUT"
+    },
+    "STRICT": {
+      "beta_lower": {
+        "denominator": 4,
+        "numerator": 1
+      },
+      "beta_upper": {
+        "denominator": 4,
+        "numerator": 1
+      },
+      "classification": "STRICT_NEEL_CUT_CLOSURE",
+      "expected_classification": "STRICT_NEEL_CUT_CLOSURE"
+    },
+    "THRESHOLD": {
+      "beta_lower": {
+        "denominator": 10000,
+        "numerator": 9801
+      },
+      "beta_upper": {
+        "denominator": 10000,
+        "numerator": 10201
+      },
+      "classification": "THRESHOLD_INCONCLUSIVE",
+      "expected_classification": "THRESHOLD_INCONCLUSIVE"
+    }
+  },
+  "upstream_statuses": {
+    "C04": "PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED",
+    "C05": "PASS_CHROMIUM_C05_CUT_SQUARE_ADAPTER_FROZEN_BETA_DATA_REQUIRED"
+  }
+}
