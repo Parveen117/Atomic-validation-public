@@ -38,6 +38,41 @@ This repository does **not** claim that the current result is:
 
 Those stronger questions require additional comparison and external validation.
 
+## Chromium anomaly campaign
+
+The chromium campaign is developed on a separate branch and draft pull request so that its claim boundaries do not alter the frozen nuclear baseline.
+
+### C01: electronic and isotope curvature
+
+- chromium and copper both have normalized electronic-configuration curvature `2.0` on the active `(3d,4s)` Smriti coordinates;
+- the source report contains 30 chromium isotopes, with 22 having complete neutron and proton cubic support;
+- the strongest chromium structures occur at Cr-46, Cr-47 and Cr-48;
+- the largest local robust screening score is `1.862842`, below the frozen threshold `3.0`.
+
+Status:
+
+`PASS_CHROMIUM_CURVATURE_AUDIT_NO_LOCAL_THREE_SIGMA_ANOMALY`
+
+### C02: Neel-transition source pinning
+
+C02 pins ten heat-capacity, transport, expansion, elastic, latent-heat and hysteresis sources. It types temperature, thermal branch and specimen state separately and forbids universal substitution of `311 K` across specimens and protocols.
+
+Status:
+
+`PASS_CHROMIUM_NEEL_SOURCE_PINNING_DATA_ACQUISITION_REQUIRED`
+
+### C03: simultaneous Cp and resistivity acquisition audit
+
+The primary 1969 experiment measures heat capacity and `drho/dT` simultaneously on one specimen using an AC modulation technique. Its official metadata and abstract are verified, but no publisher or author PDF, primary figure bitmap or machine-readable arrays are pinned.
+
+The modulation response is not relabelled as a heating or cooling branch. An abstract relation between critical exponents is not converted into numerical exponent values or response curves.
+
+Status:
+
+`PASS_CHROMIUM_C03_ACQUISITION_AUDIT_DIGITIZATION_BLOCKED`
+
+No macroscopic chromium curvature or anomaly significance has been computed. The next requirement is a hash-pinned primary scan or author-supplied numerical arrays with axis and uncertainty metadata.
+
 ## Repository structure
 
 ```text
@@ -87,4 +122,4 @@ A complete release must include:
 
 ## Current status
 
-The repository is under construction and remains private while the publication package is assembled. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
+The core publication package and the chromium C01-C03 audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
