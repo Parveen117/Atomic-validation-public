@@ -1,0 +1,68 @@
+name: C06 chromium primary intake and beta interval
+
+on:
+  push:
+    paths:
+      - ".github/workflows/chromium-primary-intake-beta-c06.yml"
+      - "protocols/C06_CHROMIUM_PRIMARY_INTAKE_BETA_INTERVAL.json"
+      - "data/manifests/C06_CHROMIUM_RESPONSE_PACKET.json"
+      - "scripts/run_chromium_primary_intake_beta_c06.py"
+      - "tests/test_chromium_primary_intake_beta_c06.py"
+      - "docs/CHROMIUM_PRIMARY_INTAKE_BETA_C06.md"
+      - "releases/chromium-neel-c06/chromium_intake_beta_interval_certificate.json"
+      - "releases/chromium-neel-c04/chromium_primary_acquisition_certificate.json"
+      - "releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json"
+  pull_request:
+    paths:
+      - ".github/workflows/chromium-primary-intake-beta-c06.yml"
+      - "protocols/C06_CHROMIUM_PRIMARY_INTAKE_BETA_INTERVAL.json"
+      - "data/manifests/C06_CHROMIUM_RESPONSE_PACKET.json"
+      - "scripts/run_chromium_primary_intake_beta_c06.py"
+      - "tests/test_chromium_primary_intake_beta_c06.py"
+      - "docs/CHROMIUM_PRIMARY_INTAKE_BETA_C06.md"
+      - "releases/chromium-neel-c06/chromium_intake_beta_interval_certificate.json"
+      - "releases/chromium-neel-c04/chromium_primary_acquisition_certificate.json"
+      - "releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run C06 tests
+        run: python -m unittest tests.test_chromium_primary_intake_beta_c06 -v
+      - name: Reproduce C06 certificate
+        run: |
+          cp releases/chromium-neel-c06/chromium_intake_beta_interval_certificate.json /tmp/C06.expected.json
+          python scripts/run_chromium_primary_intake_beta_c06.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/C06.expected.json').read_text(encoding='utf-8'))
+          actual = json.loads(
+              Path('releases/chromium-neel-c06/chromium_intake_beta_interval_certificate.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          assert actual == expected
+          print('PASS_C06_SEMANTIC_CERTIFICATE_REPRODUCTION')
+          PY
+      - name: Upload C06 packet and certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: chromium-primary-intake-beta-c06-python-${{ matrix.python-version }}
+          path: |
+            data/manifests/C06_CHROMIUM_RESPONSE_PACKET.json
+            releases/chromium-neel-c06/chromium_intake_beta_interval_certificate.json
+          if-no-files-found: error
