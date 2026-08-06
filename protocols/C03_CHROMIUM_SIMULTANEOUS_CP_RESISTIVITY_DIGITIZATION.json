@@ -1,0 +1,110 @@
+{
+  "campaign": "C03_CHROMIUM_SIMULTANEOUS_CP_RESISTIVITY_DIGITIZATION_AND_BRANCH_AUDIT",
+  "primary_source": {
+    "source_id": "SIMULTANEOUS_CP_DRHODT_1969",
+    "title": "Simultaneous measurement of the anomalous heat capacity and resistivity of chromium near TN",
+    "authors": [
+      "M. B. Salamon",
+      "D. S. Simons",
+      "P. R. Garnier"
+    ],
+    "journal": "Solid State Communications",
+    "volume": 7,
+    "issue": 15,
+    "publication_date": "1969-08-01",
+    "pages": [1035, 1038],
+    "doi": "10.1016/0038-1098(69)90464-5",
+    "pii": "0038109869904645",
+    "publisher": "Elsevier",
+    "official_landing_page_verified": true,
+    "official_abstract_verified": true
+  },
+  "source_supported_experiment": {
+    "material": "elemental_chromium",
+    "transition": "neel_transition",
+    "measurement_mode": "AC_MODULATION_NEAR_EQUILIBRIUM",
+    "channels": [
+      "heat_capacity_Cp",
+      "resistivity_temperature_coefficient_drho_dT"
+    ],
+    "same_specimen": true,
+    "simultaneous_measurement": true,
+    "common_temperature_calibration": true,
+    "thermal_branch_semantics": "MODULATION_BRANCH_NOT_HEATING_COOLING_BRANCH",
+    "abstract_supported_relation": "HEAT_CAPACITY_CRITICAL_EXPONENT_IS_TWICE_DRHODT_CRITICAL_EXPONENT",
+    "numeric_critical_exponents_available_from_verified_abstract": false
+  },
+  "acquisition_audit": {
+    "official_full_text_pdf_acquired": false,
+    "official_or_author_figure_bitmap_acquired": false,
+    "primary_figure_page_number_verified": false,
+    "primary_figure_identifier_verified": false,
+    "figure_bytes_sha256": null,
+    "full_text_pdf_sha256": null,
+    "author_machine_readable_arrays_acquired": false,
+    "repository_or_library_exact_primary_file_found": false,
+    "public_machine_readable_curve_found": false,
+    "secondary_thesis_or_review_may_be_used_as_primary_figure_proxy": false,
+    "search_attempts": [
+      {
+        "route": "OFFICIAL_PUBLISHER_LANDING_PAGE",
+        "result": "METADATA_AND_ABSTRACT_ONLY"
+      },
+      {
+        "route": "EXACT_TITLE_AND_DOI_PUBLIC_WEB_SEARCH",
+        "result": "NO_VERIFIED_PUBLIC_PRIMARY_PDF_OR_FIGURE"
+      },
+      {
+        "route": "CONNECTED_CONVERSATION_AND_LIBRARY_SEARCH",
+        "result": "NO_EXACT_PRIMARY_ARTICLE_FILE"
+      },
+      {
+        "route": "SECONDARY_CHROMIUM_THESIS_SEARCH",
+        "result": "CONTEXTUAL_CITATION_ONLY_NOT_PRIMARY_DIGITIZATION_SOURCE"
+      }
+    ]
+  },
+  "digitization_contract": {
+    "primary_figure_bytes_required": true,
+    "figure_hash_required": true,
+    "x_axis_calibration_points_required": 2,
+    "y_axis_calibration_points_required_per_panel": 2,
+    "axis_scale_type_required": true,
+    "panel_bounds_required": true,
+    "curve_identity_and_marker_style_required": true,
+    "pixel_pick_uncertainty_required": true,
+    "axis_tick_uncertainty_required": true,
+    "temperature_calibration_uncertainty_required": true,
+    "branch_or_modulation_label_required": true,
+    "minimum_points_per_channel": 20,
+    "no_abstract_to_curve_conversion": true,
+    "no_secondary_figure_proxy": true,
+    "no_numeric_exponent_inference_from_later_papers": true,
+    "no_curvature_before_digitization_certificate": true
+  },
+  "current_digitization_state": {
+    "heat_capacity_point_count": 0,
+    "drho_dT_point_count": 0,
+    "x_axis_calibrated": false,
+    "heat_capacity_y_axis_calibrated": false,
+    "drho_dT_y_axis_calibrated": false,
+    "pixel_uncertainty_frozen": false,
+    "temperature_uncertainty_frozen": false,
+    "shared_calibration_covariance_frozen": false,
+    "digitization_allowed": false,
+    "derivative_or_curvature_allowed": false,
+    "anomaly_significance_allowed": false
+  },
+  "required_acquisition_package": [
+    "publisher or author PDF or lossless scan containing all primary figures",
+    "figure page and panel identifiers",
+    "pointwise or author-supplied Cp and drho_dT arrays if available",
+    "axis units and scale types",
+    "sample purity geometry treatment and thermometer calibration",
+    "AC modulation frequency amplitude and phase convention",
+    "temperature resolution thermal lag and statistical uncertainty",
+    "shared calibration covariance between Cp and drho_dT channels"
+  ],
+  "next_stage": "C04_CHROMIUM_PRIMARY_SCAN_OR_AUTHOR_DATA_ACQUISITION",
+  "claim_boundary": "C03 verifies the simultaneous same-specimen experiment and freezes digitization and modulation-branch requirements. The primary figure bytes and numerical arrays are not acquired, so no curve, exponent, curvature, or anomaly significance is computed."
+}
