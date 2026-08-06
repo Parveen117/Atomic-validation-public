@@ -1,0 +1,62 @@
+{
+  "abstract_supported_relation": "HEAT_CAPACITY_CRITICAL_EXPONENT_IS_TWICE_DRHODT_CRITICAL_EXPONENT",
+  "anomaly_significance_allowed": false,
+  "author_arrays_acquired": false,
+  "axes_ready": false,
+  "campaign": "C03_CHROMIUM_SIMULTANEOUS_CP_RESISTIVITY_DIGITIZATION_AND_BRANCH_AUDIT",
+  "channels": [
+    "heat_capacity_Cp",
+    "resistivity_temperature_coefficient_drho_dT"
+  ],
+  "claim_boundary": "C03 verifies the simultaneous same-specimen experiment and freezes digitization and modulation-branch requirements. The primary figure bytes and numerical arrays are not acquired, so no curve, exponent, curvature, or anomaly significance is computed.",
+  "common_temperature_calibration": true,
+  "curvature_allowed": false,
+  "decisive_reasons": [
+    "The official publisher metadata and abstract verify a simultaneous same-specimen AC-modulation experiment with Cp and drho/dT channels.",
+    "The verified abstract provides only a relation between critical exponents, not numeric exponent values or pointwise curves.",
+    "No publisher or author PDF, primary figure bitmap, or machine-readable arrays are pinned.",
+    "Axis calibration, pixel uncertainty, temperature uncertainty and shared calibration covariance therefore remain unavailable.",
+    "Digitization, curvature and anomaly significance remain fail-closed until the primary figure or author arrays are acquired."
+  ],
+  "digitization_allowed": false,
+  "digitization_ready": false,
+  "drho_dT_point_count": 0,
+  "errors": [],
+  "figure_ready": false,
+  "full_text_pdf_acquired": false,
+  "heat_capacity_point_count": 0,
+  "measurement_mode": "AC_MODULATION_NEAR_EQUILIBRIUM",
+  "next_stage": "C04_CHROMIUM_PRIMARY_SCAN_OR_AUTHOR_DATA_ACQUISITION",
+  "numeric_critical_exponents_available": false,
+  "points_ready": false,
+  "primary_authors": [
+    "M. B. Salamon",
+    "D. S. Simons",
+    "P. R. Garnier"
+  ],
+  "primary_doi": "10.1016/0038-1098(69)90464-5",
+  "primary_figure_acquired": false,
+  "primary_pages": [
+    1035,
+    1038
+  ],
+  "primary_pii": "0038109869904645",
+  "primary_source_id": "SIMULTANEOUS_CP_DRHODT_1969",
+  "required_acquisition_package": [
+    "publisher or author PDF or lossless scan containing all primary figures",
+    "figure page and panel identifiers",
+    "pointwise or author-supplied Cp and drho_dT arrays if available",
+    "axis units and scale types",
+    "sample purity geometry treatment and thermometer calibration",
+    "AC modulation frequency amplitude and phase convention",
+    "temperature resolution thermal lag and statistical uncertainty",
+    "shared calibration covariance between Cp and drho_dT channels"
+  ],
+  "same_specimen": true,
+  "search_attempt_count": 4,
+  "simultaneous_measurement": true,
+  "source_metadata_verified": true,
+  "status": "PASS_CHROMIUM_C03_ACQUISITION_AUDIT_DIGITIZATION_BLOCKED",
+  "thermal_branch_semantics": "MODULATION_BRANCH_NOT_HEATING_COOLING_BRANCH",
+  "uncertainty_ready": false
+}
