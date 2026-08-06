@@ -1,0 +1,60 @@
+name: C02 chromium Neel source pinning
+
+on:
+  push:
+    paths:
+      - ".github/workflows/chromium-neel-source-c02.yml"
+      - "protocols/C02_CHROMIUM_NEEL_SOURCE_PINNING.json"
+      - "scripts/run_chromium_neel_source_pinning_c02.py"
+      - "tests/test_chromium_neel_source_pinning_c02.py"
+      - "docs/CHROMIUM_NEEL_SOURCE_PINNING_C02.md"
+      - "releases/chromium-neel-c02/chromium_neel_source_certificate.json"
+  pull_request:
+    paths:
+      - ".github/workflows/chromium-neel-source-c02.yml"
+      - "protocols/C02_CHROMIUM_NEEL_SOURCE_PINNING.json"
+      - "scripts/run_chromium_neel_source_pinning_c02.py"
+      - "tests/test_chromium_neel_source_pinning_c02.py"
+      - "docs/CHROMIUM_NEEL_SOURCE_PINNING_C02.md"
+      - "releases/chromium-neel-c02/chromium_neel_source_certificate.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run C02 tests
+        run: python -m unittest tests.test_chromium_neel_source_pinning_c02 -v
+      - name: Reproduce C02 certificate
+        run: |
+          cp releases/chromium-neel-c02/chromium_neel_source_certificate.json /tmp/C02.expected.json
+          python scripts/run_chromium_neel_source_pinning_c02.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/C02.expected.json').read_text(encoding='utf-8'))
+          actual = json.loads(
+              Path('releases/chromium-neel-c02/chromium_neel_source_certificate.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          assert actual == expected
+          print('PASS_C02_SEMANTIC_CERTIFICATE_REPRODUCTION')
+          PY
+      - name: Upload C02 certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: chromium-neel-source-c02-python-${{ matrix.python-version }}
+          path: releases/chromium-neel-c02/chromium_neel_source_certificate.json
+          if-no-files-found: error
