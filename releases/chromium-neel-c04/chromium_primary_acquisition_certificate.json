@@ -1,0 +1,53 @@
+{
+  "acquisition_packet_ready": true,
+  "archive_collection_physically_held": true,
+  "archive_collection_proven_to_contain_article_figures": false,
+  "author_arrays_acquired": false,
+  "author_contact_verified": true,
+  "campaign": "C04_CHROMIUM_PRIMARY_SCAN_OR_AUTHOR_DATA_ACQUISITION",
+  "claim_boundary": "C04 verifies and ranks primary acquisition routes and prepares request packets. No external request is sent automatically and no primary scan or author array is acquired, so digitization and curvature remain blocked.",
+  "curvature_allowed": false,
+  "decisive_reasons": [
+    "An official emeritus profile provides a direct author contact route.",
+    "The University of Illinois Archives physically holds ARPA SD-131 annual technical reports, but the collection is not yet proven to contain the article figures or raw data.",
+    "The Materials Research Laboratory and library document-delivery routes are verified institutional acquisition channels.",
+    "Prepared request drafts are present, but no external message has been sent automatically.",
+    "No primary bytes or author arrays have been received, so intake certification, digitization and curvature remain blocked."
+  ],
+  "digitization_allowed": false,
+  "errors": [],
+  "external_messages_sent": false,
+  "external_requests_sent": 0,
+  "funding_note": "Advanced Research Projects Agency Contract SD-131",
+  "intake_certificate_ready": false,
+  "minimum_scan_resolution_dpi": 300,
+  "next_stage": "C05_CHROMIUM_PRIMARY_FILE_INTAKE_AND_HASH_CERTIFICATE",
+  "primary_files_acquired": 0,
+  "primary_scan_acquired": false,
+  "request_draft_paths": [
+    "docs/requests/C04_AUTHOR_DATA_REQUEST.md",
+    "docs/requests/C04_ARCHIVE_SCAN_REQUEST.md",
+    "docs/requests/C04_LIBRARY_REQUEST_METADATA.md"
+  ],
+  "request_drafts_present": true,
+  "responses_received": 0,
+  "route_contacts": {
+    "AUTHOR_DIRECT": "salamon@utdallas.edu",
+    "ILLINOIS_ARCHIVES_SD131": "illiarch@illinois.edu",
+    "ILLINOIS_MRL_LEGACY_RECORDS": "mrl@illinois.edu",
+    "LIBRARY_DOCUMENT_DELIVERY": "borrowing@library.illinois.edu",
+    "PUBLISHER_ACCESS": "https://www.sciencedirect.com/science/article/pii/0038109869904645"
+  },
+  "route_count": 5,
+  "route_ids": [
+    "AUTHOR_DIRECT",
+    "ILLINOIS_ARCHIVES_SD131",
+    "ILLINOIS_MRL_LEGACY_RECORDS",
+    "LIBRARY_DOCUMENT_DELIVERY",
+    "PUBLISHER_ACCESS"
+  ],
+  "status": "PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED",
+  "target_doi": "10.1016/0038-1098(69)90464-5",
+  "target_pii": "0038109869904645",
+  "user_approval_required_before_sending": true
+}
