@@ -71,7 +71,23 @@ Status:
 
 `PASS_CHROMIUM_C03_ACQUISITION_AUDIT_DIGITIZATION_BLOCKED`
 
-No macroscopic chromium curvature or anomaly significance has been computed. The next requirement is a hash-pinned primary scan or author-supplied numerical arrays with axis and uncertainty metadata.
+### C04: primary scan or author-data acquisition packet
+
+C04 ranks five verified acquisition routes:
+
+1. direct request to Myron B. Salamon using the contact on his official emeritus profile;
+2. University of Illinois Archives series `11/14/818`, containing ARPA SD-131 annual technical reports;
+3. University of Illinois Materials Research Laboratory legacy-record inquiry;
+4. home-institution or public-library document delivery;
+5. publisher access through the DOI landing page.
+
+Prepared author, archive and library request documents are committed. No external message is marked as sent and no primary file has been received. Any future file must enter through an original-byte SHA-256 intake certificate before image extraction or digitization.
+
+Status:
+
+`PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED`
+
+No macroscopic chromium curvature or anomaly significance has been computed. The next requirement is a received primary PDF, lossless scan or author-supplied numerical array with provenance, rights, page and figure identity, and original-byte hashing.
 
 ## Repository structure
 
@@ -122,4 +138,4 @@ A complete release must include:
 
 ## Current status
 
-The core publication package and the chromium C01-C03 audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
+The core publication package and the chromium C01-C04 audit ladder are under active development. See [PUBLICATION_STATUS.md](PUBLICATION_STATUS.md) for the active gate checklist.
