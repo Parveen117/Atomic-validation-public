@@ -1,0 +1,68 @@
+name: C05 chromium Neel cut-square adapter
+
+on:
+  push:
+    paths:
+      - ".github/workflows/chromium-neel-cut-square-c05.yml"
+      - "protocols/C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER.json"
+      - "data/manifests/C05_CHROMIUM_RESPONSE_PACKET_TEMPLATE.json"
+      - "scripts/run_chromium_neel_cut_square_c05.py"
+      - "tests/test_chromium_neel_cut_square_c05.py"
+      - "docs/CHROMIUM_NEEL_CUT_SQUARE_C05.md"
+      - "releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json"
+      - "releases/chromium-neel-c04/chromium_primary_acquisition_certificate.json"
+      - "releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json"
+  pull_request:
+    paths:
+      - ".github/workflows/chromium-neel-cut-square-c05.yml"
+      - "protocols/C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER.json"
+      - "data/manifests/C05_CHROMIUM_RESPONSE_PACKET_TEMPLATE.json"
+      - "scripts/run_chromium_neel_cut_square_c05.py"
+      - "tests/test_chromium_neel_cut_square_c05.py"
+      - "docs/CHROMIUM_NEEL_CUT_SQUARE_C05.md"
+      - "releases/chromium-neel-c03/chromium_cp_resistivity_certificate.json"
+      - "releases/chromium-neel-c04/chromium_primary_acquisition_certificate.json"
+      - "releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run C05 tests
+        run: python -m unittest tests.test_chromium_neel_cut_square_c05 -v
+      - name: Reproduce C05 certificate
+        run: |
+          cp releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json /tmp/C05.expected.json
+          python scripts/run_chromium_neel_cut_square_c05.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/C05.expected.json').read_text(encoding='utf-8'))
+          actual = json.loads(
+              Path('releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          assert actual == expected
+          print('PASS_C05_SEMANTIC_CERTIFICATE_REPRODUCTION')
+          PY
+      - name: Upload C05 certificate and response template
+        uses: actions/upload-artifact@v4
+        with:
+          name: chromium-neel-cut-square-c05-python-${{ matrix.python-version }}
+          path: |
+            releases/chromium-neel-c05/chromium_cut_square_adapter_certificate.json
+            data/manifests/C05_CHROMIUM_RESPONSE_PACKET_TEMPLATE.json
+          if-no-files-found: error

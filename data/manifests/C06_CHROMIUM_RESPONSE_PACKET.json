@@ -1,0 +1,98 @@
+{
+  "campaign": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "schema_version": "C06_CHROMIUM_RESPONSE_PACKET_V0_1",
+  "provenance": {
+    "files": []
+  },
+  "sample_state": {
+    "sample_state_id": null,
+    "same_specimen": true,
+    "same_protocol": true,
+    "measurement_mode": "AC_MODULATION_NEAR_EQUILIBRIUM",
+    "purity": null,
+    "strain_state": null,
+    "annealing_state": null,
+    "orientation": null,
+    "geometry": null,
+    "interstitial_contamination": null
+  },
+  "transition_coordinate": {
+    "coordinate": "tau=(T-TN_source_sample)/TN_source_sample",
+    "source_specific_tn": false,
+    "universal_tn_used": false,
+    "tn_K": null,
+    "tn_uncertainty_K": null,
+    "tn_determination_rule": null
+  },
+  "bilateral_pairing": {
+    "both_sides_present": false,
+    "accepted_pair_count": 0,
+    "max_abs_tau_pair_mismatch": null,
+    "tau_pair_tolerance": null,
+    "pair_table_sha256": null
+  },
+  "channels": {
+    "base": [
+      {
+        "channel_id": "heat_capacity_Cp_anomaly",
+        "array_sha256": null,
+        "point_count": 0,
+        "unit": null
+      },
+      {
+        "channel_id": "resistivity_temperature_coefficient_drho_dT_anomaly",
+        "array_sha256": null,
+        "point_count": 0,
+        "unit": null
+      }
+    ],
+    "raw_unlike_unit_wedge_forbidden": true
+  },
+  "preprocessing": {
+    "baseline_rule_frozen_before_fit": false,
+    "baseline_rule": null,
+    "derivative_rule_frozen_before_fit": false,
+    "derivative_rule": null,
+    "target_selected_after_seeing_data": false
+  },
+  "metric": {
+    "metric_symbol": "H_Cr",
+    "covariance_source": null,
+    "positive_support_certified": false,
+    "whitening_applied": false,
+    "whitened_observer_sha256": null
+  },
+  "observer": {
+    "formula": "A_N=direct_sum_{k=0}^N Q_k D_tau^k y",
+    "tower_depth": null,
+    "visible_quotient_certified": false,
+    "visible_basis_sha256": null,
+    "target_visible": false
+  },
+  "target": {
+    "target_symbol": "L_N",
+    "target_definition": null,
+    "frozen_before_fit": false,
+    "post_hoc_peak_target": false,
+    "formula_sha256": null
+  },
+  "certified_bounds": {
+    "target_norm_lower": null,
+    "target_norm_upper": null,
+    "observer_norm_upper": null,
+    "visible_singular_lower": null,
+    "bilateral_defect_upper": null,
+    "bilateral_defect_tolerance": null
+  },
+  "cut_square_alignment": {
+    "alignment_certified": false,
+    "transverse_residue_upper": null,
+    "transverse_residue_tolerance": null
+  },
+  "physical_result": {
+    "beta_interval_computed": false,
+    "beta_lower": null,
+    "beta_upper": null,
+    "classification": "DATA_REQUIRED"
+  }
+}

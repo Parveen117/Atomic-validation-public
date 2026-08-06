@@ -1,0 +1,54 @@
+{
+  "packet_id": "UNPOPULATED",
+  "source_route_id": null,
+  "source_file_sha256": null,
+  "sample_state_id": null,
+  "measurement_mode": "AC_MODULATION_NEAR_EQUILIBRIUM",
+  "TN_source_sample_K": null,
+  "TN_uncertainty_K": null,
+  "temperature_K": [],
+  "reduced_temperature_tau": [],
+  "thermal_history_branch": null,
+  "modulation": {
+    "frequency_Hz": null,
+    "temperature_amplitude_K": null,
+    "phase_convention": null,
+    "thermal_lag_model": null
+  },
+  "channels": {
+    "heat_capacity_Cp_anomaly": {
+      "unit": null,
+      "values": [],
+      "baseline_rule": null
+    },
+    "resistivity_temperature_coefficient_drho_dT_anomaly": {
+      "unit": null,
+      "values": [],
+      "baseline_rule": null
+    }
+  },
+  "covariance": {
+    "representation": null,
+    "matrix": [],
+    "shared_temperature_calibration_component": null,
+    "positive_support_declared": false
+  },
+  "cut": {
+    "candidate": "tau->-tau",
+    "pairing_indices": [],
+    "bilateral_closure_tolerance": null,
+    "admitted": false
+  },
+  "target": {
+    "name": "neel_boundary_response",
+    "formula": null,
+    "window_rule": null,
+    "frozen_before_fit": false
+  },
+  "observer_tower": {
+    "maximum_order_N": null,
+    "derivative_rule": null,
+    "smoothing_rule": null,
+    "derivatives_computed_from_raw_admitted_curves": false
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "campaign": "C01_CHROMIUM_CURVATURE_AUDIT",
+  "claim_boundary": "C01 audits electronic-configuration and nuclear binding-surface curvature for chromium. It does not treat robust screening z-scores as measurement significance, does not claim chromium is uniquely anomalous among transition metals, and does not yet test the thermal or magnetic Neel anomaly.",
+  "controls": {
+    "chromium_electronic_curvature_exact": true,
+    "chromium_full_cubic_record_count": true,
+    "chromium_isotope_record_count": true,
+    "copper_electronic_curvature_exact": true,
+    "cut_even_extreme_entity_exact": true,
+    "cut_odd_extreme_entity_exact": true,
+    "electronic_curvature_not_unique_to_chromium": true,
+    "local_baseline_record_count": true,
+    "neutron_extreme_entity_exact": true,
+    "no_local_three_sigma_screening_anomaly": true,
+    "seam_extreme_entity_exact": true,
+    "stored_seam_reproduced": true
+  },
+  "electronic_configuration_curvature": {
+    "active_coordinates": ["3d", "4s"],
+    "chromium": {
+      "atomic_number": 24,
+      "curvature_vector_3d_4s": [-2.0, 2.0],
+      "normalized_curvature": 2.0,
+      "symbol": "Cr"
+    },
+    "chromium_is_unique": false,
+    "copper": {
+      "atomic_number": 29,
+      "curvature_vector_3d_4s": [-2.0, 2.0],
+      "normalized_curvature": 2.0,
+      "symbol": "Cu"
+    },
+    "definition": "K_Z = Sigma_(Z+1) - 2 Sigma_Z + Sigma_(Z-1)",
+    "normalization": "L2_NORM_DIVIDED_BY_SQRT_2",
+    "transition_metal_curvature_ranking": [
+      {"atomic_number": 24, "normalized_curvature": 2.0, "symbol": "Cr"},
+      {"atomic_number": 29, "normalized_curvature": 2.0, "symbol": "Cu"},
+      {"atomic_number": 23, "normalized_curvature": 1.0, "symbol": "V"},
+      {"atomic_number": 25, "normalized_curvature": 1.0, "symbol": "Mn"},
+      {"atomic_number": 28, "normalized_curvature": 1.0, "symbol": "Ni"},
+      {"atomic_number": 22, "normalized_curvature": 0.0, "symbol": "Ti"},
+      {"atomic_number": 26, "normalized_curvature": 0.0, "symbol": "Fe"},
+      {"atomic_number": 27, "normalized_curvature": 0.0, "symbol": "Co"}
+    ]
+  },
+  "errors": [],
+  "interpretation": {
+    "chromium_uniquely_selected_by_configuration_curvature": false,
+    "global_scores_are_mass_region_confounded": true,
+    "local_three_sigma_anomaly_detected": false,
+    "measurement_uncertainty_propagated": false,
+    "robust_z_is_screening_score_not_measurement_sigma": true,
+    "sharp_structures_detected": true,
+    "sharpest_cut_even_structure": "Cr-47",
+    "sharpest_neutron_and_cut_odd_structure": "Cr-46",
+    "sharpest_seam_structure": "Cr-48"
+  },
+  "next_stage": "C02_CHROMIUM_THERMAL_MAGNETIC_NEEL_ANOMALY_SOURCE_PINNING",
+  "nuclear_binding_surface": {
+    "chromium_extrema": {
+      "cut_even_curvature_keV_per_a": {"entity": "Cr-47", "global_robust_z_diagnostic_only": -3.7131494472742257, "local_robust_z": -0.26083648114165614, "value": -20.09066666666672},
+      "cut_odd_curvature_keV_per_a": {"entity": "Cr-46", "global_robust_z_diagnostic_only": -5.992284887110285, "local_robust_z": -1.8628420114991857, "value": -22.018591666666907},
+      "neutron_curvature_keV_per_a": {"entity": "Cr-46", "global_robust_z_diagnostic_only": -23.06740215813977, "local_robust_z": -1.7007240663634733, "value": -30.4052500000001},
+      "proton_curvature_keV_per_a": {"entity": "Cr-47", "global_robust_z_diagnostic_only": -1.205919169489774, "local_robust_z": 0.05347366152411405, "value": -14.43016666666669},
+      "seam_residue_keV_per_a": {"entity": "Cr-48", "global_robust_z_diagnostic_only": -3.698910416788092, "local_robust_z": -0.7486462941796532, "value": -32.65021388888999}
+    },
+    "chromium_full_cubic_record_count": 22,
+    "chromium_isotope_record_count": 30,
+    "chromium_mass_range_A": [41, 70],
+    "global_full_cubic_record_count": 2573,
+    "global_robust_statistics_diagnostic_only": {
+      "cut_even_curvature_keV_per_a": {"count": 2573, "mad": 3.0716249999999263, "median": -3.1810166666667024, "scale": 4.553991224999891},
+      "cut_odd_curvature_keV_per_a": {"count": 2573, "mad": 2.6520416666669084, "median": 1.5425750000001321, "scale": 3.9319169750003584},
+      "neutron_curvature_keV_per_a": {"count": 2573, "mad": 0.8470583333333555, "median": -1.4360833333333478, "scale": 1.2558486850000328},
+      "proton_curvature_keV_per_a": {"count": 2573, "mad": 5.534700000000157, "median": -4.534700000000157, "scale": 8.205746220000233},
+      "seam_residue_keV_per_a": {"count": 1958, "mad": 5.718044444443876, "median": -1.2924319444441608, "scale": 8.47757269333249}
+    },
+    "local_absolute_z_threshold": 3.0,
+    "local_baseline_contract": {"atomic_number_range_Z": [20, 28], "mass_number_range_A": [40, 70]},
+    "local_baseline_full_cubic_record_count": 185,
+    "local_peak_absolute_robust_z": 1.8628420114991857,
+    "local_robust_statistics": {
+      "cut_even_curvature_keV_per_a": {"count": 185, "mad": 9.262574999999899, "median": -16.508679166666752, "scale": 13.732693694999849},
+      "cut_odd_curvature_keV_per_a": {"count": 185, "mad": 8.886137499999675, "median": 2.523583333333439, "scale": 13.174587457499518},
+      "neutron_curvature_keV_per_a": {"count": 185, "mad": 7.590666666666646, "median": -11.265433333333174, "scale": 11.253922399999968},
+      "proton_curvature_keV_per_a": {"count": 185, "mad": 16.819699999999408, "median": -15.763633333333928, "scale": 24.93688721999912},
+      "seam_residue_keV_per_a": {"count": 149, "mad": 18.538091666665423, "median": -12.07398888888929, "scale": 27.484574704998156}
+    },
+    "local_screening_anomaly_detected": false,
+    "selected_rows": {
+      "Cr-46": {
+        "a": 46,
+        "cut_even_curvature_keV_per_a": -8.386658333333191,
+        "cut_odd_curvature_keV_per_a": -22.018591666666907,
+        "entity": "Cr-46",
+        "n": 22,
+        "neutron_curvature_keV_per_a": -30.4052500000001,
+        "proton_curvature_keV_per_a": 13.631933333333714,
+        "scores": {
+          "cut_even_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -1.1430943560209899, "local_robust_z": 0.5914368305098682, "value": -8.386658333333191},
+          "cut_odd_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -5.992284887110285, "local_robust_z": -1.8628420114991857, "value": -22.018591666666907},
+          "neutron_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -23.06740215813977, "local_robust_z": -1.7007240663634733, "value": -30.4052500000001},
+          "proton_curvature_keV_per_a": {"global_robust_z_diagnostic_only": 2.213891685932904, "local_robust_z": 1.1787985568259982, "value": 13.631933333333714}
+        },
+        "seam_residue_keV_per_a": null
+      },
+      "Cr-47": {
+        "a": 47,
+        "cut_even_curvature_keV_per_a": -20.09066666666672,
+        "cut_odd_curvature_keV_per_a": -5.660500000000031,
+        "entity": "Cr-47",
+        "n": 23,
+        "neutron_curvature_keV_per_a": -25.75116666666675,
+        "proton_curvature_keV_per_a": -14.43016666666669,
+        "scores": {
+          "cut_even_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -3.7131494472742257, "local_robust_z": -0.26083648114165614, "value": -20.09066666666672},
+          "cut_odd_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -1.831949923103223, "local_robust_z": -0.6212022471090548, "value": -5.660500000000031},
+          "neutron_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -19.36147533039203, "local_robust_z": -1.2871719582261931, "value": -25.75116666666675},
+          "proton_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -1.205919169489774, "local_robust_z": 0.05347366152411405, "value": -14.43016666666669},
+          "seam_residue_keV_per_a": {"global_robust_z_diagnostic_only": -2.3325775606602, "local_robust_z": -0.3272031306801514, "value": -21.067027777777184}
+        },
+        "seam_residue_keV_per_a": -21.067027777777184
+      },
+      "Cr-48": {
+        "a": 48,
+        "cut_even_curvature_keV_per_a": -13.577658333333677,
+        "cut_odd_curvature_keV_per_a": -9.690758333332951,
+        "entity": "Cr-48",
+        "n": 24,
+        "neutron_curvature_keV_per_a": -23.268416666666628,
+        "proton_curvature_keV_per_a": -3.8869000000007263,
+        "scores": {
+          "cut_even_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -2.2829735836101057, "local_robust_z": 0.21343378789554424, "value": -13.577658333333677},
+          "cut_odd_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -2.8569609696125537, "local_robust_z": -0.9271137867556896, "value": -9.690758333332951},
+          "neutron_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -17.384525376425195, "local_robust_z": -1.0665599874167861, "value": -23.268416666666628},
+          "proton_curvature_keV_per_a": {"global_robust_z_diagnostic_only": 0.07894467884231161, "local_robust_z": 0.4762716865402586, "value": -3.8869000000007263},
+          "seam_residue_keV_per_a": {"global_robust_z_diagnostic_only": -3.698910416788092, "local_robust_z": -0.7486462941796532, "value": -32.65021388888999}
+        },
+        "seam_residue_keV_per_a": -32.65021388888999
+      },
+      "Cr-52": {
+        "a": 52,
+        "cut_even_curvature_keV_per_a": -5.004191666666581,
+        "cut_odd_curvature_keV_per_a": -10.284958333333332,
+        "entity": "Cr-52",
+        "n": 28,
+        "neutron_curvature_keV_per_a": -15.289149999999912,
+        "proton_curvature_keV_per_a": 5.28076666666675,
+        "scores": {
+          "cut_even_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -0.4003466212212393, "local_robust_z": 0.8377444189401106, "value": -5.004191666666581},
+          "cut_odd_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -3.008083183987471, "local_robust_z": -0.9722157682725482, "value": -10.284958333333332},
+          "neutron_curvature_keV_per_a": {"global_robust_z_diagnostic_only": -11.030840603751718, "local_robust_z": -0.3575390449348353, "value": -15.289149999999912},
+          "proton_curvature_keV_per_a": {"global_robust_z_diagnostic_only": 1.1961699038099949, "local_robust_z": 0.8439064512880858, "value": 5.28076666666675},
+          "seam_residue_keV_per_a": {"global_robust_z_diagnostic_only": -2.7055770818605924, "local_robust_z": -0.4422542307788368, "value": -24.229158333331725}
+        },
+        "seam_residue_keV_per_a": -24.229158333331725
+      }
+    },
+    "stored_seam_reproduction_max_abs_error": 0.0
+  },
+  "source_pins": {
+    "ground_state_ledger": {"path": "releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json", "sha256": "dcf52808325a520c0d9bea0ddae13fe0682f57df8e2e15d405ab06a8e029a04b"},
+    "nuclear_report": {"path": "releases/rkf-nuclear-v5/experiment_report.json", "record_count": 3558, "sha256": "9924e9e4d695cfc7680e227a63681c158a7012904417d4cf1f376aba05666845"}
+  },
+  "status": "PASS_CHROMIUM_CURVATURE_AUDIT_NO_LOCAL_THREE_SIGMA_ANOMALY"
+}

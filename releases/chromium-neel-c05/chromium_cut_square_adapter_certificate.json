@@ -1,0 +1,91 @@
+{
+  "base_channels": [
+    "heat_capacity_Cp_anomaly",
+    "resistivity_temperature_coefficient_drho_dT_anomaly"
+  ],
+  "beta_classification": "DATA_REQUIRED",
+  "beta_computed": false,
+  "beta_definition": "beta_Cr,N=sup_{A_N x != 0}|L_N x|^2/||A_N x||_{H_Cr}^2",
+  "beta_interval": {
+    "lower": null,
+    "upper": null
+  },
+  "campaign": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
+  "candidate_cut": "J_tau:tau->-tau",
+  "candidate_cut_admitted": false,
+  "claim_boundary": "C05 transfers the RH cut-square proof architecture to a typed chromium Neel adapter. It proves no material-specific beta bound, admits no physical cut, and computes no macroscopic curvature until same-specimen response arrays, covariance, a predeclared target and a cut-covariant generator are supplied.",
+  "common_temperature_calibration": true,
+  "curvature_computed": false,
+  "decisive_reasons": [
+    "The framework theorem pins establish the exact cut-square, target-repair, projection-defect and seam-curvature architecture.",
+    "The 1969 experiment supplies the intended same-specimen Cp and drho/dT channel types, but no admitted pointwise arrays or shared covariance are present.",
+    "The reduced-temperature involution tau -> -tau remains a candidate cut until source-specific TN, two-sided support and bilateral closure are certified.",
+    "The Neel target formula must be frozen before fitting; an abstract exponent relation or post-hoc peak is not an admissible target.",
+    "Therefore the physical sharp burden beta_Cr,N and native seam curvature remain uncomputed while the adapter itself is reproducibly frozen."
+  ],
+  "errors": [],
+  "framework_branch": "agent/thermodynamic-cut-square-theorem",
+  "framework_commit": "97ab70eb3663840aa5161ccddcbb70fafe75a80b",
+  "framework_repository": "Parveen117/Recognition-Kernel-Framework",
+  "framework_theorem_pin_count": 6,
+  "measurement_mode": "AC_MODULATION_NEAR_EQUILIBRIUM",
+  "metric_instantiated": false,
+  "metric_symbol": "H_Cr",
+  "native_seam_curvature": "R_seam=[G_even,G_odd]=[t^2]log(J exp(tG) J exp(tG))",
+  "next_stage": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "observer_instantiated": false,
+  "observer_tower": "A_N=direct_sum_{k=0}^N Q_k D_tau^k y",
+  "physical_result": {
+    "beta_bound_proved": false,
+    "burden_exceeds_one_proved": false,
+    "critical_closure_proved": false,
+    "data_required": true,
+    "native_curvature_proved": false,
+    "strict_closure_proved": false,
+    "target_blindness_proved": false
+  },
+  "positive_defect_equivalence": "A^* H A-L^*L>=0 iff beta<=1",
+  "response_packet_template_path": "data/manifests/C05_CHROMIUM_RESPONSE_PACKET_TEMPLATE.json",
+  "response_packet_template_present": true,
+  "same_specimen": true,
+  "simultaneous_measurement": true,
+  "status": "PASS_CHROMIUM_C05_CUT_SQUARE_ADAPTER_FROZEN_BETA_DATA_REQUIRED",
+  "synthetic_exact_controls": {
+    "blind": {
+      "beta": null,
+      "classification": "TARGET_BLIND_ADD_HIGHER_LAYER"
+    },
+    "critical_with_alignment_certificate": {
+      "beta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "classification": "CRITICAL_ALIGNED_CLOSURE"
+    },
+    "critical_without_alignment_certificate": {
+      "beta": {
+        "denominator": 1,
+        "numerator": 1
+      },
+      "classification": "THRESHOLD_INCONCLUSIVE"
+    },
+    "exceeds": {
+      "beta": {
+        "denominator": 1,
+        "numerator": 4
+      },
+      "classification": "BURDEN_EXCEEDS_ONE"
+    },
+    "strict": {
+      "beta": {
+        "denominator": 4,
+        "numerator": 1
+      },
+      "classification": "STRICT_NEEL_CUT_CLOSURE"
+    }
+  },
+  "target_instantiated": false,
+  "target_symbol": "L_N",
+  "upstream_c03_status": "PASS_CHROMIUM_C03_ACQUISITION_AUDIT_DIGITIZATION_BLOCKED",
+  "upstream_c04_status": "PASS_CHROMIUM_C04_ACQUISITION_PACKET_READY_EXTERNAL_RESPONSE_REQUIRED"
+}

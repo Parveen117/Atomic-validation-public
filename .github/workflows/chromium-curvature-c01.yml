@@ -1,0 +1,64 @@
+name: C01 chromium curvature audit
+
+on:
+  push:
+    paths:
+      - ".github/workflows/chromium-curvature-c01.yml"
+      - "protocols/C01_CHROMIUM_CURVATURE_CONTRACT.json"
+      - "scripts/run_chromium_curvature_c01.py"
+      - "tests/test_chromium_curvature_c01.py"
+      - "docs/CHROMIUM_CURVATURE_C01.md"
+      - "releases/chromium-curvature-c01/chromium_curvature_certificate.json"
+      - "releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json"
+      - "releases/rkf-nuclear-v5/experiment_report.json"
+  pull_request:
+    paths:
+      - ".github/workflows/chromium-curvature-c01.yml"
+      - "protocols/C01_CHROMIUM_CURVATURE_CONTRACT.json"
+      - "scripts/run_chromium_curvature_c01.py"
+      - "tests/test_chromium_curvature_c01.py"
+      - "docs/CHROMIUM_CURVATURE_C01.md"
+      - "releases/chromium-curvature-c01/chromium_curvature_certificate.json"
+      - "releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json"
+      - "releases/rkf-nuclear-v5/experiment_report.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run C01 tests
+        run: python -m unittest tests.test_chromium_curvature_c01 -v
+      - name: Reproduce C01 certificate
+        run: |
+          cp releases/chromium-curvature-c01/chromium_curvature_certificate.json /tmp/C01.expected.json
+          python scripts/run_chromium_curvature_c01.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('/tmp/C01.expected.json').read_text(encoding='utf-8'))
+          actual = json.loads(
+              Path('releases/chromium-curvature-c01/chromium_curvature_certificate.json').read_text(
+                  encoding='utf-8'
+              )
+          )
+          assert actual == expected
+          print('PASS_C01_SEMANTIC_CERTIFICATE_REPRODUCTION')
+          PY
+      - name: Upload C01 certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: chromium-curvature-c01-python-${{ matrix.python-version }}
+          path: releases/chromium-curvature-c01/chromium_curvature_certificate.json
+          if-no-files-found: error

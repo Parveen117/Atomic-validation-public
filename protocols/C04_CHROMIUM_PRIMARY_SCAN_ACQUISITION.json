@@ -1,0 +1,131 @@
+{
+  "campaign": "C04_CHROMIUM_PRIMARY_SCAN_OR_AUTHOR_DATA_ACQUISITION",
+  "target_article": {
+    "title": "Simultaneous measurement of the anomalous heat capacity and resistivity of chromium near TN",
+    "authors": ["M. B. Salamon", "D. S. Simons", "P. R. Garnier"],
+    "journal": "Solid State Communications",
+    "volume": 7,
+    "issue": 15,
+    "pages": [1035, 1038],
+    "year": 1969,
+    "doi": "10.1016/0038-1098(69)90464-5",
+    "pii": "0038109869904645",
+    "funding_note": "Advanced Research Projects Agency Contract SD-131"
+  },
+  "ranked_routes": [
+    {
+      "rank": 1,
+      "route_id": "AUTHOR_DIRECT",
+      "target": "Myron B. Salamon",
+      "contact": "salamon@utdallas.edu",
+      "contact_source": "official University of Illinois Professor Emeritus profile",
+      "requested_material": [
+        "author PDF or scan of the 1969 article",
+        "original or reconstructed Cp and drho/dT point arrays",
+        "figure panel identity and axis units",
+        "AC modulation frequency amplitude and phase convention",
+        "sample and thermometer calibration metadata",
+        "pointwise or calibration uncertainty if retained"
+      ],
+      "route_verified": true,
+      "request_sent": false,
+      "response_received": false,
+      "file_acquired": false
+    },
+    {
+      "rank": 2,
+      "route_id": "ILLINOIS_ARCHIVES_SD131",
+      "target": "University of Illinois Archives",
+      "contact": "illiarch@illinois.edu",
+      "collection": "Materials Sciences Annual Technical Reports, 1963-",
+      "series_number": "11/14/818",
+      "location": "146 Library, 1408 West Gregory Drive, Urbana, Illinois",
+      "collection_scope": "annual technical reports submitted to ARPA under SD-131",
+      "requested_material": [
+        "1968-69 or 1969-70 annual technical report sections naming the Salamon-Simons-Garnier chromium experiment",
+        "any included preprint, figure, technical report number or raw-data appendix",
+        "high-resolution scan of relevant pages"
+      ],
+      "collection_physically_held": true,
+      "collection_proven_to_contain_article_figures": false,
+      "request_sent": false,
+      "response_received": false,
+      "file_acquired": false
+    },
+    {
+      "rank": 3,
+      "route_id": "ILLINOIS_MRL_LEGACY_RECORDS",
+      "target": "Materials Research Laboratory, University of Illinois",
+      "contact": "mrl@illinois.edu",
+      "requested_material": [
+        "legacy publication or technical-report copy associated with ARPA SD-131",
+        "archival laboratory figure or data record for the 1969 simultaneous Cp and drho/dT experiment",
+        "referral to the correct archive or records custodian"
+      ],
+      "institutional_connection_verified": true,
+      "request_sent": false,
+      "response_received": false,
+      "file_acquired": false
+    },
+    {
+      "rank": 4,
+      "route_id": "LIBRARY_DOCUMENT_DELIVERY",
+      "target": "home-institution or local-library interlibrary loan",
+      "illinois_reference_contact": "borrowing@library.illinois.edu",
+      "eligibility_note": "University of Illinois ILL is for affiliated users; non-affiliated individuals should request through their home institution or local public library",
+      "requested_material": [
+        "journal article scan including all figures at archival resolution",
+        "copyright-compliant personal research copy"
+      ],
+      "route_verified": true,
+      "request_sent": false,
+      "response_received": false,
+      "file_acquired": false
+    },
+    {
+      "rank": 5,
+      "route_id": "PUBLISHER_ACCESS",
+      "target": "Elsevier ScienceDirect",
+      "landing_page": "https://www.sciencedirect.com/science/article/pii/0038109869904645",
+      "metadata_and_abstract_accessible": true,
+      "full_text_bytes_acquired": false,
+      "request_or_purchase_completed": false,
+      "file_acquired": false
+    }
+  ],
+  "request_packet": {
+    "author_request_draft_path": "docs/requests/C04_AUTHOR_DATA_REQUEST.md",
+    "archive_request_draft_path": "docs/requests/C04_ARCHIVE_SCAN_REQUEST.md",
+    "library_request_metadata_path": "docs/requests/C04_LIBRARY_REQUEST_METADATA.md",
+    "external_messages_sent": false,
+    "user_approval_required_before_sending": true
+  },
+  "intake_contract": {
+    "accepted_file_types": ["pdf", "tif", "tiff", "png", "csv", "tsv", "xlsx", "txt"],
+    "original_bytes_sha256_required": true,
+    "source_route_id_required": true,
+    "date_received_required": true,
+    "rights_or_access_note_required": true,
+    "page_and_figure_identity_required_for_scans": true,
+    "lossless_scan_preferred": true,
+    "minimum_scan_resolution_dpi": 300,
+    "no_ocr_as_numeric_data": true,
+    "no_secondary_redrawing_as_primary_scan": true,
+    "no_curvature_before_c05_intake_certificate": true
+  },
+  "current_state": {
+    "verified_acquisition_routes": 5,
+    "external_requests_sent": 0,
+    "responses_received": 0,
+    "primary_files_acquired": 0,
+    "author_arrays_acquired": false,
+    "primary_scan_acquired": false,
+    "intake_certificate_ready": false,
+    "digitization_allowed": false,
+    "curvature_allowed": false
+  },
+  "theorem_guided_adapter_stage": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
+  "primary_file_intake_stage": "C06_CHROMIUM_PRIMARY_FILE_INTAKE_RESPONSE_PACKET_AND_BETA_INTERVAL",
+  "next_stage": "C05_CHROMIUM_NEEL_CUT_SQUARE_ADAPTER_AND_BETA_BURDEN",
+  "claim_boundary": "C04 verifies and ranks primary acquisition routes and prepares request packets. No external request is sent automatically and no primary scan or author array is acquired. C05 freezes the theorem-guided cut-square adapter; received primary files are admitted later through the C06 response-packet and beta-interval stage."
+}
