@@ -5,6 +5,21 @@ Discharges the item of `PUBLICATION_STATUS.md`: "recognised external
 mass-model comparison and temporally separated validation remain
 recommended".
 
+## What the repository already establishes (unchanged by this record)
+
+```text
+headline V4, 3,558 entries           median 0.99 keV per nucleon, coverage 98.76 %          releases/uam-v4/metrics.json
+V4 against FRDM2012, 3,448 common    median 0.95 against 2.60 keV per nucleon;
+                                     V4 closer on 2,418 nuclei, FRDM2012 on 1,028          releases/uam-v4/external_comparison
+V4 against SEMF (out of fold)        median 0.99 against 149.9 keV per nucleon              releases/uam-v4/baseline_comparison
+Recognition Repair V5.1              rms 29.3 against 54.8 keV per nucleon at equal coverage releases/rkf-nuclear-v5
+```
+
+These are reconstruction results: a nucleus is rebuilt from measured
+neighbours on both sides. The present record asks a different question —
+prediction of nuclei beyond the edge of the older chart — and adds the
+one comparator the repository did not yet have, a local mass relation.
+
 ## Design (fixed before the numbers were looked at)
 
 ```text
@@ -35,6 +50,15 @@ same nuclei for all three                     32                               5
   Garvey–Kelson                                     116       409                    126       404
   older evaluation's own estimate                   111       230                    168       376
   UAM-V4, measured neighbours only                  918       2561                   802       2157
+```
+
+Against the global model already in the repository, on the temporal targets both predict:
+
+```text
+                     AME2016 → 2020 (51 nuclei)       AME2012 → 2020 (89 nuclei)
+UAM-V4 (strict)      median 830 keV   rms 2180        median 718 keV   rms 1939
+FRDM2012             median 447 keV   rms 848         median 392 keV   rms 998
+V4 closer on         14 of 51                         32 of 89
 ```
 
 In-sample on AME2020, measured targets, A ≥ 16, the same 2,417 nuclei for both methods:
@@ -72,7 +96,7 @@ Two facts about the dataset that bear on the headline numbers:
 ## Not tested here
 
 V5 (cross-fitted cut-graded decoder), V5.1 and V6 were not run in the
-temporal design. Global mass models were not compared. Target nuclei
+temporal design. Global models other than FRDM2012 were not compared. Target nuclei
 are few (73 and 126), so the medians carry sizeable sampling spread.
 
 ## Data provenance

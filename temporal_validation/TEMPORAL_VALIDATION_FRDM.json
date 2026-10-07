@@ -1,0 +1,58 @@
+{
+ "2012": {
+  "common": 89,
+  "frdm2012": {
+   "count": 89,
+   "mean_keV_per_A": 9.256,
+   "median_keV": 391.8,
+   "median_keV_per_A": 3.533,
+   "rms_keV": 998.3,
+   "rms_keV_per_A": 17.463
+  },
+  "frdm_all_targets": {
+   "count": 121,
+   "mean_keV_per_A": 8.55,
+   "median_keV": 447.3,
+   "median_keV_per_A": 3.017,
+   "rms_keV": 961.4,
+   "rms_keV_per_A": 16.27
+  },
+  "v4": {
+   "count": 89,
+   "mean_keV_per_A": 19.125,
+   "median_keV": 717.8,
+   "median_keV_per_A": 6.165,
+   "rms_keV": 1938.7,
+   "rms_keV_per_A": 40.905
+  },
+  "v4_closer": 32
+ },
+ "2016": {
+  "common": 51,
+  "frdm2012": {
+   "count": 51,
+   "mean_keV_per_A": 8.425,
+   "median_keV": 447.3,
+   "median_keV_per_A": 3.504,
+   "rms_keV": 847.5,
+   "rms_keV_per_A": 13.381
+  },
+  "frdm_all_targets": {
+   "count": 71,
+   "mean_keV_per_A": 6.989,
+   "median_keV": 493.3,
+   "median_keV_per_A": 2.714,
+   "rms_keV": 786.0,
+   "rms_keV_per_A": 11.698
+  },
+  "v4": {
+   "count": 51,
+   "mean_keV_per_A": 23.131,
+   "median_keV": 829.5,
+   "median_keV_per_A": 6.169,
+   "rms_keV": 2180.4,
+   "rms_keV_per_A": 48.907
+  },
+  "v4_closer": 14
+ }
+}
