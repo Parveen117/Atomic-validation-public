@@ -1,0 +1,199 @@
+{
+ "in_sample_2020": {
+  "all_entries_as_neighbours": {
+   "estimated_targets": {
+    "count": 996,
+    "mean_keV_per_A": 12.885,
+    "median_keV": 327.9,
+    "median_keV_per_A": 2.0,
+    "rms_keV": 1512.7,
+    "rms_keV_per_A": 51.36
+   },
+   "measured_targets": {
+    "count": 2518,
+    "mean_keV_per_A": 9.159,
+    "median_keV": 93.4,
+    "median_keV_per_A": 0.698,
+    "rms_keV": 777.2,
+    "rms_keV_per_A": 56.035
+   }
+  },
+  "garvey_kelson_measured_leave_one_out_A_ge_16": {
+   "count": 2417,
+   "mean_keV_per_A": 1.729,
+   "median_keV": 52.1,
+   "median_keV_per_A": 0.389,
+   "rms_keV": 169.6,
+   "rms_keV_per_A": 5.617
+  },
+  "measured_neighbours_only": {
+   "estimated_targets": {
+    "count": 0
+   },
+   "measured_targets": {
+    "count": 2482,
+    "mean_keV_per_A": 13.926,
+    "median_keV": 176.3,
+    "median_keV_per_A": 1.377,
+    "rms_keV": 1163.3,
+    "rms_keV_per_A": 68.729
+   }
+  }
+ },
+ "temporal_2012_to_2020": {
+  "common_set": {
+   "garvey_kelson_measured_only": {
+    "count": 59,
+    "mean_keV_per_A": 5.015,
+    "median_keV": 126.0,
+    "median_keV_per_A": 1.17,
+    "rms_keV": 404.1,
+    "rms_keV_per_A": 11.977
+   },
+   "older_evaluation_estimate": {
+    "count": 59,
+    "mean_keV_per_A": 5.158,
+    "median_keV": 167.7,
+    "median_keV_per_A": 1.583,
+    "rms_keV": 376.2,
+    "rms_keV_per_A": 12.556
+   },
+   "v4_guarded_measured_neighbours_only": {
+    "count": 59,
+    "mean_keV_per_A": 24.291,
+    "median_keV": 802.4,
+    "median_keV_per_A": 7.017,
+    "rms_keV": 2157.0,
+    "rms_keV_per_A": 49.129
+   }
+  },
+  "garvey_kelson_measured_only": {
+   "count": 70,
+   "mean_keV_per_A": 4.73,
+   "median_keV": 126.2,
+   "median_keV_per_A": 1.201,
+   "rms_keV": 393.5,
+   "rms_keV_per_A": 11.183
+  },
+  "label": "AME2012 -> AME2020",
+  "older_evaluation_estimate": {
+   "count": 116,
+   "mean_keV_per_A": 5.993,
+   "median_keV": 178.4,
+   "median_keV_per_A": 1.328,
+   "rms_keV": 465.3,
+   "rms_keV_per_A": 18.402
+  },
+  "targets": 126,
+  "v4_guarded_measured_neighbours_only": {
+   "count": 93,
+   "mean_keV_per_A": 25.873,
+   "median_keV": 717.8,
+   "median_keV_per_A": 6.451,
+   "rms_keV": 2166.3,
+   "rms_keV_per_A": 73.316
+  },
+  "v4_guarded_with_older_estimates": {
+   "count": 112,
+   "mean_keV_per_A": 15.271,
+   "median_keV": 431.3,
+   "median_keV_per_A": 3.136,
+   "rms_keV": 1449.4,
+   "rms_keV_per_A": 58.684
+  },
+  "v4_raw_measured_neighbours_only": {
+   "count": 93,
+   "mean_keV_per_A": 25.873,
+   "median_keV": 717.8,
+   "median_keV_per_A": 6.451,
+   "rms_keV": 2166.3,
+   "rms_keV_per_A": 73.316
+  },
+  "v4_raw_with_older_estimates": {
+   "count": 112,
+   "mean_keV_per_A": 15.271,
+   "median_keV": 431.3,
+   "median_keV_per_A": 3.136,
+   "rms_keV": 1449.4,
+   "rms_keV_per_A": 58.684
+  }
+ },
+ "temporal_2016_to_2020": {
+  "common_set": {
+   "garvey_kelson_measured_only": {
+    "count": 32,
+    "mean_keV_per_A": 5.258,
+    "median_keV": 116.1,
+    "median_keV_per_A": 1.208,
+    "rms_keV": 408.6,
+    "rms_keV_per_A": 14.344
+   },
+   "older_evaluation_estimate": {
+    "count": 32,
+    "mean_keV_per_A": 3.149,
+    "median_keV": 110.8,
+    "median_keV_per_A": 0.983,
+    "rms_keV": 230.2,
+    "rms_keV_per_A": 8.741
+   },
+   "v4_guarded_measured_neighbours_only": {
+    "count": 32,
+    "mean_keV_per_A": 32.551,
+    "median_keV": 917.9,
+    "median_keV_per_A": 8.416,
+    "rms_keV": 2560.6,
+    "rms_keV_per_A": 61.325
+   }
+  },
+  "garvey_kelson_measured_only": {
+   "count": 38,
+   "mean_keV_per_A": 4.704,
+   "median_keV": 142.9,
+   "median_keV_per_A": 1.208,
+   "rms_keV": 392.1,
+   "rms_keV_per_A": 13.2
+  },
+  "label": "AME2016 -> AME2020",
+  "older_evaluation_estimate": {
+   "count": 71,
+   "mean_keV_per_A": 3.126,
+   "median_keV": 134.1,
+   "median_keV_per_A": 0.835,
+   "rms_keV": 275.6,
+   "rms_keV_per_A": 8.706
+  },
+  "targets": 73,
+  "v4_guarded_measured_neighbours_only": {
+   "count": 53,
+   "mean_keV_per_A": 23.341,
+   "median_keV": 806.1,
+   "median_keV_per_A": 6.461,
+   "rms_keV": 2142.3,
+   "rms_keV_per_A": 48.35
+  },
+  "v4_guarded_with_older_estimates": {
+   "count": 67,
+   "mean_keV_per_A": 8.197,
+   "median_keV": 500.4,
+   "median_keV_per_A": 3.233,
+   "rms_keV": 884.7,
+   "rms_keV_per_A": 14.132
+  },
+  "v4_raw_measured_neighbours_only": {
+   "count": 53,
+   "mean_keV_per_A": 23.341,
+   "median_keV": 806.1,
+   "median_keV_per_A": 6.461,
+   "rms_keV": 2142.3,
+   "rms_keV_per_A": 48.35
+  },
+  "v4_raw_with_older_estimates": {
+   "count": 67,
+   "mean_keV_per_A": 8.197,
+   "median_keV": 500.4,
+   "median_keV_per_A": 3.233,
+   "rms_keV": 884.7,
+   "rms_keV_per_A": 14.132
+  }
+ }
+}

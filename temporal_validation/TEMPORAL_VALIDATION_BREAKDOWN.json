@@ -1,0 +1,32 @@
+{
+ "in_sample_common": {
+  "count": 2417,
+  "garvey_kelson": {
+   "count": 2417,
+   "mean_keV_per_A": 1.729,
+   "median_keV": 52.1,
+   "median_keV_per_A": 0.389,
+   "rms_keV": 169.6,
+   "rms_keV_per_A": 5.617
+  },
+  "v4": {
+   "count": 2417,
+   "mean_keV_per_A": 5.275,
+   "median_keV": 88.9,
+   "median_keV_per_A": 0.661,
+   "rms_keV": 567.6,
+   "rms_keV_per_A": 22.049
+  },
+  "v4_closer": 833
+ },
+ "temporal_2016_by_support": {
+  "one_sided_or_z_only": {
+   "count": 51,
+   "median_keV": 829.5
+  },
+  "two_sided": {
+   "count": 2,
+   "median_keV": 208.7
+  }
+ }
+}
