@@ -93,10 +93,68 @@ Two facts about the dataset that bear on the headline numbers:
   evaluators' own estimates on these targets, and ahead of them in the
   median for 2012 → 2020.
 
+## The later predictors in the same design
+
+`temporal_validation_v5_v6.py` runs V5, Recognition Repair V5.1 and
+Madhava–Smriti V6 unchanged from `src/`. Decoders are fitted on the older
+table with the target's element chain held out; the target's observer
+record is built from the older table's neighbours (tests confirm the
+placeholder value is never read, and that the local build equals the
+full one).
+
+Measured neighbours only; total binding energy, keV (median / rms), same nuclei in each column:
+
+```text
+                                   AME2016 → 2020 (32)        AME2012 → 2020 (59)
+frozen V4                          918  /  2561               802  /  2157
+Recognition Repair V5.1            850  /  1554               710  /  1295
+V6, order selected                 850  /  1554               710  /  1319
+raw V5 decoder, level 3            2248 /  3903               2871 /  3567
+Garvey–Kelson                      116  /  409                126  /  404
+older evaluation's own estimate    111  /  230                168  /  376
+```
+
+- **The repair transfers.** V5.1 lowers the root-mean-square error of V4
+  by about 40 % on nuclei it has never seen, in both periods, at equal
+  coverage. The in-sample claim of `releases/rkf-nuclear-v5` holds out
+  of sample in this respect.
+- The medians barely move, and all V-series predictors remain about six
+  times behind the local mass relation on these targets.
+- The tensor-cubic seam needs sixteen surrounding nuclei; it was
+  available for one or two targets only. At the edge of the chart the
+  mixed-seam layer of V5 is therefore not exercised.
+
+## The disagreement guard on mixed-difference estimates
+
+`seam_guard.py` applies the repository's own prospective idea — abstain
+where independent reconstructions disagree — to the up-to-twelve
+Garvey–Kelson estimates of each nucleus. The spread is known before the
+target value is used.
+
+```text
+in-sample, AME2020 measured, A ≥ 16, at least three estimates (2,273 nuclei)
+coverage      spread at most     median error     rms error
+100 %         —                  50.5 keV         160.6 keV
+90 %          458 keV            44.8 keV          94.6 keV
+75 %          222 keV            40.2 keV          77.3 keV
+50 %          140 keV            33.6 keV          66.3 keV
+highest-spread tenth                224.6 keV         420.5 keV
+
+temporal                    lower-spread half        higher-spread half
+AME2016 → 2020 (21)         114 / 201 keV            204 / 438 keV
+AME2012 → 2020 (45)         119 / 327 keV            205 / 392 keV
+```
+
+Abstaining on the highest-spread tenth removes 41 % of the
+root-mean-square error; the ordering holds on newly measured nuclei.
+The guard is the part of the V-series design that carries over to the
+stronger local relation.
+
 ## Not tested here
 
-V5 (cross-fitted cut-graded decoder), V5.1 and V6 were not run in the
-temporal design. Global models other than FRDM2012 were not compared. Target nuclei
+Global models other than FRDM2012 were not compared. A predictor that
+combines the mixed-difference relation with the guard and the repair has
+not been built. Target nuclei
 are few (73 and 126), so the medians carry sizeable sampling spread.
 
 ## Data provenance
@@ -113,5 +171,7 @@ tables to 0.01 keV per nucleon (tested).
 
 ```text
 python temporal_validation.py
+python temporal_validation_v5_v6.py
+python seam_guard.py
 python -m unittest test_temporal_validation
 ```

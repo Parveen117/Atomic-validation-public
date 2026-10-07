@@ -1,0 +1,648 @@
+{
+ "temporal_2012_to_2020": {
+  "label": "AME2012 -> AME2020",
+  "measured_neighbours_only": {
+   "axis_mean": {
+    "count": 110,
+    "mean_keV_per_A": 23.259,
+    "median_keV": 1156.1,
+    "median_keV_per_A": 8.399,
+    "rms_keV": 1987.9,
+    "rms_keV_per_A": 55.496
+   },
+   "common_set": {
+    "count": 59,
+    "frozen_v4": {
+     "count": 59,
+     "mean_keV_per_A": 24.291,
+     "median_keV": 802.4,
+     "median_keV_per_A": 7.017,
+     "rms_keV": 2157.0,
+     "rms_keV_per_A": 49.129
+    },
+    "garvey_kelson": {
+     "count": 59,
+     "mean_keV_per_A": 5.015,
+     "median_keV": 126.0,
+     "median_keV_per_A": 1.17,
+     "rms_keV": 404.1,
+     "rms_keV_per_A": 11.977
+    },
+    "older_evaluation_estimate": {
+     "count": 59,
+     "mean_keV_per_A": 5.158,
+     "median_keV": 167.7,
+     "median_keV_per_A": 1.583,
+     "rms_keV": 376.2,
+     "rms_keV_per_A": 12.556
+    },
+    "recognition_repair_v5_1": {
+     "count": 59,
+     "mean_keV_per_A": 14.387,
+     "median_keV": 709.6,
+     "median_keV_per_A": 6.63,
+     "rms_keV": 1295.3,
+     "rms_keV_per_A": 23.609
+    },
+    "rkf_v5_level3": {
+     "count": 59,
+     "mean_keV_per_A": 25.724,
+     "median_keV": 2870.9,
+     "median_keV_per_A": 22.888,
+     "rms_keV": 3567.1,
+     "rms_keV_per_A": 31.175
+    },
+    "v6_fallback": {
+     "count": 59,
+     "mean_keV_per_A": 14.827,
+     "median_keV": 761.2,
+     "median_keV_per_A": 7.017,
+     "rms_keV": 1355.0,
+     "rms_keV_per_A": 24.367
+    },
+    "v6_order_selected": {
+     "count": 59,
+     "mean_keV_per_A": 14.716,
+     "median_keV": 709.6,
+     "median_keV_per_A": 6.63,
+     "rms_keV": 1319.1,
+     "rms_keV_per_A": 24.326
+    }
+   },
+   "frozen_v4": {
+    "count": 93,
+    "mean_keV_per_A": 25.873,
+    "median_keV": 717.8,
+    "median_keV_per_A": 6.451,
+    "rms_keV": 2166.3,
+    "rms_keV_per_A": 73.316
+   },
+   "garvey_kelson": {
+    "count": 70,
+    "mean_keV_per_A": 4.73,
+    "median_keV": 126.2,
+    "median_keV_per_A": 1.201,
+    "rms_keV": 393.5,
+    "rms_keV_per_A": 11.183
+   },
+   "older_evaluation_estimate": {
+    "count": 116,
+    "mean_keV_per_A": 5.993,
+    "median_keV": 178.4,
+    "median_keV_per_A": 1.328,
+    "rms_keV": 465.3,
+    "rms_keV_per_A": 18.402
+   },
+   "recognition_repair_v5_1": {
+    "count": 93,
+    "mean_keV_per_A": 13.578,
+    "median_keV": 684.7,
+    "median_keV_per_A": 6.179,
+    "rms_keV": 1280.3,
+    "rms_keV_per_A": 23.637
+   },
+   "repair_sources": {
+    "ABSTAIN_PRESERVE_FROZEN_UAM_COVERAGE": 33,
+    "FROZEN_UAM_V4_COHERENT_LOCAL_PREDICTOR": 74,
+    "RKF_CROSS_FITTED_TAIL_REPAIR": 19
+   },
+   "rkf_v5_burden_guarded": {
+    "count": 108,
+    "mean_keV_per_A": 40.645,
+    "median_keV": 3135.8,
+    "median_keV_per_A": 28.879,
+    "rms_keV": 7631.4,
+    "rms_keV_per_A": 60.931
+   },
+   "rkf_v5_level3": {
+    "count": 110,
+    "mean_keV_per_A": 44.193,
+    "median_keV": 3211.5,
+    "median_keV_per_A": 29.127,
+    "rms_keV": 7631.1,
+    "rms_keV_per_A": 68.63
+   },
+   "targets": 126,
+   "tensor_cubic": {
+    "count": 1,
+    "mean_keV_per_A": 12.925,
+    "median_keV": 1473.4,
+    "median_keV_per_A": 12.925,
+    "rms_keV": 1473.4,
+    "rms_keV_per_A": 12.925
+   },
+   "v6_classes": {
+    "ABSTAIN_MISSING_JET_LEVEL": 16,
+    "CONTRACTIVE_MEMORY": 68,
+    "OPEN_REFINEMENT": 42
+   },
+   "v6_fallback": {
+    "count": 93,
+    "mean_keV_per_A": 13.857,
+    "median_keV": 699.1,
+    "median_keV_per_A": 6.451,
+    "rms_keV": 1318.9,
+    "rms_keV_per_A": 24.12
+   },
+   "v6_order_selected": {
+    "count": 93,
+    "mean_keV_per_A": 13.787,
+    "median_keV": 684.7,
+    "median_keV_per_A": 6.451,
+    "rms_keV": 1295.6,
+    "rms_keV_per_A": 24.094
+   },
+   "v6_strict": {
+    "count": 90,
+    "mean_keV_per_A": 12.635,
+    "median_keV": 674.0,
+    "median_keV_per_A": 6.172,
+    "rms_keV": 1242.0,
+    "rms_keV_per_A": 22.192
+   }
+  },
+  "with_older_estimates": {
+   "axis_mean": {
+    "count": 118,
+    "mean_keV_per_A": 18.668,
+    "median_keV": 808.7,
+    "median_keV_per_A": 6.092,
+    "rms_keV": 1478.7,
+    "rms_keV_per_A": 53.554
+   },
+   "common_set": {
+    "count": 66,
+    "frozen_v4": {
+     "count": 66,
+     "mean_keV_per_A": 12.09,
+     "median_keV": 572.7,
+     "median_keV_per_A": 3.84,
+     "rms_keV": 1049.8,
+     "rms_keV_per_A": 21.878
+    },
+    "garvey_kelson": {
+     "count": 66,
+     "mean_keV_per_A": 4.876,
+     "median_keV": 132.0,
+     "median_keV_per_A": 1.201,
+     "rms_keV": 401.1,
+     "rms_keV_per_A": 11.486
+    },
+    "older_evaluation_estimate": {
+     "count": 66,
+     "mean_keV_per_A": 4.82,
+     "median_keV": 170.6,
+     "median_keV_per_A": 1.43,
+     "rms_keV": 365.3,
+     "rms_keV_per_A": 11.909
+    },
+    "recognition_repair_v5_1": {
+     "count": 66,
+     "mean_keV_per_A": 11.565,
+     "median_keV": 572.7,
+     "median_keV_per_A": 3.749,
+     "rms_keV": 925.3,
+     "rms_keV_per_A": 20.263
+    },
+    "rkf_v5_level3": {
+     "count": 66,
+     "mean_keV_per_A": 26.865,
+     "median_keV": 1711.4,
+     "median_keV_per_A": 21.402,
+     "rms_keV": 4209.6,
+     "rms_keV_per_A": 34.38
+    },
+    "v6_fallback": {
+     "count": 66,
+     "mean_keV_per_A": 11.344,
+     "median_keV": 540.4,
+     "median_keV_per_A": 3.749,
+     "rms_keV": 935.7,
+     "rms_keV_per_A": 20.405
+    },
+    "v6_order_selected": {
+     "count": 66,
+     "mean_keV_per_A": 11.347,
+     "median_keV": 540.4,
+     "median_keV_per_A": 3.749,
+     "rms_keV": 927.1,
+     "rms_keV_per_A": 20.139
+    }
+   },
+   "frozen_v4": {
+    "count": 112,
+    "mean_keV_per_A": 15.271,
+    "median_keV": 431.3,
+    "median_keV_per_A": 3.136,
+    "rms_keV": 1449.4,
+    "rms_keV_per_A": 58.684
+   },
+   "garvey_kelson": {
+    "count": 70,
+    "mean_keV_per_A": 4.73,
+    "median_keV": 126.2,
+    "median_keV_per_A": 1.201,
+    "rms_keV": 393.5,
+    "rms_keV_per_A": 11.183
+   },
+   "older_evaluation_estimate": {
+    "count": 116,
+    "mean_keV_per_A": 5.993,
+    "median_keV": 178.4,
+    "median_keV_per_A": 1.328,
+    "rms_keV": 465.3,
+    "rms_keV_per_A": 18.402
+   },
+   "recognition_repair_v5_1": {
+    "count": 112,
+    "mean_keV_per_A": 11.165,
+    "median_keV": 433.0,
+    "median_keV_per_A": 3.025,
+    "rms_keV": 1118.2,
+    "rms_keV_per_A": 21.069
+   },
+   "repair_sources": {
+    "ABSTAIN_PRESERVE_FROZEN_UAM_COVERAGE": 14,
+    "FROZEN_UAM_V4_COHERENT_LOCAL_PREDICTOR": 96,
+    "RKF_CROSS_FITTED_TAIL_REPAIR": 16
+   },
+   "rkf_v5_burden_guarded": {
+    "count": 118,
+    "mean_keV_per_A": 30.481,
+    "median_keV": 2876.7,
+    "median_keV_per_A": 27.794,
+    "rms_keV": 5511.3,
+    "rms_keV_per_A": 37.898
+   },
+   "rkf_v5_level3": {
+    "count": 118,
+    "mean_keV_per_A": 30.481,
+    "median_keV": 2876.7,
+    "median_keV_per_A": 27.794,
+    "rms_keV": 5511.3,
+    "rms_keV_per_A": 37.898
+   },
+   "targets": 126,
+   "tensor_cubic": {
+    "count": 2,
+    "mean_keV_per_A": 13.585,
+    "median_keV": 1712.5,
+    "median_keV_per_A": 13.585,
+    "rms_keV": 1729.1,
+    "rms_keV_per_A": 13.601
+   },
+   "v6_classes": {
+    "ABSTAIN_MISSING_JET_LEVEL": 8,
+    "CONTRACTIVE_MEMORY": 85,
+    "OPEN_REFINEMENT": 33
+   },
+   "v6_fallback": {
+    "count": 112,
+    "mean_keV_per_A": 9.777,
+    "median_keV": 416.9,
+    "median_keV_per_A": 3.025,
+    "rms_keV": 937.4,
+    "rms_keV_per_A": 18.168
+   },
+   "v6_order_selected": {
+    "count": 112,
+    "mean_keV_per_A": 10.615,
+    "median_keV": 416.9,
+    "median_keV_per_A": 3.025,
+    "rms_keV": 1082.0,
+    "rms_keV_per_A": 20.131
+   },
+   "v6_strict": {
+    "count": 106,
+    "mean_keV_per_A": 9.032,
+    "median_keV": 410.9,
+    "median_keV_per_A": 2.664,
+    "rms_keV": 926.6,
+    "rms_keV_per_A": 17.154
+   }
+  }
+ },
+ "temporal_2016_to_2020": {
+  "label": "AME2016 -> AME2020",
+  "measured_neighbours_only": {
+   "axis_mean": {
+    "count": 63,
+    "mean_keV_per_A": 21.032,
+    "median_keV": 1367.1,
+    "median_keV_per_A": 7.95,
+    "rms_keV": 1955.7,
+    "rms_keV_per_A": 44.279
+   },
+   "common_set": {
+    "count": 32,
+    "frozen_v4": {
+     "count": 32,
+     "mean_keV_per_A": 32.551,
+     "median_keV": 917.9,
+     "median_keV_per_A": 8.416,
+     "rms_keV": 2560.6,
+     "rms_keV_per_A": 61.325
+    },
+    "garvey_kelson": {
+     "count": 32,
+     "mean_keV_per_A": 5.258,
+     "median_keV": 116.1,
+     "median_keV_per_A": 1.208,
+     "rms_keV": 408.6,
+     "rms_keV_per_A": 14.344
+    },
+    "older_evaluation_estimate": {
+     "count": 32,
+     "mean_keV_per_A": 3.149,
+     "median_keV": 110.8,
+     "median_keV_per_A": 0.983,
+     "rms_keV": 230.2,
+     "rms_keV_per_A": 8.741
+    },
+    "recognition_repair_v5_1": {
+     "count": 32,
+     "mean_keV_per_A": 17.683,
+     "median_keV": 849.5,
+     "median_keV_per_A": 9.304,
+     "rms_keV": 1553.6,
+     "rms_keV_per_A": 26.92
+    },
+    "rkf_v5_level3": {
+     "count": 32,
+     "mean_keV_per_A": 29.793,
+     "median_keV": 2247.8,
+     "median_keV_per_A": 19.503,
+     "rms_keV": 3903.1,
+     "rms_keV_per_A": 46.237
+    },
+    "v6_fallback": {
+     "count": 32,
+     "mean_keV_per_A": 17.683,
+     "median_keV": 849.5,
+     "median_keV_per_A": 9.304,
+     "rms_keV": 1553.6,
+     "rms_keV_per_A": 26.92
+    },
+    "v6_order_selected": {
+     "count": 32,
+     "mean_keV_per_A": 17.683,
+     "median_keV": 849.5,
+     "median_keV_per_A": 9.304,
+     "rms_keV": 1553.6,
+     "rms_keV_per_A": 26.92
+    }
+   },
+   "frozen_v4": {
+    "count": 53,
+    "mean_keV_per_A": 23.341,
+    "median_keV": 806.1,
+    "median_keV_per_A": 6.461,
+    "rms_keV": 2142.3,
+    "rms_keV_per_A": 48.35
+   },
+   "garvey_kelson": {
+    "count": 38,
+    "mean_keV_per_A": 4.704,
+    "median_keV": 142.9,
+    "median_keV_per_A": 1.208,
+    "rms_keV": 392.1,
+    "rms_keV_per_A": 13.2
+   },
+   "older_evaluation_estimate": {
+    "count": 71,
+    "mean_keV_per_A": 3.126,
+    "median_keV": 134.1,
+    "median_keV_per_A": 0.835,
+    "rms_keV": 275.6,
+    "rms_keV_per_A": 8.706
+   },
+   "recognition_repair_v5_1": {
+    "count": 53,
+    "mean_keV_per_A": 14.607,
+    "median_keV": 798.4,
+    "median_keV_per_A": 6.461,
+    "rms_keV": 1444.5,
+    "rms_keV_per_A": 22.808
+   },
+   "repair_sources": {
+    "ABSTAIN_PRESERVE_FROZEN_UAM_COVERAGE": 20,
+    "FROZEN_UAM_V4_COHERENT_LOCAL_PREDICTOR": 40,
+    "RKF_CROSS_FITTED_TAIL_REPAIR": 13
+   },
+   "rkf_v5_burden_guarded": {
+    "count": 58,
+    "mean_keV_per_A": 46.818,
+    "median_keV": 3188.1,
+    "median_keV_per_A": 34.979,
+    "rms_keV": 9743.6,
+    "rms_keV_per_A": 71.442
+   },
+   "rkf_v5_level3": {
+    "count": 63,
+    "mean_keV_per_A": 58.054,
+    "median_keV": 4144.1,
+    "median_keV_per_A": 38.001,
+    "rms_keV": 10652.4,
+    "rms_keV_per_A": 89.893
+   },
+   "targets": 73,
+   "tensor_cubic": {
+    "count": 1,
+    "mean_keV_per_A": 12.921,
+    "median_keV": 1473.0,
+    "median_keV_per_A": 12.921,
+    "rms_keV": 1473.0,
+    "rms_keV_per_A": 12.921
+   },
+   "v6_classes": {
+    "ABSTAIN_MISSING_JET_LEVEL": 10,
+    "CONTRACTIVE_MEMORY": 35,
+    "OPEN_REFINEMENT": 28
+   },
+   "v6_fallback": {
+    "count": 53,
+    "mean_keV_per_A": 14.607,
+    "median_keV": 798.4,
+    "median_keV_per_A": 6.461,
+    "rms_keV": 1444.5,
+    "rms_keV_per_A": 22.808
+   },
+   "v6_order_selected": {
+    "count": 53,
+    "mean_keV_per_A": 14.607,
+    "median_keV": 798.4,
+    "median_keV_per_A": 6.461,
+    "rms_keV": 1444.5,
+    "rms_keV_per_A": 22.808
+   },
+   "v6_strict": {
+    "count": 53,
+    "mean_keV_per_A": 14.607,
+    "median_keV": 798.4,
+    "median_keV_per_A": 6.461,
+    "rms_keV": 1444.5,
+    "rms_keV_per_A": 22.808
+   }
+  },
+  "with_older_estimates": {
+   "axis_mean": {
+    "count": 71,
+    "mean_keV_per_A": 16.171,
+    "median_keV": 757.9,
+    "median_keV_per_A": 5.634,
+    "rms_keV": 1383.5,
+    "rms_keV_per_A": 47.373
+   },
+   "common_set": {
+    "count": 37,
+    "frozen_v4": {
+     "count": 37,
+     "mean_keV_per_A": 10.448,
+     "median_keV": 705.1,
+     "median_keV_per_A": 4.379,
+     "rms_keV": 988.2,
+     "rms_keV_per_A": 17.244
+    },
+    "garvey_kelson": {
+     "count": 37,
+     "mean_keV_per_A": 4.777,
+     "median_keV": 127.4,
+     "median_keV_per_A": 1.171,
+     "rms_keV": 390.5,
+     "rms_keV_per_A": 13.373
+    },
+    "older_evaluation_estimate": {
+     "count": 37,
+     "mean_keV_per_A": 3.072,
+     "median_keV": 122.5,
+     "median_keV_per_A": 1.047,
+     "rms_keV": 258.3,
+     "rms_keV_per_A": 8.268
+    },
+    "recognition_repair_v5_1": {
+     "count": 37,
+     "mean_keV_per_A": 12.202,
+     "median_keV": 709.3,
+     "median_keV_per_A": 3.728,
+     "rms_keV": 1098.3,
+     "rms_keV_per_A": 20.33
+    },
+    "rkf_v5_level3": {
+     "count": 37,
+     "mean_keV_per_A": 25.74,
+     "median_keV": 1556.0,
+     "median_keV_per_A": 22.166,
+     "rms_keV": 4710.8,
+     "rms_keV_per_A": 32.232
+    },
+    "v6_fallback": {
+     "count": 37,
+     "mean_keV_per_A": 11.962,
+     "median_keV": 709.3,
+     "median_keV_per_A": 3.728,
+     "rms_keV": 1094.4,
+     "rms_keV_per_A": 19.794
+    },
+    "v6_order_selected": {
+     "count": 37,
+     "mean_keV_per_A": 11.151,
+     "median_keV": 640.0,
+     "median_keV_per_A": 3.728,
+     "rms_keV": 1086.9,
+     "rms_keV_per_A": 18.729
+    }
+   },
+   "frozen_v4": {
+    "count": 67,
+    "mean_keV_per_A": 8.197,
+    "median_keV": 500.4,
+    "median_keV_per_A": 3.233,
+    "rms_keV": 884.7,
+    "rms_keV_per_A": 14.132
+   },
+   "garvey_kelson": {
+    "count": 38,
+    "mean_keV_per_A": 4.704,
+    "median_keV": 142.9,
+    "median_keV_per_A": 1.208,
+    "rms_keV": 392.1,
+    "rms_keV_per_A": 13.2
+   },
+   "older_evaluation_estimate": {
+    "count": 71,
+    "mean_keV_per_A": 3.126,
+    "median_keV": 134.1,
+    "median_keV_per_A": 0.835,
+    "rms_keV": 275.6,
+    "rms_keV_per_A": 8.706
+   },
+   "recognition_repair_v5_1": {
+    "count": 67,
+    "mean_keV_per_A": 9.204,
+    "median_keV": 500.4,
+    "median_keV_per_A": 3.033,
+    "rms_keV": 943.5,
+    "rms_keV_per_A": 16.49
+   },
+   "repair_sources": {
+    "ABSTAIN_PRESERVE_FROZEN_UAM_COVERAGE": 6,
+    "FROZEN_UAM_V4_COHERENT_LOCAL_PREDICTOR": 58,
+    "RKF_CROSS_FITTED_TAIL_REPAIR": 9
+   },
+   "rkf_v5_burden_guarded": {
+    "count": 71,
+    "mean_keV_per_A": 28.239,
+    "median_keV": 2398.5,
+    "median_keV_per_A": 24.644,
+    "rms_keV": 5818.3,
+    "rms_keV_per_A": 35.765
+   },
+   "rkf_v5_level3": {
+    "count": 71,
+    "mean_keV_per_A": 28.239,
+    "median_keV": 2398.5,
+    "median_keV_per_A": 24.644,
+    "rms_keV": 5818.3,
+    "rms_keV_per_A": 35.765
+   },
+   "targets": 73,
+   "tensor_cubic": {
+    "count": 2,
+    "mean_keV_per_A": 18.279,
+    "median_keV": 1563.8,
+    "median_keV_per_A": 18.279,
+    "rms_keV": 1566.4,
+    "rms_keV_per_A": 19.048
+   },
+   "v6_classes": {
+    "ABSTAIN_MISSING_JET_LEVEL": 2,
+    "CONTRACTIVE_MEMORY": 51,
+    "OPEN_REFINEMENT": 20
+   },
+   "v6_fallback": {
+    "count": 67,
+    "mean_keV_per_A": 9.072,
+    "median_keV": 500.4,
+    "median_keV_per_A": 3.033,
+    "rms_keV": 941.0,
+    "rms_keV_per_A": 16.127
+   },
+   "v6_order_selected": {
+    "count": 67,
+    "mean_keV_per_A": 8.624,
+    "median_keV": 488.4,
+    "median_keV_per_A": 3.033,
+    "rms_keV": 936.1,
+    "rms_keV_per_A": 15.408
+   },
+   "v6_strict": {
+    "count": 66,
+    "mean_keV_per_A": 8.599,
+    "median_keV": 494.4,
+    "median_keV_per_A": 3.018,
+    "rms_keV": 942.8,
+    "rms_keV_per_A": 15.472
+   }
+  }
+ }
+}

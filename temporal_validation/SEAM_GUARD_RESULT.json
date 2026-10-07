@@ -1,0 +1,68 @@
+{
+ "in_sample_2020": {
+  "by_coverage": [
+   {
+    "count": 568,
+    "coverage": 0.25,
+    "median_keV": 31.8,
+    "rms_keV": 63.8,
+    "spread_at_most_keV": 88.3
+   },
+   {
+    "count": 1136,
+    "coverage": 0.5,
+    "median_keV": 33.6,
+    "rms_keV": 66.3,
+    "spread_at_most_keV": 139.5
+   },
+   {
+    "count": 1704,
+    "coverage": 0.75,
+    "median_keV": 40.2,
+    "rms_keV": 77.3,
+    "spread_at_most_keV": 222.2
+   },
+   {
+    "count": 2045,
+    "coverage": 0.9,
+    "median_keV": 44.8,
+    "rms_keV": 94.6,
+    "spread_at_most_keV": 458.4
+   },
+   {
+    "count": 2273,
+    "coverage": 1.0,
+    "median_keV": 50.5,
+    "rms_keV": 160.6,
+    "spread_at_most_keV": 2277.3
+   }
+  ],
+  "count": 2273,
+  "highest_spread_tenth": {
+   "median_keV": 224.6,
+   "rms_keV": 420.5
+  }
+ },
+ "temporal_2012": {
+  "count": 45,
+  "higher_spread_half": {
+   "median_keV": 205.3,
+   "rms_keV": 391.6
+  },
+  "lower_spread_half": {
+   "median_keV": 119.3,
+   "rms_keV": 326.5
+  }
+ },
+ "temporal_2016": {
+  "count": 21,
+  "higher_spread_half": {
+   "median_keV": 204.0,
+   "rms_keV": 438.1
+  },
+  "lower_spread_half": {
+   "median_keV": 113.5,
+   "rms_keV": 200.7
+  }
+ }
+}
