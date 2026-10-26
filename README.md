@@ -1,5 +1,8 @@
 # Atomic Validation: Guarded Two-Axis Nuclear Binding-Energy Reconstruction
 
+> **Research record:** [Dated snapshot, content hashes and archive links](RESEARCH_PROVENANCE.md) · [Canonical repository governance](GOVERNANCE.md). Cite the exact version used.
+
+
 This repository is the publication-focused validation package for a guarded, uncertainty-weighted two-axis reconstruction method for nuclear binding energy per nucleon.
 
 The repository is intentionally separated from the broader Atomic-model development repository. It contains only the material needed to inspect, reproduce, audit, and cite the empirical validation result.
