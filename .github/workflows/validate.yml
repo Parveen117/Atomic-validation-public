@@ -6,13 +6,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -120,37 +122,6 @@ jobs:
             releases/uam-v4/paper_analysis/
             releases/uam-v4/baseline_comparison/
           if-no-files-found: warn
-
-      - name: Commit generated artifacts or diagnostics
-        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for path in \
-            releases/rkf-periodic-table-v1/periodic_table_skeleton.json \
-            releases/rkf-periodic-table-v2a/ground_state_smriti_ledger.json \
-            releases/rkf-capstone-v5/exact_certificate.json \
-            releases/rkf-nuclear-v5/experiment_report.json \
-            releases/rkf-nuclear-v6/madhava_smriti_report.json \
-            releases/uam-v4/dataset_certificate.json \
-            releases/uam-v4/universal_atomic_guarded_two_axis_v4.json \
-            releases/uam-v4/reproduction_certificate.json \
-            releases/uam-v4/scientific_fingerprint.json \
-            releases/uam-v4/publication_bundle \
-            releases/uam-v4/paper_analysis \
-            releases/uam-v4/baseline_comparison; do
-            if [ -e "$path" ]; then
-              git add "$path"
-            fi
-          done
-          if git diff --cached --quiet; then
-            echo "No generated artifact changes to commit."
-          else
-            git commit -m "Build periodic V1/V2A, UAM V4, RKF V5 and Madhava-Smriti V6 artifacts [skip ci]"
-            git push
-          fi
 
       - name: Enforce periodic-table derivation
         if: steps.periodic.outcome != 'success'
